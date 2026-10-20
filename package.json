@@ -1,10 +1,10 @@
 {
   "name": "radiosas-academy",
-  "version": "3.1.0",
+  "version": "3.3.0",
   "private": true,
   "description": "Academia personal de oposiciones de Técnico Especialista en Radiodiagnóstico (SAS Andalucía)",
   "scripts": {
-    "test": "node --check app.js && node --check data.js && node --check sw.js && node test-smoke.js && node test-content.js && node test-master.js"
+    "test": "node --check app.js && node --check data.js && node --check bank-master.js && node --check sw.js && node test-smoke.js && node test-content.js && node test-master.js && node test-rotation.js && node test-bank-1000.js"
   },
   "license": "UNLICENSED"
 }
