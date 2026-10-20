@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="Paula técnica de rayos">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#132c47"/>
+      <stop offset="100%" stop-color="#0b1628"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd980"/>
+      <stop offset="100%" stop-color="#f4c25c"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff89b2"/>
+      <stop offset="100%" stop-color="#ffb7d0"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#03101d" flood-opacity="0.45"/>
+    </filter>
+  </defs>
+  <rect width="512" height="512" rx="120" fill="url(#bg)"/>
+  <circle cx="90" cy="105" r="18" fill="#ffbfd4" opacity="0.95"/>
+  <path d="M89 80c5-10 22-11 26 3 4-14 22-13 27-3 9 18-17 35-27 48-11-13-37-30-26-48Z" fill="url(#pink)" opacity="0.98"/>
+  <circle cx="420" cy="120" r="14" fill="#ffd97f" opacity="0.92"/>
+  <path d="M420 99c4-8 18-9 21 2 3-11 17-10 21-2 7 14-14 28-21 38-8-10-29-24-21-38Z" fill="#ff9ebf"/>
+  <g filter="url(#shadow)">
+    <rect x="138" y="115" width="236" height="284" rx="54" fill="#17324d" stroke="#355575" stroke-width="4"/>
+    <circle cx="256" cy="195" r="74" fill="#ffd8be"/>
+    <path d="M188 194c0-46 29-83 68-83 52 0 77 41 77 92-16-16-32-18-53-18-41 0-59 23-92 35-2-7 0-18 0-26Z" fill="#4f352f"/>
+    <path d="M188 202c-16 27-16 60-4 86 10-11 20-18 26-21-3-11-4-19-4-32 0-11 0-22 2-33Z" fill="#4f352f"/>
+    <path d="M329 194c14 29 12 72-1 103-11-11-21-18-29-22 4-12 6-26 6-43 0-14-1-27-5-38Z" fill="#4f352f"/>
+    <circle cx="228" cy="197" r="7" fill="#23303f"/>
+    <circle cx="286" cy="197" r="7" fill="#23303f"/>
+    <path d="M227 232c19 16 39 16 58 0" fill="none" stroke="#cf7f7c" stroke-width="6" stroke-linecap="round"/>
+    <ellipse cx="207" cy="223" rx="10" ry="6" fill="#f8b2ab" opacity="0.65"/>
+    <ellipse cx="305" cy="223" rx="10" ry="6" fill="#f8b2ab" opacity="0.65"/>
+    <path d="M171 384c5-73 43-106 85-106s81 34 84 106" fill="#cdeeff"/>
+    <path d="M187 384c0-47 31-77 69-77 39 0 70 29 69 77" fill="#d7f4ff"/>
+    <path d="M161 384h191c-11 53-42 82-96 82-53 0-85-29-95-82Z" fill="#e6f7ff"/>
+    <path d="M202 301h108v113H202z" fill="#e8f7ff"/>
+    <rect x="212" y="320" width="88" height="60" rx="18" fill="#7fd7f1"/>
+    <rect x="246" y="318" width="20" height="64" rx="10" fill="#ffffff" opacity="0.8"/>
+    <path d="M229 337h54" stroke="#ffffff" stroke-width="6" stroke-linecap="round"/>
+    <path d="M257 306v160" stroke="#ffffff" stroke-width="7" stroke-linecap="round" opacity="0.8"/>
+    <circle cx="213" cy="343" r="10" fill="#ffffff" opacity="0.95"/>
+    <circle cx="299" cy="343" r="10" fill="#ffffff" opacity="0.95"/>
+    <path d="M212 343c12-18 24-27 44-35 8 5 17 10 43 35" fill="none" stroke="#85d8ef" stroke-width="7" stroke-linecap="round"/>
+    <rect x="225" y="330" width="62" height="44" rx="10" fill="#143045" stroke="#6bdef8" stroke-width="3"/>
+    <path d="M237 341c5 10 8 18 13 28 4-10 8-17 12-27 6 13 10 19 16 28l10-14" fill="none" stroke="#7ee0f7" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="168" cy="301" r="14" fill="#ffd8be"/>
+    <circle cx="344" cy="301" r="14" fill="#ffd8be"/>
+  </g>
+  <rect x="56" y="402" width="400" height="58" rx="29" fill="url(#gold)"/>
+  <text x="256" y="439" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="800" fill="#11243a">Paula ♥ Técnica de Rayos</text>
+</svg>

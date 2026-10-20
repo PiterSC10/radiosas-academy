@@ -9,13 +9,13 @@
   "theme_color": "#0a1526",
   "icons": [
     {
-      "src": "assets/paula-logo.svg",
+      "src": "paula-logo.svg",
       "sizes": "any",
       "type": "image/svg+xml",
       "purpose": "any"
     },
     {
-      "src": "assets/paula-logo.png",
+      "src": "paula-logo.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"

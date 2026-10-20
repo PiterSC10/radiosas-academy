@@ -7,5 +7,5 @@ click({nav:'biblioteca'});assert(app.innerHTML.includes('Explora tus preguntas')
 const id=context.window.RADIOSAS_DATA.practice[0].id;click({favorite:id});assert(JSON.parse(storage.radiosas_academy_v1).favorites.includes(id));
 click({nav:'plan'});assert(app.innerHTML.includes('Plan de estudio'));listeners.change({target:{id:'daily-goal',value:'30',dataset:{}}});assert.equal(JSON.parse(storage.radiosas_academy_v1).dailyGoal,30);
 click({action:'daily-test'});assert(app.innerHTML.includes('Pregunta 1'));
-assert(fs.existsSync(__dirname+'/assets/paula-social-card.png'));assert(fs.existsSync(__dirname+'/assets/paula-logo.png'));
+assert(fs.existsSync(__dirname+'/paula-social-card.png'));assert(fs.existsSync(__dirname+'/paula-logo.png'));
 console.log('MASTER OK: biblioteca, favoritos, planificador, objetivo, test diario e identidad Paula.');

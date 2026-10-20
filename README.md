@@ -31,4 +31,4 @@ Con Node.js: `npm test`. Incluye pruebas de sintaxis, navegación, corrección, 
 
 
 ## 3.1 — Examen compacto
-El modo examen oculta el menú y fija los controles dentro de la pantalla, con scroll limitado al contenido de preguntas extensas. Las preguntas de entrenamiento se responden directamente. **Los cuadernillos oficiales 2024 y 2025 aún no tienen transcritos los enunciados:** se enlazan como documentación y no se simula su contenido. La imagen de `assets/vista-previa-paula-edition.png` es una ilustración conceptual, no una captura funcional.
+El modo examen oculta el menú y fija los controles dentro de la pantalla, con scroll limitado al contenido de preguntas extensas. Las preguntas de entrenamiento se responden directamente. **Los cuadernillos oficiales 2024 y 2025 aún no tienen transcritos los enunciados:** se enlazan como documentación y no se simula su contenido. La imagen de `vista-previa-paula-edition.png` es una ilustración conceptual, no una captura funcional.

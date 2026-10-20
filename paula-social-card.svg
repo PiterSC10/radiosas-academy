@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-label="RADIOSAS Academy con Paula">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0a1526"/>
+      <stop offset="50%" stop-color="#10263f"/>
+      <stop offset="100%" stop-color="#0c1b31"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffd47d"/>
+      <stop offset="100%" stop-color="#f4c25c"/>
+    </linearGradient>
+    <linearGradient id="pink" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ff86ad"/>
+      <stop offset="100%" stop-color="#ffbdd1"/>
+    </linearGradient>
+    <filter id="glow" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="0" dy="20" stdDeviation="28" flood-color="#04111c" flood-opacity="0.44"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="630" rx="42" fill="url(#bg)"/>
+  <circle cx="112" cy="116" r="26" fill="#ffb5cf" opacity="0.95"/>
+  <path d="M112 82c7-14 30-15 35 4 5-19 29-18 35-4 12 25-23 46-35 64-13-18-48-39-35-64Z" fill="url(#pink)"/>
+  <circle cx="468" cy="132" r="18" fill="#ffd980" opacity="0.9"/>
+  <circle cx="1070" cy="116" r="22" fill="#f4c25c" opacity="0.95"/>
+  <path d="M1070 87c6-12 24-12 29 3 5-15 24-15 30-3 10 19-21 36-30 50-10-14-40-31-29-50Z" fill="#ff9fbe"/>
+  <text x="96" y="220" font-family="Inter, Arial, sans-serif" font-size="72" font-weight="900" fill="#f8fafc">RADIOSAS</text>
+  <text x="98" y="274" font-family="Inter, Arial, sans-serif" font-size="28" letter-spacing="8" font-weight="700" fill="#91acc8">ACADEMY</text>
+  <rect x="96" y="310" width="430" height="88" rx="24" fill="#13263d" stroke="#35516f"/>
+  <text x="128" y="364" font-family="Inter, Arial, sans-serif" font-size="34" font-weight="700" fill="#f4c25c">Preparación TER · SAS Andalucía</text>
+  <text x="98" y="453" font-family="Inter, Arial, sans-serif" font-size="31" font-weight="700" fill="#f8fafc">Con Paula ♥ Técnica de Rayos</text>
+  <text x="98" y="500" font-family="Inter, Arial, sans-serif" font-size="24" fill="#bed0df">Exámenes reales, estadísticas y test inteligentes para Radiodiagnóstico.</text>
+  <g filter="url(#glow)" transform="translate(700,74)">
+    <rect width="390" height="480" rx="62" fill="#13263c" stroke="#33526e" stroke-width="4"/>
+    <circle cx="194" cy="110" r="18" fill="#ffbfd4" opacity="0.9"/>
+    <path d="M194 87c5-10 20-10 24 2 4-12 20-12 24-2 8 16-16 31-24 43-9-12-33-27-24-43Z" fill="#ff96ba"/>
+    <circle cx="195" cy="183" r="88" fill="#ffd8be"/>
+    <path d="M113 184c0-56 38-101 82-101 62 0 92 50 92 110-20-18-40-22-65-22-50 0-71 28-109 42-3-9 0-20 0-29Z" fill="#4d332d"/>
+    <path d="M108 196c-17 34-17 71-4 104 12-13 22-22 31-27-4-13-5-24-5-40 0-13 1-25 4-37Z" fill="#4d332d"/>
+    <path d="M284 198c17 31 17 76 0 107-12-12-25-21-34-25 5-14 8-29 8-49 0-14-1-27-6-40Z" fill="#4d332d"/>
+    <circle cx="160" cy="187" r="8" fill="#213143"/>
+    <circle cx="227" cy="187" r="8" fill="#213143"/>
+    <ellipse cx="135" cy="221" rx="12" ry="7" fill="#f7afaa" opacity="0.6"/>
+    <ellipse cx="252" cy="221" rx="12" ry="7" fill="#f7afaa" opacity="0.6"/>
+    <path d="M159 227c24 18 45 18 69 0" fill="none" stroke="#ca7976" stroke-width="7" stroke-linecap="round"/>
+    <circle cx="102" cy="308" r="16" fill="#ffd8be"/>
+    <circle cx="287" cy="308" r="16" fill="#ffd8be"/>
+    <path d="M77 456c11 65 53 104 117 104s107-39 118-104c-17-77-53-117-118-117S94 379 77 456Z" fill="#e5f7ff"/>
+    <rect x="123" y="362" width="140" height="93" rx="26" fill="#81d8f0"/>
+    <path d="M194 341v171" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.85"/>
+    <path d="M153 390h84" stroke="#ffffff" stroke-width="8" stroke-linecap="round" opacity="0.9"/>
+    <path d="M121 378c19-22 34-34 73-50 17 9 32 18 72 50" fill="none" stroke="#7fdff4" stroke-width="8" stroke-linecap="round"/>
+    <circle cx="130" cy="386" r="13" fill="#ffffff"/>
+    <circle cx="259" cy="386" r="13" fill="#ffffff"/>
+    <rect x="150" y="389" width="89" height="59" rx="13" fill="#133042" stroke="#72def8" stroke-width="3.2"/>
+    <path d="M163 404c9 11 12 21 17 34 7-11 12-22 17-34 7 16 11 23 18 34 5-6 9-12 16-21" fill="none" stroke="#78e2fb" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="194" y="74" text-anchor="middle" font-family="Inter, Arial, sans-serif" font-size="42" font-weight="900" fill="#f4c25c">Paula</text>
+  </g>
+</svg>
