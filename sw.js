@@ -1,5 +1,5 @@
-const CACHE = 'radiosas-v2.0.0';
-const ASSETS = ['./','./index.html','./app.js','./data.js','./styles.css','./favicon.svg','./manifest.webmanifest'];
+const CACHE = 'radiosas-v3.0.0';
+const ASSETS = ['./','./index.html','./app.js','./data.js','./styles.css','./favicon.svg','./manifest.webmanifest','./assets/paula-logo.png','./assets/paula-social-card.png'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch', event => {

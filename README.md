@@ -1,84 +1,30 @@
-# RADIOSAS Academy 2.0
+# RADIOSAS Academy 3.0 — Paula Master Edition ♥
 
-**Plataforma independiente de preparación para la oposición de Técnico/a Especialista en Radiodiagnóstico del Servicio Andaluz de Salud.**
+Aplicación estática de estudio de Técnico/a Especialista en Radiodiagnóstico (TER/TSID), orientada a oposiciones del Servicio Andaluz de Salud. Proyecto independiente, no oficial.
 
-**Nombre recomendado del repositorio:** `radiosas-academy`  
-**URL prevista en GitHub Pages:** `https://pitersc10.github.io/radiosas-academy/` (no estará disponible hasta que se publique).
+## Contenido incluido realmente
 
-## Qué funciona en esta versión
+- **40 preguntas originales** de entrenamiento con respuesta y explicación.
+- **Dos hojas de corrección** de 75 preguntas (2024 y 2025), con enlaces a los cuadernillos y plantillas del SAS. El texto de esas preguntas oficiales **no se ha transcrito** en la aplicación; se consulta en los PDF externos.
+- Ficha documental de convocatoria 2022.
+- Simulador, cronómetro para exámenes oficiales, nota con penalización de 0,25 por error, resultados y repaso de errores.
+- Biblioteca con buscador por palabra y materia, favoritos, test de favoritos y soluciones de entrenamiento.
+- Planificador de siete días, objetivo diario, seguimiento de 49 temas y recomendación de refuerzo según resultados.
+- Exportación e importación de datos JSON y preguntas propias.
+- Identidad Paula: logo, iconos PWA, tarjeta social y portada.
 
-- Panel de inicio con métricas obtenidas exclusivamente de tus intentos reales.
-- Menú lateral adaptable al móvil y al ordenador.
-- Exámenes oficiales de **2025 y 2024**, turno libre: cuadernillo original enlazado / integrado desde el SAS, hoja interactiva de 75 respuestas y autocorrección con claves definitivas incorporadas.
-- **2022:** acceso a la fuente oficial, todavía sin corrección interactiva integrada.
-- 40 preguntas **de entrenamiento propias** con opciones, explicación y categorías; no son preguntas oficiales.
-- Test generales, por materia, repaso de preguntas falladas y simulacros de entrenamiento ajustados a la disponibilidad del banco.
-- Resultados con aciertos, errores, blancos y puntuación; referencia de penalización: resta de 0,25 por fallo.
-- Historial, estadísticas por materia, gráfico de notas y revisión de cada pregunta.
-- Seguimiento manual de 49 temas, enlazado al programa oficial del SAS.
-- Guardado de sesiones sin terminar y persistencia de estadísticas con `localStorage`.
-- Exportación/importación de copias JSON; importación de preguntas de entrenamiento JSON.
-- PWA: icono, manifiesto y caché de archivos estáticos propios. Los PDF externos del SAS requieren conexión.
-- Pruebas de consistencia y una acción de GitHub para publicar la web si las pruebas pasan.
+## Instalación en GitHub Pages
 
-## Publicar en GitHub Pages (recomendado)
+Sube **los archivos de este ZIP directamente a la raíz** del repositorio `PiterSC10/radiosas-academy`, sin carpeta exterior. En GitHub > Settings > Pages, selecciona **GitHub Actions** como fuente de publicación. El workflow `.github/workflows/deploy.yml` publica el sitio.
 
-1. En [GitHub](https://github.com/new), crea el repositorio **`radiosas-academy`**. Puede ser público; **no subas secretos ni información sensible**.
-2. Descomprime `RADIOSAS_Academy_2_GitHub.zip`. Dentro encontrarás una carpeta `radiosas-academy`.
-3. Abre el nuevo repositorio → **Add file → Upload files**. Sube **el contenido de la carpeta** a la raíz, no la carpeta contenedora. Es importante incluir también `.github/workflows/deploy.yml` (GitHub puede ocultar archivos con punto; verifica que la carpeta `.github` se ha subido).
-4. En el repositorio, abre **Settings → Pages** y cambia **Build and deployment → Source** a **GitHub Actions**.
-5. En la pestaña **Actions**, comprueba que se ha ejecutado correctamente el flujo **Verificar y publicar RADIOSAS**.
-6. Visita **https://pitersc10.github.io/radiosas-academy/** una vez aparezca el despliegue correcto.
+Dirección prevista: https://pitersc10.github.io/radiosas-academy/ (no es garantía de que esté publicado).
 
-> Si GitHub no permite subir la carpeta `.github` mediante navegador, usa GitHub Desktop (añade todos los archivos y publica el commit) o crea manualmente `.github/workflows/deploy.yml` desde la interfaz web copiando el archivo incluido. Otra posibilidad es elegir en Pages “Deploy from a branch / main / root”: la web también funciona sin el workflow, pero no tendrás el paso automático de tests.
+## Privacidad y límites
 
-### Alternativa: Vercel
+El progreso se guarda en `localStorage` del dispositivo, **no** en la nube. Exporta una copia periódicamente. La app no requiere registro, no incorpora IA remota ni notificaciones push. Los PDF oficiales necesitan conexión a Internet. El modo offline puede mantener la interfaz y el banco de entrenamiento tras una primera visita, pero no garantiza los PDF externos. Las reglas de puntuación de cada convocatoria deben verificarse con las bases oficiales; el cálculo del simulador es una referencia de práctica.
 
-Importa el mismo repositorio en Vercel, Framework Preset **Other**, directorio raíz `/`, sin comando de build. Para esta versión no necesitas base de datos ni variables secretas.
+Las preguntas originales no sustituyen fuentes oficiales ni garantizan la exactitud del temario vigente. La función de recomendaciones es una regla estadística local, no un sistema de IA generativa.
 
-## Uso
+## Comprobación
 
-- En **Exámenes reales**, abre un PDF original y responde en la hoja digital. Puedes abrir el cuadernillo en otra pestaña si el iPhone no muestra el visor.
-- La corrección se basa en las letras de las plantillas incorporadas para 2024 y 2025. Revisa siempre la resolución oficial en caso de discrepancia o cambio.
-- En **Test por temas** las preguntas son originales de práctica, no históricos del SAS.
-- En **Estadísticas** se muestran solo datos generados en tu propio navegador.
-- En **Configuración** exporta una copia JSON para conservar tu historial; importar una copia reemplaza los datos existentes.
-
-## Desarrollo / pruebas
-
-Requiere Node.js 20 o superior solo para ejecutar las pruebas:
-
-```bash
-npm test
-```
-
-La aplicación en sí no requiere instalación de dependencias, compilación ni `npm install`.
-
-## Límites pendientes (sin falsas promesas)
-
-- El banco propio contiene **40 preguntas**, no 1.000; se puede ampliar mediante JSON después de revisar la exactitud.
-- Los PDF oficiales **no están transcritos** pregunta por pregunta a HTML. Se consultan en el visor original con hoja digital de respuestas.
-- No se incluye actualmente examen interactivo 2022 ni 2018.
-- No existe backend, inicio de sesión, sincronización entre dispositivos ni panel privado de administración. Un sitio estático por sí solo no puede ofrecer cuentas seguras.
-- El historial se guarda en `localStorage` del navegador; usa copias JSON, especialmente antes de borrar datos.
-- Los temporizadores y simulacros son entrenamiento, no acreditación oficial ni garantía de plaza.
-- La lista de 49 temas es una referencia de seguimiento: los títulos exactos se consultan en el SAS y pueden cambiar con una convocatoria.
-- El proyecto no tiene relación institucional con el Servicio Andaluz de Salud.
-
-## Arquitectura
-
-- `index.html`: documento principal.
-- `styles.css`: diseño responsive.
-- `data.js`: 40 preguntas de práctica, fichas oficiales y claves de 2024/2025.
-- `app.js`: navegación, motor de test, corrección, estadísticas, persistencia e importación.
-- `manifest.webmanifest`, `sw.js`, `favicon.svg`: soporte instalable/PWA.
-- `.github/workflows/deploy.yml`: tests y publicación GitHub Pages.
-- `test-smoke.js`, `test-content.js`: pruebas automatizadas.
-- `ejemplo_importacion_preguntas.json`: formato de carga del banco propio.
-
-## Fuentes documentales
-
-- [SAS: concurso-oposición 2025, Técnico Especialista Radiodiagnóstico](https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/profesionales/ofertas-de-empleo/oferta-de-empleo-publico-puestos-base/convocatorias-oep-2025/cuadro-de-evolucion/tecnicoa-especialista-en-radiodiagnostico)
-- [SAS: concurso-oposición extraordinario 2024, centros SAS](https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/profesionales/ofertas-de-empleo/oferta-de-empleo-publico-puestos-base/oep-extraordinaria-decreto-ley-122022-centros-sas/cuadro-de-evolucion-concurso-oposicion-centros-sas/tecnicoa-especialista-en-radiodiagnostico)
-- [SAS: catálogo de temarios](https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/profesionales/ofertas-de-empleo/oferta-de-empleo-publico-puestos-base/oferta-de-empleo-publico-temario-tecnico-especialista-en-radiodiagnostico)
-
+Con Node.js: `npm test`. Incluye pruebas de sintaxis, navegación, corrección, persistencia y estructura de contenido. No sustituye pruebas manuales en dispositivos reales.
