@@ -1,0 +1,24 @@
+const fs=require('fs');const vm=require('vm');const assert=require('assert');
+const out={innerHTML:''};const listeners={};const storage={};
+const ctx={console,Date,Math,Array,Object,Number,String,JSON,Error,setTimeout,clearTimeout,Blob:function(){},URL,confirm:()=>true,alert:()=>{},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},document:{getElementById:id=>id==='app'?out:null,addEventListener:(type,fn)=>listeners[type]=fn,createElement:()=>({classList:{add(){},remove(){}},set textContent(v){},click(){},remove(){}}),body:{appendChild(){}}},window:{scrollTo(){},confirm:()=>true}};ctx.window.window=ctx.window;
+vm.createContext(ctx);
+vm.runInContext(fs.readFileSync(__dirname+'/data.js','utf8'),ctx);
+assert.equal(ctx.window.RADIOSAS_DATA.exams[0].answers.length,75);
+assert.equal(ctx.window.RADIOSAS_DATA.exams[1].answers.length,75);
+assert.equal(ctx.window.RADIOSAS_DATA.practice.length,40);
+ctx.setInterval=()=>{};
+vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),ctx);
+assert(out.innerHTML.includes('Tu plaza empieza con un plan'));
+function click(dataset){listeners.click({target:{closest:()=>({dataset})}})}
+click({nav:'reales'});assert(out.innerHTML.includes('Exámenes reales'));assert(out.innerHTML.includes('2025'));
+click({official:'2025'});assert(out.innerHTML.includes('Hoja de respuestas'));assert.equal(JSON.parse(storage['radiosas_academy_v1']).draft.answers.length,75);
+click({pick:'3'});assert.equal(JSON.parse(storage['radiosas_academy_v1']).draft.answers[0],3);
+click({action:'finish'});assert(out.innerHTML.includes('Resultado de tu examen'));
+const d=JSON.parse(storage['radiosas_academy_v1']);assert.equal(d.attempts.length,1);assert.equal(d.attempts[0].correct,1);assert.equal(d.attempts[0].blank,74);
+click({nav:'estadisticas'});assert(out.innerHTML.includes('Tus estadísticas'));
+click({nav:'test'});assert(out.innerHTML.includes('Test por temas'));
+click({action:'quick'});assert(out.innerHTML.includes('Pregunta 1'));
+click({pick:'0'});click({action:'finish'});assert(JSON.parse(storage['radiosas_academy_v1']).attempts.length===2);
+click({nav:'errores'});assert(out.innerHTML.includes('Mis errores'));
+click({nav:'temario'});assert(out.innerHTML.includes('Tema 49'));
+console.log('SMOKE OK: 75 claves por año, 40 preguntas de prueba, inicio, reales, respuesta, corrección, persistencia, estadísticas, test, errores, temario.');

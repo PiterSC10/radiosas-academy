@@ -1,0 +1,9 @@
+[
+  {
+    "text": "¿Qué unidad se utiliza para expresar la actividad radiactiva?",
+    "category": "Protección radiológica",
+    "options": ["Gray", "Sievert", "Becquerel", "Tesla"],
+    "answer": 2,
+    "explanation": "El becquerel (Bq) es la unidad SI de actividad radiactiva."
+  }
+]

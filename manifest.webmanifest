@@ -1,0 +1,14 @@
+{
+  "name":"RADIOSAS Academy — Paula ♥ Técnica de Rayos",
+  "short_name":"RADIOSAS",
+  "description":"Test de Radiodiagnóstico, correcciones y estadísticas con identidad visual dedicada a Paula.",
+  "start_url":"./index.html",
+  "scope":"./",
+  "display":"standalone",
+  "background_color":"#0a1526",
+  "theme_color":"#0a1526",
+  "icons":[
+    {"src":"assets/paula-logo.svg","sizes":"any","type":"image/svg+xml","purpose":"any"},
+    {"src":"assets/paula-logo.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
