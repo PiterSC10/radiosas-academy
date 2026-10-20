@@ -52,3 +52,12 @@ La rotación se guarda en `localStorage`, se incluye en la exportación de datos
 - No se utiliza carpeta `assets/`; todas las imágenes principales están en la raíz según indicación del propietario. Solo `.github/workflows/` contiene subcarpetas obligatorias para GitHub Actions.
 
 **Bibliografía orientativa para revisión de contenido**: IAEA Radiation Protection of Patients (https://www.iaea.org/resources/rpop), American College of Radiology (https://www.acr.org/Clinical-Resources/Contrast-Manual), BOE (https://www.boe.es/). No se debe confundir esta selección de recursos con una certificación académica independiente de todas las preguntas.
+
+
+## Versión 3.4 — Contador de preguntas distintas
+
+La portada, los test por materia y Estadísticas muestran **Total / Usadas / Sin usar** con una barra de avance. Una pregunta pasa a «Usadas» cuando se incluye en una sesión de entrenamiento iniciada, incluso si esa sesión se abandona. Los IDs se cuentan una sola vez entre test rápidos, simulacros de entrenamiento, test por materia, repaso de errores y favoritos; los ejercicios oficiales que requieren PDF no cuentan dentro del banco de entrenamiento.
+
+El contador se almacena en el navegador junto al historial y se incluye en la exportación JSON. Al actualizar desde versiones anteriores se recuperan los IDs de sesiones guardadas y terminadas, y cuando es posible se recupera la primera vuelta del sistema de rotación anterior. La migración de sesiones antiguas descartadas puede ser parcial si no existen registros que permitan reconstruirlas.
+
+**Configuración → Reiniciar vuelta de preguntas** reinicia el contador y las rotaciones sin borrar las notas anteriores. La rotación es por modalidad: si se hacen test en varios modos, pueden aparecer preguntas ya usadas globalmente aunque aún queden preguntas sin utilizar en el banco general.
