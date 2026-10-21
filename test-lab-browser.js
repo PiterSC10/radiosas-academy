@@ -11,8 +11,8 @@ try{for(const [engine,type] of Object.entries({chromium,webkit})){
  const state=()=>page.evaluate(k=>JSON.parse(localStorage.getItem(k)),KEY);
  assert.equal((await state()).bankKnownIds.length,5000);
  const before=await state();
- await page.locator('.lab-power').click();assert.match(await page.locator('.lab-power').innerText(),/Apagado/);
- await page.locator('.lab-power').click();
+ await page.locator('[data-action="lab-power"]').click();assert.match(await page.locator('[data-action="lab-power"]').innerText(),/Apagado/);
+ await page.locator('[data-action="lab-power"]').click();
  await page.locator('[data-action="lab-hint"]').click();assert.equal(await page.locator('.lab-correct-circle').count(),1);
  const catalogue=await page.evaluate(()=>window.RADIOSAS_LAB.exercises);
  const atlasIds=[...new Set(catalogue.filter(q=>!q.options).map(q=>q.atlas))];
