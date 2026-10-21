@@ -56,6 +56,78 @@
   },
   "objectives": [
     {
+      "id": "traquea",
+      "objective": "RX|tórax inicial|PA|traquea"
+    },
+    {
+      "id": "clav-d",
+      "objective": "RX|tórax inicial|PA|clav-d"
+    },
+    {
+      "id": "clav-i",
+      "objective": "RX|tórax inicial|PA|clav-i"
+    },
+    {
+      "id": "vert-d",
+      "objective": "RX|tórax inicial|PA|vert-d"
+    },
+    {
+      "id": "vert-i",
+      "objective": "RX|tórax inicial|PA|vert-i"
+    },
+    {
+      "id": "pulmon-d",
+      "objective": "RX|tórax inicial|PA|pulmon-d"
+    },
+    {
+      "id": "pulmon-i",
+      "objective": "RX|tórax inicial|PA|pulmon-i"
+    },
+    {
+      "id": "hilio-d",
+      "objective": "RX|tórax inicial|PA|hilio-d"
+    },
+    {
+      "id": "hilio-i",
+      "objective": "RX|tórax inicial|PA|hilio-i"
+    },
+    {
+      "id": "corazon",
+      "objective": "RX|tórax inicial|PA|corazon"
+    },
+    {
+      "id": "diafragma-d",
+      "objective": "RX|tórax inicial|PA|diafragma-d"
+    },
+    {
+      "id": "diafragma-i",
+      "objective": "RX|tórax inicial|PA|diafragma-i"
+    },
+    {
+      "id": "vertebras",
+      "objective": "RX|tórax inicial|PA|vertebras"
+    },
+    {
+      "id": "aorta",
+      "objective": "RX|tórax inicial|PA|aorta"
+    },
+    {
+      "id": "angulo-d",
+      "objective": "RX|tórax inicial|PA|angulo-d"
+    },
+    {
+      "id": "angulo-i",
+      "objective": "RX|tórax inicial|PA|angulo-i"
+    },
+    {
+      "id": "costillas-d",
+      "objective": "RX|tórax inicial|PA|costillas-d"
+    },
+    {
+      "id": "costillas-i",
+      "objective": "RX|tórax inicial|PA|costillas-i"
+    },
+    {
       "id": "rx-mano-derecha-pa--escafoides",
       "objective": "RX|Mano derecha|PA|Escafoides"
     },
