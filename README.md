@@ -90,3 +90,21 @@ Tras subir una nueva versión bajo la misma URL de GitHub Pages, las notas y pre
 ### Pruebas
 
 `npm test` incluye la nueva prueba `test-bank-5000-real.js`. Comprueba la carga integrada de 5.000 preguntas verdaderas del paquete, sus 10 materias, las opciones y correcciones, el guardado de las notas existentes y la selección de las nuevas. El informe de distribución y las limitaciones de revisión aparecen en `INFORME_BANCO_5000.md`.
+
+
+## 3.8 Paula Visual Edition
+Portada con ilustración personalizada, acceso rápido a exámenes, test y estadísticas. Todos los archivos de imágenes en raíz. El modo examen compacto y las estadísticas permanecen sin cambios.
+
+
+## Paula Master Edition 4.0 — branding visual
+
+La portada, el avatar y la imagen social se han actualizado con una ilustración inspirada en las fotografías de referencia aportadas. El sistema de preguntas, IDs, clave `radiosas_academy_v1` de localStorage, correcciones y estadísticas se mantienen sin cambios funcionales. No elimines los datos de navegación ni cambies de origen de GitHub Pages para conservar el historial. Los retratos de Paula son recursos gráficos ilustrados. Los gráficos de rendimiento de la interfaz se calculan a partir de los intentos guardados; no se muestran notas de ejemplo.
+
+
+## 4.0.1 — Web responsive preparada para publicar desde la raíz
+
+Portada con navegación superior, menú móvil, siete accesos, retrato separado de los controles y paneles de progreso reales. Las notas, aciertos, errores, materias y últimos siete días se calculan exclusivamente desde el historial local. Sin resultados, se muestran estados vacíos. Los 5.000 objetos y sus IDs se mantienen sin cambios; la ampliación previa contiene variantes generadas de entrenamiento y no sustituye exámenes oficiales ni revisión experta.
+
+Se conserva `radiosas_academy_v1`. Al cargar con datos anteriores se conserva una instantánea local en `radiosas_academy_v1_backup_before_4_0` (si hay espacio disponible), sin sustituir una copia previa. Exportación/importación JSON disponible en Configuración. No existe sincronización entre dispositivos. La versión de caché es `radiosas-v4-0.1-paula`; solo se retiran cachés anteriores de la aplicación, nunca localStorage.
+
+Validación: `npm test`, test interactivo de 10 preguntas, corrección y nueva tanda sin repetir en 320/390/768/1440 px; exportación/importación JSON, recarga y arranque sin conexión con datos de la versión 3.7. Las pruebas usan datos aislados, sin acceder al navegador personal de Paula.
