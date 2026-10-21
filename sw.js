@@ -1,5 +1,5 @@
-const CACHE = 'radiosas-v5-2-clinica-real';
-const ASSETS = ['./clinica-real.css','./clinica-real.js','./clinica-real-banco.js','./','./index.html','./app.js','./app.js?v=510','./data.js','./bank-master.js','./bank-5000.js','./lab-data.js','./lab-atlas.js','./rx-torax-esquema.svg','./styles.css','./styles.css?v=510','./favicon.svg','./manifest.webmanifest','./paula-hero.webp','./paula-avatar.png','./paula-social-card.png'];
+const CACHE = 'radiosas-v5-4-simulacros-historicos';
+const ASSETS = ['./simulacros-historicos-v54.js','./simulacros-historicos-v54.css','./examenes-oficiales-v53.js','./examenes-oficiales-v53.css','./clinica-real.css','./clinica-real.js','./clinica-real-banco.js','./','./index.html','./app.js','./app.js?v=510','./data.js','./bank-master.js','./bank-5000.js','./lab-data.js','./lab-atlas.js','./rx-torax-esquema.svg','./styles.css','./styles.css?v=510','./favicon.svg','./manifest.webmanifest','./paula-hero.webp','./paula-avatar.png','./paula-social-card.png'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k=>k.startsWith('radiosas-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch', event => {
