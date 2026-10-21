@@ -121,3 +121,16 @@ Archivos nuevos en la **raíz**: `lab-data.js`, `rx-torax-esquema.svg`, `test-la
 ## Atlas corporal 5.1
 
 Laboratorio de 1.000 ejercicios por técnica y región: RX 350, TC 300, RM 250, mamografía 60 y DXA 40. Incluye 80 contextos gráficos simplificados, filtros, rotaciones sin repetir dentro de la tanda, estudio, examen, ampliación, repaso de fallos e historial compatible con la versión anterior. Son mapas didácticos y preguntas técnicas; **no son mil radiografías ni estudios clínicos**. Ver `LABORATORIO_RX.md` e inventario de objetivos. El banco general de 5.000 preguntas y sus IDs se conserva.
+
+
+## RADIOSAS 5.3 · Exámenes históricos como test internos
+
+La pestaña **Exámenes reales** permite preparar cinco exámenes históricos del SAS (2025, 2024, acceso libre 2022, aplazado 2022, acceso libre 2018). Los cuadernillos y plantillas definitivas se obtienen del archivo oficial del SAS una sola vez, y se convierten **localmente en el navegador** mediante PDF.js. La aplicación NO publica el texto completo de los cuadernillos ajenos en GitHub; tras la conversión los exámenes se contestan sin abrir PDFs y se guardan en IndexedDB.
+
+**Verificación:** un examen solo se habilita como completo cuando están presentes todas las preguntas principales, sus cuatro opciones y sus soluciones definitivas. Para las convocatorias de 2024 y 2025 se reutilizan las claves de 75 preguntas ya incluidas; para 2022 y 2018 se importa también la plantilla definitiva. En 2022 se solicita además el anexo de imágenes. Los PDF escaneados o con opciones no reconocibles pueden requerir revisión: un examen incompleto queda deshabilitado en lugar de generar preguntas ficticias.
+
+**Datos:** el progreso preexistente `radiosas_academy_v1` no se toca. Los exámenes históricos usan sus propias claves de localStorage e IndexedDB. El historial se puede exportar e importar desde la nueva pestaña. El almacenamiento sigue siendo local a cada navegador; no está sincronizado entre dispositivos. La puntuación es orientativa y debe contrastarse con las bases de cada convocatoria.
+
+**Fuentes:** páginas oficiales de Técnico/a Especialista en Radiodiagnóstico del SAS para OEP 2025, estabilización 2024, OEP 2021–22 (incluido aplazado) y OEP 2016–17.
+
+**Pruebas:** `node test-oficiales-v53.cjs` y `node --check examenes-oficiales-v53.js` se ejecutan en GitHub Actions. No sustituyen una auditoría manual de los cinco documentos PDF ni una prueba visual completa en iPhone.
