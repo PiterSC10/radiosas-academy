@@ -14,6 +14,7 @@ function boot(storage, count=0) {
   vm.createContext(ctx);
   ['data.js','bank-master.js'].forEach(file=>vm.runInContext(fs.readFileSync(__dirname+'/'+file,'utf8'),ctx,{filename:file}));
   for(let i=0;i<count;i++)ctx.window.RADIOSAS_DATA.practice.push({id:`loadtest-5000-${i}`,text:`Caso de laboratorio ${i}`,category:'Anatomía radiológica',options:['A','B','C','D'],answer:0,explanation:'Pregunta simulada no incluida en la edición distribuida',concept:`unique-loadtest-${i}`});
+  vm.runInContext(fs.readFileSync(__dirname+'/lab-data.js','utf8'),ctx);
   vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),ctx,{filename:'app.js'});
   return {html:()=>root.innerHTML,state:()=>JSON.parse(storage[KEY]),click:ds=>handlers.click({target:{closest:()=>({dataset:ds})}})};
 }

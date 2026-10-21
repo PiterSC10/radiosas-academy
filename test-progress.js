@@ -4,7 +4,7 @@ function boot(storage){
  const listeners={},app={innerHTML:''};
  const context={console,Date,Math,Array,Object,Number,String,JSON,Error,Map,Set,setTimeout,clearTimeout,setInterval:()=>{},Blob:function(){},URL,alert:()=>{},confirm:()=>true,localStorage:{getItem:k=>storage[k]??null,setItem:(k,v)=>storage[k]=v},document:{body:{appendChild(){},classList:{add(){},remove(){},toggle(){}}},getElementById:id=>id==='app'?app:(id==='restore-session'||id==='discard-session')?{addEventListener(){}}:null,addEventListener:(event,cb)=>listeners[event]=cb,createElement:()=>({classList:{add(){},remove(){}},click(){},remove(){}})},window:{scrollTo(){}}};
  vm.createContext(context);
- for(const f of ['data.js','bank-master.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),context,{filename:f});
+ for(const f of ['data.js','bank-master.js','lab-data.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),context,{filename:f});
  return {html:()=>app.innerHTML,click:ds=>listeners.click({target:{closest:()=>({dataset:ds})}}),state:()=>JSON.parse(storage[key]),context};
 }
 function counts(html){const m=html.match(/class="question-bank-counts">\s*<div><b>([\d.]+)<\/b><span>Total<\/span><\/div><div><b>([\d.]+)<\/b><span>Usadas<\/span><\/div><div><b>([\d.]+)<\/b><span>Sin usar<\/span>/);assert(m,'Missing counter widget on page');return m.slice(1).map(n=>+n.replaceAll('.',''));}

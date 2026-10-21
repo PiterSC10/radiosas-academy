@@ -7,7 +7,8 @@ assert.equal(ctx.window.RADIOSAS_DATA.exams[0].answers.length,75);
 assert.equal(ctx.window.RADIOSAS_DATA.exams[1].answers.length,75);
 assert.equal(ctx.window.RADIOSAS_DATA.practice.length,1000);
 ctx.setInterval=()=>{};
-vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),ctx);
+vm.runInContext(fs.readFileSync(__dirname+'/lab-data.js','utf8'),ctx);
+  vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),ctx);
 assert(out.innerHTML.includes('Tu plaza empieza con un plan'));
 function click(dataset){listeners.click({target:{closest:()=>({dataset})}})}
 click({nav:'reales'});assert(out.innerHTML.includes('Exámenes reales'));assert(out.innerHTML.includes('2025'));

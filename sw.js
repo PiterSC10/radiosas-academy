@@ -1,5 +1,5 @@
-const CACHE = 'radiosas-v4-0.1-paula';
-const ASSETS = ['./','./index.html','./app.js','./app.js?v=401','./data.js','./bank-master.js','./bank-5000.js','./styles.css','./styles.css?v=401','./favicon.svg','./manifest.webmanifest','./paula-hero.webp','./paula-avatar.png','./paula-social-card.png'];
+const CACHE = 'radiosas-v5-0-laboratorio';
+const ASSETS = ['./','./index.html','./app.js','./app.js?v=500','./data.js','./bank-master.js','./bank-5000.js','./lab-data.js','./rx-torax-esquema.svg','./styles.css','./styles.css?v=500','./favicon.svg','./manifest.webmanifest','./paula-hero.webp','./paula-avatar.png','./paula-social-card.png'];
 self.addEventListener('install', event => event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(ASSETS)).then(()=>self.skipWaiting())));
 self.addEventListener('activate', event => event.waitUntil(caches.keys().then(keys => Promise.all(keys.filter(k=>k.startsWith('radiosas-')&&k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
 self.addEventListener('fetch', event => {

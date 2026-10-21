@@ -10,7 +10,7 @@ function boot(storage,extended) {
    createElement:()=>({classList:{add(){},remove(){}},click(){},remove(){}}),addEventListener:(event,fn)=>handlers[event]=fn},
   window:{scrollTo(){}}};
  vm.createContext(ctx);
- for(const name of ['data.js','bank-master.js',...(extended?['bank-5000.js']:[])])vm.runInContext(fs.readFileSync(cwd+'/'+name,'utf8'),ctx,{filename:name});
+ for(const name of ['data.js','bank-master.js',...(extended?['bank-5000.js']:[]),'lab-data.js'])vm.runInContext(fs.readFileSync(cwd+'/'+name,'utf8'),ctx,{filename:name});
  if(extended)assert.equal(ctx.window.RADIOSAS_DATA.practice.length,5000);
  vm.runInContext(fs.readFileSync(cwd+'/app.js','utf8'),ctx,{filename:'app.js'});
  return{click:ds=>handlers.click({target:{closest:()=>({dataset:ds})}}),state:()=>JSON.parse(storage[KEY]),app,questions:ctx.window.RADIOSAS_DATA.practice};

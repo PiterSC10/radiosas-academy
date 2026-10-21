@@ -1,14 +1,14 @@
 name: Verificar y publicar RADIOSAS
 on:
   push:
-    branches: [main]
+    branches: [main, rx-validation]
   workflow_dispatch:
 permissions:
   contents: read
   pages: write
   id-token: write
 concurrency:
-  group: github-pages
+  group: github-pages-${{ github.ref }}
   cancel-in-progress: true
 jobs:
   build:
@@ -20,15 +20,27 @@ jobs:
           node-version: '22'
       - name: Comprobar sintaxis y pruebas
         run: npm test
+      - name: Instalar navegador de pruebas
+        run: |
+          npm install --ignore-scripts
+          npx playwright install --with-deps chromium webkit
+      - name: Probar laboratorio en navegadores y móvil
+        run: npm run test:browser
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: laboratorio-browser-results
+          path: browser-results/
       - name: Preparar web
         run: |
           mkdir -p dist
-          cp index.html app.js data.js bank-master.js bank-5000.js styles.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
+          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js rx-torax-esquema.svg styles.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
           cp paula-logo.svg paula-logo.png paula-avatar.png paula-hero.webp paula-social-card.svg paula-social-card.png vista-previa-paula-edition.png dist/
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
   deploy:
+    if: github.ref == 'refs/heads/main'
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}

@@ -108,3 +108,12 @@ Portada con navegación superior, menú móvil, siete accesos, retrato separado 
 Se conserva `radiosas_academy_v1`. Al cargar con datos anteriores se conserva una instantánea local en `radiosas_academy_v1_backup_before_4_0` (si hay espacio disponible), sin sustituir una copia previa. Exportación/importación JSON disponible en Configuración. No existe sincronización entre dispositivos. La versión de caché es `radiosas-v4-0.1-paula`; solo se retiran cachés anteriores de la aplicación, nunca localStorage.
 
 Validación: `npm test`, test interactivo de 10 preguntas, corrección y nueva tanda sin repetir en 320/390/768/1440 px; exportación/importación JSON, recarga y arranque sin conexión con datos de la versión 3.7. Las pruebas usan datos aislados, sin acceder al navegador personal de Paula.
+
+
+## RADIOSAS 5.0 — Laboratorio RX (nuevo)
+
+La sección **Laboratorio RX** añade 18 ejercicios sobre un **esquema original** de tórax frontal con zonas táctiles, modos Estudio y Examen Visual, pista, visor con interruptor de luz y resultados guardados por separado en el mismo almacenamiento local. No se añade ninguna pregunta al banco de 5.000 ni se cambian sus identificadores.
+
+Archivos nuevos en la **raíz**: `lab-data.js`, `rx-torax-esquema.svg`, `test-laboratorio.js`, `LABORATORIO_RX.md`.
+
+**Importante:** la ilustración NO es una radiografía clínica; las zonas son educativas y orientativas. No afirmar que se incluyen 18 casos clínicos distintos. El módulo necesita validación experta para usos formativos rigurosos. Se recomienda comprobarlo en iPhone después del despliegue; las pruebas automatizadas no sustituyen la inspección visual real.

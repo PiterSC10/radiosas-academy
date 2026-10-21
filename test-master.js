@@ -1,7 +1,8 @@
 const fs=require('fs'),assert=require('assert'),vm=require('vm');
 const app={innerHTML:''},listeners={},storage={};
 const context={console,Date,Math,Array,Object,Number,String,JSON,Error,setTimeout,clearTimeout,setInterval:()=>{},Blob:function(){},URL,confirm:()=>true,alert:()=>{},localStorage:{getItem:k=>storage[k]||null,setItem:(k,v)=>storage[k]=v},document:{getElementById:id=>id==='app'?app:id==='daily-goal'?{value:'30'}:id==='library-search'?{value:'protección'}:id==='library-topic'?{value:'Todas'}:null,addEventListener:(type,fn)=>listeners[type]=fn,createElement:()=>({classList:{add(){},remove(){}},set textContent(v){},click(){},remove(){}}),body:{appendChild(){}}},window:{scrollTo(){}}};
-vm.createContext(context);vm.runInContext(fs.readFileSync(__dirname+'/data.js','utf8'),context);vm.runInContext(fs.readFileSync(__dirname+'/bank-master.js','utf8'),context);vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),context);
+vm.createContext(context);vm.runInContext(fs.readFileSync(__dirname+'/data.js','utf8'),context);vm.runInContext(fs.readFileSync(__dirname+'/bank-master.js','utf8'),context);vm.runInContext(fs.readFileSync(__dirname+'/lab-data.js','utf8'),context);
+  vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),context);
 const click=dataset=>listeners.click({target:{closest:()=>({dataset})}});
 click({nav:'biblioteca'});assert(app.innerHTML.includes('Explora tus preguntas'));assert(app.innerHTML.includes('Guardar'));
 const id=context.window.RADIOSAS_DATA.practice[0].id;click({favorite:id});assert(JSON.parse(storage.radiosas_academy_v1).favorites.includes(id));
