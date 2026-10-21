@@ -16,3 +16,16 @@
 .sim54-history-item small{font-size:11px;color:#bad0e2;margin-top:5px}
 .sim54-history-item>b{color:#f4cd7a;font-size:17px;white-space:nowrap}
 @media(max-width:600px){.sim54-overview{grid-template-columns:repeat(2,minmax(0,1fr))}.sim54-history-item{flex-wrap:wrap}.sim54-history-item>b{margin-left:auto}}
+
+/* Exámenes por año: tarjeta visible al principio de la portada */
+.year-feature{display:flex;align-items:center;justify-content:space-between;gap:20px;margin:14px 0 18px;padding:clamp(17px,2.2vw,25px);background:radial-gradient(circle at 90% 10%,#37618377,transparent 40%),linear-gradient(120deg,#142b46,#172336);border:1px solid #ac884a;border-radius:18px;box-shadow:0 8px 22px #08122030;color:#fff}
+.year-feature-copy{flex:1;min-width:0}
+.year-feature-copy>small{font-size:10px;letter-spacing:1.3px;font-weight:800;color:#f3bf76}
+.year-feature h2{font-size:clamp(22px,3vw,29px);margin:5px 0 8px;color:#ffe3a7}
+.year-feature p{font-size:13px;line-height:1.6;color:#d2dfed;margin:0 0 10px}
+.year-feature-years{display:flex;gap:7px;flex-wrap:wrap}
+.year-feature-years span{border:1px solid #60778a;padding:5px 8px;border-radius:7px;background:#243e58;color:#eaf1fb;font-weight:700;font-size:11px}
+.year-feature-button{align-self:center;padding:15px 19px;border:1px solid #f6cd80;border-radius:12px;background:#f6cf84;color:#152943;font-size:14px;font-weight:850;cursor:pointer;max-width:245px;flex-shrink:0}
+.year-feature-button:hover{filter:brightness(1.08)}
+.year-feature-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
+@media(max-width:700px){.year-feature{flex-direction:column;align-items:stretch;gap:13px}.year-feature-button{max-width:none;width:100%;text-align:center}.year-feature p{font-size:12px}}
