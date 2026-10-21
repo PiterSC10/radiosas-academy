@@ -24,6 +24,8 @@ jobs:
           node test-clinica-real.cjs
           node --check examenes-oficiales-v53.js
           node test-oficiales-v53.cjs
+          node --check simulacros-historicos-v54.js
+          node test-simulacros-historicos-v54.cjs
       - name: Instalar navegador de pruebas
         run: |
           npm install --ignore-scripts
@@ -38,7 +40,7 @@ jobs:
       - name: Preparar web
         run: |
           mkdir -p dist
-          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
+          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css simulacros-historicos-v54.js simulacros-historicos-v54.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
           cp paula-logo.svg paula-logo.png paula-avatar.png paula-hero.webp paula-social-card.svg paula-social-card.png vista-previa-paula-edition.png dist/
       - uses: actions/upload-pages-artifact@v3
         with:
