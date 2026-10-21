@@ -38,7 +38,7 @@ jobs:
       - name: Preparar web
         run: |
           mkdir -p dist
-          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
+          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
           cp paula-logo.svg paula-logo.png paula-avatar.png paula-hero.webp paula-social-card.svg paula-social-card.png vista-previa-paula-edition.png dist/
       - uses: actions/upload-pages-artifact@v3
         with:
