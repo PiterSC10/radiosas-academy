@@ -22,3 +22,8 @@ body.in-exam{overflow:hidden}body.in-exam .sidebar,body.in-exam .topbar,body.in-
 .question-bank-card p{font-size:11px;line-height:1.5;color:#bed1dd;margin:10px 0 0}
 .question-bank-card p b{color:#89ecbe}
 @media(max-width:760px){.question-bank-card{padding:12px 13px;margin:10px 0 15px}.question-bank-head strong{font-size:12px}.question-bank-pct{font-size:10px}.question-bank-counts{margin:9px 0}.question-bank-counts>div{padding:7px 3px}.question-bank-counts b{font-size:20px}.question-bank-counts span{font-size:10px}}
+/* 3.5: aviso discreto cuando aumenta el banco sin borrar estadísticas */
+.bank-update-note{margin-top:10px!important;padding:9px 12px;border-radius:10px;background:#213d42;color:#bdebd7!important;border:1px solid #36635d;font-weight:600;font-size:12px!important}
+
+/* Meta editorial de ampliación; independiente del contador de preguntas usadas. */
+.bank-goal{margin-top:14px;padding-top:12px;border-top:1px solid #ffffff24}.bank-goal-label{display:flex;align-items:center;justify-content:space-between;gap:8px;flex-wrap:wrap;font-size:12px}.bank-goal-label strong{color:#f9d78b}.bank-goal-label span{color:#aabed2;font-size:11px}.bank-goal-track{height:6px;border-radius:10px;background:#294259;margin-top:9px;overflow:hidden}.bank-goal-track>div{height:100%;border-radius:10px;background:linear-gradient(90deg,#e09fb8,#f6c864)}

@@ -1,10 +1,10 @@
-# RADIOSAS Academy 3.3 — Paula Master Edition ♥
+# RADIOSAS Academy 3.7 — Paula Master Edition ♥
 
 Aplicación estática de estudio de Técnico/a Especialista en Radiodiagnóstico (TER/TSID), orientada a oposiciones del Servicio Andaluz de Salud. Proyecto independiente, no oficial.
 
 ## Contenido incluido realmente
 
-- **1.000 preguntas de entrenamiento originales** (100 del banco anterior y 900 nuevas) con cuatro opciones y explicación.
+- **5.000 enunciados de entrenamiento**, 1.000 anteriores y 4.000 añadidos en 3.7, con cuatro opciones y explicación. El material generado automáticamente requiere revisión académica, y las variantes no equivalen a 5.000 conceptos distintos.
 - **Dos hojas de corrección** de 75 preguntas (2024 y 2025), con enlaces a los cuadernillos y plantillas del SAS. El texto de esas preguntas oficiales **no se ha transcrito** en la aplicación; se consulta en los PDF externos.
 - Ficha documental de convocatoria 2022.
 - Simulador, cronómetro para exámenes oficiales, nota con penalización de 0,25 por error, resultados y repaso de errores.
@@ -61,3 +61,32 @@ La portada, los test por materia y Estadísticas muestran **Total / Usadas / Sin
 El contador se almacena en el navegador junto al historial y se incluye en la exportación JSON. Al actualizar desde versiones anteriores se recuperan los IDs de sesiones guardadas y terminadas, y cuando es posible se recupera la primera vuelta del sistema de rotación anterior. La migración de sesiones antiguas descartadas puede ser parcial si no existen registros que permitan reconstruirlas.
 
 **Configuración → Reiniciar vuelta de preguntas** reinicia el contador y las rotaciones sin borrar las notas anteriores. La rotación es por modalidad: si se hacen test en varios modos, pueden aparecer preguntas ya usadas globalmente aunque aún queden preguntas sin utilizar en el banco general.
+
+
+## Actualizaciones de banco sin perder estadísticas (3.5)
+
+- Mantenemos `localStorage` bajo la clave compatible `radiosas_academy_v1`.
+- La web recuerda qué IDs pertenecían al banco de la versión anterior y reconoce los que se añaden o retiran.
+- Los IDs de las preguntas publicadas son estables. Nunca reutilices un mismo ID para una pregunta nueva o con distinta respuesta.
+- El contador calcula totales y pendientes desde el banco actual; los intentos antiguos siguen guardados.
+- Cada modalidad mantiene la cola de preguntas pendientes, incorpora las nuevas al principio y evita repetir las anteriores hasta acabar su vuelta.
+- Las preguntas personalizadas importadas no se presentan como nueva versión pública.
+- Antes de actualizar o modificar el dominio, exporta los datos desde Configuración. GitHub no guarda automáticamente el historial personal, porque está en el navegador.
+- Cambiar el dominio, borrar los datos del navegador o abrir la web desde otro dispositivo **no** sincroniza las estadísticas. Para ello se necesitaría una cuenta y un backend.
+
+
+## 3.7 — Banco real de 5.000 preguntas de entrenamiento
+
+La aplicación **carga efectivamente 5.000 objetos de pregunta**: las 1.000 preguntas publicadas con anterioridad más 4.000 nuevas en `bank-5000.js`. Cada objeto posee enunciado, cuatro opciones, respuesta indicada, explicación, materia, concepto e identificador estable. Los 4.000 nuevos enunciados constan de **3.600 ejercicios derivados de 450 fichas conceptuales** y **400 ejercicios numéricos con parámetros distintos**. Se conservan las primeras 1.000 preguntas e identificadores originales.
+
+**Transparencia editorial**: la ampliación se ha generado programáticamente, con variaciones de forma sobre conceptos comunes. Por tanto **5.000 preguntas no equivalen a 5.000 conocimientos diferentes**. Los controles automatizados comprueban estructura, singularidad literal de los enunciados y resultados aritméticos, pero **no sustituyen la revisión de contenido por personal experto**. Las preguntas son originales de entrenamiento, *no* enunciados oficiales SAS transcritos. Los exámenes SAS reales siguen accesibles mediante PDF.
+
+Tras subir una nueva versión bajo la misma URL de GitHub Pages, las notas y preguntas realizadas se conservan en `localStorage` (clave estable `radiosas_academy_v1`), si Safari mantiene esos datos. Se recomienda **Configuración → Exportar datos JSON antes de actualizar**. Los test sin repetir seleccionan preferentemente las 4.000 preguntas añadidas; el marcador calcula preguntas **distintas por ID**, no conocimientos distintos.
+
+### Archivos fundamentales, todos en raíz
+
+`index.html`, `app.js`, `data.js`, `bank-master.js`, **`bank-5000.js`**, `styles.css`, `sw.js`, `manifest.webmanifest`, imágenes de Paula. La única ruta de infraestructura anidada es `.github/workflows/deploy.yml` para GitHub Pages. **No existe carpeta `assets/`**.
+
+### Pruebas
+
+`npm test` incluye la nueva prueba `test-bank-5000-real.js`. Comprueba la carga integrada de 5.000 preguntas verdaderas del paquete, sus 10 materias, las opciones y correcciones, el guardado de las notas existentes y la selección de las nuevas. El informe de distribución y las limitaciones de revisión aparecen en `INFORME_BANCO_5000.md`.
