@@ -23,6 +23,7 @@ jobs:
           npm test
           node test-clinica-real.cjs
           node --check examenes-oficiales-v53.js
+          node test-oficiales-v53.cjs
       - name: Instalar navegador de pruebas
         run: |
           npm install --ignore-scripts
