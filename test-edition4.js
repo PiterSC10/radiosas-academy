@@ -13,5 +13,5 @@ assert(app.innerHTML.includes('100,0/100'));assert(app.innerHTML.includes('Nota 
 for(const field of ['attempts','favorites','rotations'])assert.deepEqual(JSON.parse(storage[key])[field],seed[field]);
 const manifest=JSON.parse(fs.readFileSync(__dirname+'/manifest.webmanifest','utf8'));for(const i of manifest.icons)assert(fs.existsSync(__dirname+'/'+i.src));
 const sw=fs.readFileSync(__dirname+'/sw.js','utf8');const assets=sw.match(/const ASSETS = (\[.*?\]);/)[1];for(const file of JSON.parse(assets.replace(/'/g,'"')))assert(fs.existsSync(__dirname+'/'+file.split('?')[0]),file);
-assert(sw.includes('radiosas-v5-1-atlas-corporal'));assert(!fs.readFileSync(__dirname+'/app.js','utf8').includes('localStorage.clear'));
+assert(sw.includes('radiosas-v5-2-clinica-real'));assert(sw.includes('clinica-real-banco.js'));assert(sw.includes('clinica-real.css'));assert(!fs.readFileSync(__dirname+'/app.js','utf8').includes('localStorage.clear'));
 console.log('EDITION4 OK: legacy schema and rollback backup intact; real score, accessible chart, root assets, PWA cache and main actions.');
