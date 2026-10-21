@@ -131,3 +131,5 @@ input[type=file]{width:100%;max-width:100%;min-width:0;font-size:12px}.premium-s
  .in-lab .lab-viewer-help{margin:5px 0}.in-lab .lab-controls{position:sticky;bottom:0;background:#0c2134;padding:7px 0;margin-top:5px;z-index:2}
  .in-lab .lab-feedback{padding:7px 10px;margin:5px 0}.in-lab .lab-feedback p{margin:2px 0}
 }
+/* A sticky site header must never cover an anatomical touch target while scrolling. */
+.in-lab .academy-header{position:relative;top:auto}
