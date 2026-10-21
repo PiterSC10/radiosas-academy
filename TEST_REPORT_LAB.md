@@ -1,14 +1,10 @@
-# RADIOSAS 5.0 — Verificación de la integración
+# Verificación · Atlas corporal 5.1
 
-Base oficial: `95919035cceab147e3905866f4be4d2a63d9f248`.
+Base oficial: `19c737c96d924403e4b016e9ab7458e5eae3f0c9`.
 
-- Portada 4.0.1, caricatura de Paula y mejoras recientes conservadas.
-- `npm test`: sintaxis, banco de 5.000 preguntas, rotación, progreso, migraciones, identidad visual y laboratorio correctos.
-- Pruebas del laboratorio: 18 zonas por coordenadas, respuestas correctas e incorrectas, visor apagado, estudio, examen, recuperación del borrador, resultado 17/18, historial y conservación del banco.
-- `data.js`, `bank-master.js` y `bank-5000.js` permanecen sin cambios.
-- `npm run test:browser`: Chromium y WebKit, con toques reales sobre las 18 estructuras, estudio, pistas, examen, recarga, revisión histórica y conservación del progreso general.
-- Capturas en 430×932, 390×844, 375×667, 320×568 y 1440×1000; sin desplazamiento horizontal ni errores JavaScript.
-- Corregida la cabecera que podía tapar zonas táctiles; soporte pointerup para toques SVG en Safari. Controles sin superposición sobre las pistas.
-- Evidencia de la validación previa: https://github.com/PiterSC10/radiosas-academy/actions/runs/39669627870
-- El workflow repite las comprobaciones antes de cada publicación en main y conserva las capturas como artefactos.
-- WebKit en viewport móvil es una prueba automatizada del motor de Safari; no equivale a una prueba en un iPhone físico. La imagen es una ilustración didáctica, no una radiografía clínica ni material clínico validado.
+- Banco explícito de 1.000 objetivos únicos: 350 RX, 300 TC, 250 RM, 60 mamografía y 40 DXA.
+- Conservados los 18 IDs iniciales y su imagen original.
+- Verificación de las 1.000 respuestas, centros táctiles escalados, filtros, rotaciones, recuperación de borrador anterior, historial y protección de respuestas con visor apagado.
+- Banco general, archivos de preguntas y almacenamiento anterior conservados. No se afirma sincronización en la nube.
+- Chromium y WebKit deben superar la batería visual y táctil antes del despliegue. Capturas reales guardadas como artefacto de Actions.
+- Material topográfico simplificado, sin imágenes de pacientes ni validación clínica. Las pruebas de software no certifican exactitud anatómica ni sustituyen revisión de un docente especializado.

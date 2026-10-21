@@ -1,16 +1,27 @@
-# RADIOSAS 5.0 — Laboratorio de Radiología ♥
+# Laboratorio corporal 5.1 · Paula Master Edition
 
-**Primera entrega funcional:** visor interactivo de esquema de tórax frontal en la pestaña «Laboratorio RX».
+Catálogo de **1.000 ejercicios** independiente del banco general de 5.000 preguntas:
 
-- 18 ejercicios de localización con una ilustración anatómica original `rx-torax-esquema.svg` y zonas de respuesta.
-- Modo estudio con feedback inmediato, pista e interpretación didáctica; modo examen con preguntas en orden aleatorio y puntuación al finalizar.
-- Interruptor de visor (efecto suave hospitalario/neón), navegación anterior/siguiente y alternativa accesible por lista.
-- Registro independiente `labAttempts`, `labSeen` y `labDraft` en el **mismo** `localStorage` de siempre (`radiosas_academy_v1`), visible en Estadísticas.
-- No altera los 5.000 ejercicios de entrenamiento ni sus identificadores, notas, favoritos o estadísticas. No cuenta los ejercicios visuales como parte del banco de 5.000.
-- Mantiene todos los archivos e imágenes directamente en la raíz. La única carpeta técnica continúa siendo `.github/workflows/`.
+| Técnica | Ejercicios |
+|---|---:|
+| RX | 350 |
+| TC | 300 |
+| RM | 250 |
+| Mamografía | 60 |
+| DXA | 40 |
 
-**Límites:** La imagen es una **ilustración didáctica**, no una radiografía clínica ni una imagen diagnóstica. Las localizaciones son orientativas. El ejercicio de localizar puntos debe ser revisado por una persona experta antes de considerarse material clínico validado. Para añadir radiografías reales, escoger fuentes compatibles con reutilización, documentar licencias, anonimización cuando sea relevante y revisar la calidad anatómica de cada caso. No incorporar un estudio clínico generado por IA como evidencia.
+80 contextos gráficos, incluyendo el tórax original y 79 mapas nuevos. Se conserva la identidad de los 18 ejercicios iniciales. Hay objetivos de localización, identificación, técnica, orientación, proyecciones y secuencias. Los conceptos técnicos se presentan como preguntas; no se usan imágenes falsas para simular reconocimiento de secuencias.
 
-**Instalación:** subir contenido del ZIP a la raíz de `PiterSC10/radiosas-academy`, verificando que `lab-data.js`, `rx-torax-esquema.svg` y `index.html` comparten directorio. GitHub Pages configurado con Actions. La caché del service worker se actualiza con nombre nuevo.
+Filtros por técnica, región, tipo y nivel; tandas de 10, 18, 25, 50 o 100; solo pendientes; repaso de fallos del laboratorio; estudio con pistas; examen con corrección al finalizar; historial y recuperación de borradores; ampliación del visor dentro de un área desplazable.
 
-**Pruebas:** ejecutar `npm test`; esto valida estructura y lógica mediante tests automatizados. La experiencia visual y táctil real necesita además revisión manual en iPhone.
+La selección mantiene una vuelta por combinación de filtros y no repite dentro de una tanda. La última tanda puede ser más corta para agotar los disponibles. Un ejercicio no se duplica por cambiar el tipo de respuesta: su objetivo corresponde a una estructura y vista concretas o a un concepto técnico. Se sustituyen equivalencias entre referencias RX de campos solapados.
+
+**Naturaleza del material:** mapas topográficos originales y simplificados, no radiografías, TC, RM, mamografías ni mediciones DXA clínicas. Los colores no representan densidad ni señal. Algunos mapas regionales reúnen referencias de niveles próximos; no deben interpretarse como un único corte de un paciente. No hay casos de pacientes ni diagnósticos. Las fuentes enlazadas son de consulta y no implican validación experta ni aval del banco. Es material de práctica que requiere revisión especializada para uso formativo reglado.
+
+Fuentes de consulta: OpenStax Anatomy & Physiology 2e; NIH/NIBIB sobre TC y RM; ACR/RSNA RadiologyInfo sobre mamografía, DXA y seguridad de RM; Medical Imaging Systems en NCBI Bookshelf; posiciones oficiales ISCD. Enlaces por ejercicio en modo estudio. Los textos son de redacción propia y los vectores son originales; no se redistribuyen imágenes clínicas de terceros.
+
+`lab-atlas.js` contiene el catálogo explícito y los vectores. `build-lab-atlas.py` y `lab-technique-content.py` permiten regenerarlo; `LAB_ATLAS_INVENTARIO.json` facilita su revisión. Todos permanecen en la raíz.
+
+Datos del navegador: se conserva la clave `radiosas_academy_v1`, los campos previos y los IDs. Se añaden `labSettings` y `labRotationV51`; los intentos y borradores anteriores continúan siendo legibles. No hay sincronización remota. Exportación/importación JSON incluye los campos nuevos sin sustituir el motor general.
+
+Pruebas: `npm test` y `npm run test:browser`. La primera verifica las 1.000 respuestas y los centros táctiles con coordenadas escaladas. La segunda prueba Chromium y WebKit, un ejercicio de cada contexto gráfico, preguntas técnicas de las cinco modalidades, filtros, zoom, persistencia, historial y cinco viewports. El workflow impide el despliegue si falla una comprobación.
