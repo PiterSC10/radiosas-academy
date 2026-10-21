@@ -15,9 +15,10 @@ try{for(const [engine,type] of Object.entries({chromium,webkit})){
  await page.locator('.lab-power').click();
  await page.locator('[data-action="lab-hint"]').click();assert.equal(await page.locator('.lab-correct-circle').count(),1);
  const spots=await page.evaluate(()=>window.RADIOSAS_LAB.spots);
- async function touch(spot){const box=await page.locator('[data-lab-canvas]').boundingBox();await page.touchscreen.tap(box.x+spot.x/700*box.width,box.y+spot.y/850*box.height)}
+ async function touch(spot){await page.locator('[data-lab-canvas]').scrollIntoViewIfNeeded();const box=await page.locator('[data-lab-canvas]').boundingBox();await page.touchscreen.tap(box.x+spot.x/700*box.width,box.y+spot.y/850*box.height)}
  // Verify all touch centres, not just the accessible name-based alternative.
- for(const spot of spots){await touch(spot);assert.equal(await page.locator('.lab-ok').count(),1,engine+': '+spot.id);await page.locator('[data-action="lab-next"]').click()}
+ await page.screenshot({path:`browser-results/initial-${engine}.png`,fullPage:true});
+ for(const spot of spots){await touch(spot);await page.screenshot({path:`browser-results/last-touch-${engine}.png`,fullPage:true});console.log('TOUCH',spot.id,await page.locator('.lab-feedback').allTextContents());await page.locator('.lab-ok').waitFor({timeout:5000});assert.equal(await page.locator('.lab-ok').count(),1,engine+': '+spot.id);await page.locator('[data-action="lab-next"]').click()}
  await page.locator('[data-action="lab-start-exam"]').click();let order=(await state()).labDraft.order;
  for(let i=0;i<18;i++){const spot=spots.find(s=>s.id===order[i]);await touch(i===0?spots.find(s=>s.id!==spot.id):spot);assert.equal(await page.locator('.lab-correct-circle').count(),0,'no exam solution leak');if(i===7){await page.reload();await page.locator('[data-action="goto-laboratorio"]').click();assert.equal((await state()).labDraft.index,7)}await page.locator('[data-action="lab-next"]').click()}
  let result=(await state()).labAttempts[0];assert.equal(result.correct,17);assert.equal(result.wrong,1);assert.equal(result.blank,0);
