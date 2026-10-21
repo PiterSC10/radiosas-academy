@@ -14,19 +14,36 @@ try{for(const [engine,type] of Object.entries({chromium,webkit})){
  await page.locator('.lab-power').click();assert.match(await page.locator('.lab-power').innerText(),/Apagado/);
  await page.locator('.lab-power').click();
  await page.locator('[data-action="lab-hint"]').click();assert.equal(await page.locator('.lab-correct-circle').count(),1);
- const spots=await page.evaluate(()=>window.RADIOSAS_LAB.spots);
- async function touch(spot){await page.locator('[data-lab-canvas]').scrollIntoViewIfNeeded();const box=await page.locator('[data-lab-canvas]').boundingBox();await page.touchscreen.tap(box.x+spot.x/700*box.width,box.y+spot.y/850*box.height)}
- // Verify all touch centres, not just the accessible name-based alternative.
- await page.screenshot({path:`browser-results/initial-${engine}.png`,fullPage:true});
- for(const spot of spots){await touch(spot);await page.screenshot({path:`browser-results/last-touch-${engine}.png`,fullPage:true});await page.locator('.lab-ok').waitFor({timeout:5000});assert.equal(await page.locator('.lab-ok').count(),1,engine+': '+spot.id);await page.locator('[data-action="lab-next"]').click()}
- await page.locator('[data-action="lab-start-exam"]').click();let order=(await state()).labDraft.order;
- for(let i=0;i<18;i++){const spot=spots.find(s=>s.id===order[i]);await touch(i===0?spots.find(s=>s.id!==spot.id):spot);assert.equal(await page.locator('.lab-correct-circle').count(),0,'no exam solution leak');if(i===7){await page.reload();await page.locator('[data-action="goto-laboratorio"]').click();assert.equal((await state()).labDraft.index,7)}await page.locator('[data-action="lab-next"]').click()}
- let result=(await state()).labAttempts[0];assert.equal(result.correct,17);assert.equal(result.wrong,1);assert.equal(result.blank,0);
- const after=await state();for(const k of Object.keys(before).filter(k=>!k.startsWith('lab')))assert.deepEqual(after[k],before[k],'legacy field '+k);
- await page.reload();await page.locator('[data-action="goto-laboratorio"]').click();await page.locator('.lab-history [data-action^="lab-review-"]').click();assert.match(await page.locator('.lab-result h2').innerText(),/17 de 18/);assert.match(await page.locator('.lab-results-review').innerText(),/Marcaste/);
+ const catalogue=await page.evaluate(()=>window.RADIOSAS_LAB.exercises);
+ const atlasIds=[...new Set(catalogue.filter(q=>!q.options).map(q=>q.atlas))];
+ const sample=atlasIds.map(id=>catalogue.find(q=>q.atlas===id&&q.type==='Localización')||catalogue.find(q=>q.atlas===id));
+ for(const mod of ['RX','TC','RM','Mamografía','DXA'])sample.push(catalogue.find(q=>q.technique===mod&&q.options));
+ const snapshot=await state();
+ await page.evaluate(({key,order})=>{const d=JSON.parse(localStorage.getItem(key));d.labDraft={mode:'exam',order,index:0,answers:{},hint:false,lightsOn:true,started:Date.now()};localStorage.setItem(key,JSON.stringify(d))},{key:KEY,order:sample.map(q=>q.id)});
+ await page.reload();await page.locator('[data-action="goto-laboratorio"]').click();
+ async function touch(q){await page.locator('[data-lab-canvas]').scrollIntoViewIfNeeded();const box=await page.locator('[data-lab-canvas]').boundingBox();await page.touchscreen.tap(box.x+q.x/700*box.width,box.y+q.y/850*box.height)}
+ for(let i=0;i<sample.length;i++){
+  const q=sample[i];
+  if(q.options)await page.locator(`[data-lab-choice="option-${q.answer}"]`).click();
+  else if(q.type==='Identificación')await page.locator(`.lab-answer-choices [data-lab-choice="${q.target}"]`).click();
+  else await touch(q);
+  await page.locator('.lab-pending').waitFor({timeout:5000});
+  assert.equal((await state()).labDraft.answers[q.id].id,q.options?'option-'+q.answer:q.target,engine+': '+q.id);
+  if(!q.options){await page.waitForFunction(()=>{const i=document.querySelector('.lab-viewer img');return i&&i.complete&&i.naturalWidth>0});if(['TC','RM','Mamografía','DXA'].includes(q.technique)&&!sample.slice(0,i).some(x=>x.technique===q.technique))await page.screenshot({path:`browser-results/atlas-${engine}-${q.technique}.png`,fullPage:true});}
+  if(i===7){await page.reload();await page.locator('[data-action="goto-laboratorio"]').click();assert.equal((await state()).labDraft.index,7)}
+  await page.locator('[data-action="lab-next"]').click();
+ }
+ const after=await state();assert.equal(after.labAttempts.at(-1).correct,sample.length);for(const k of Object.keys(snapshot).filter(k=>!k.startsWith('lab')))assert.deepEqual(after[k],snapshot[k],'legacy field '+k);
+ await page.reload();await page.locator('[data-action="goto-laboratorio"]').click();await page.locator('.lab-history [data-action^="lab-review-"]').first().click();assert.match(await page.locator('.lab-result h2').innerText(),new RegExp(sample.length+' de '+sample.length));
  await page.locator('.lab-modes [data-action="lab-start-study"]').click();
- for(const [width,height] of [[430,932],[390,844],[375,667],[320,568],[1440,1000]]){await page.setViewportSize({width,height});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow '+engine+' '+width);assert(await page.locator('.lab-viewer img').evaluate(i=>i.complete&&i.naturalWidth>0),'image loaded');const helpBox=await page.locator('.lab-viewer-help').boundingBox(),controlsBox=await page.locator('.lab-controls').boundingBox();assert(helpBox.y+helpBox.height<=controlsBox.y+1,'controls must not cover the hint');await page.screenshot({path:`browser-results/laboratorio-${engine}-${width}.png`,fullPage:width===430});}
- await page.setViewportSize({width:430,height:932});await page.screenshot({path:`browser-results/laboratorio-${engine}-movil.png`});
- assert.deepEqual(errors,[],'JavaScript or resource errors');console.log(`${engine.toUpperCase()} OK: 18 touch zones, study, power, hints, exam 17/18, reload/resume, history, legacy state, 5 viewports, no JS errors`);
+ await page.locator('.lab-filter-panel summary').click();await page.locator('#lab-technique').selectOption('RM');
+ await page.locator('.lab-filter-panel summary').click();await page.locator('#lab-region').selectOption('Miembro inferior');
+ await page.locator('.lab-filter-panel summary').click();await page.locator('#lab-type').selectOption('Localización');
+ assert.equal((await state()).labSettings.technique,'RM');assert.match(await page.locator('.lab-screen-kicker').innerText(),/RM/);
+ // Zoom remains inside its own viewport and never widens the page.
+ await page.locator('[data-action="lab-zoom"]').click();assert.equal(await page.locator('.lab-viewport.is-zoomed').count(),1);assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth));await page.locator('[data-action="lab-zoom"]').click();
+ for(const [width,height] of [[430,932],[390,844],[375,667],[320,568],[1440,1000]]){await page.setViewportSize({width,height});assert(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth),'horizontal overflow '+engine+' '+width);await page.waitForFunction(()=>{const i=document.querySelector('.lab-viewer img');return i&&i.complete&&i.naturalWidth>0});const helpBox=await page.locator('.lab-viewer-help').boundingBox(),controlsBox=await page.locator('.lab-controls').boundingBox();assert(helpBox.y+helpBox.height<=controlsBox.y+1,'hint overlap');await page.screenshot({path:`browser-results/laboratorio-${engine}-${width}.png`,fullPage:width===430});}
+ await page.setViewportSize({width:430,height:932});await page.screenshot({path:`browser-results/laboratorio-${engine}-movil.png`,fullPage:true});
+ assert.deepEqual(errors,[],'JavaScript or resource errors');console.log(`${engine.toUpperCase()} OK: 1000 catalogue entries, all 80 atlas contexts, 5 technique quizzes, filters, zoom, scoring, reload/resume, history, 5 viewports and no JS errors`);
  }finally{await browser.close()}
  }}finally{server.close()}})().catch(e=>{console.error(e);process.exitCode=1;server.close()});

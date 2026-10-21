@@ -117,3 +117,7 @@ La sección **Laboratorio RX** añade 18 ejercicios sobre un **esquema original*
 Archivos nuevos en la **raíz**: `lab-data.js`, `rx-torax-esquema.svg`, `test-laboratorio.js`, `LABORATORIO_RX.md`.
 
 **Importante:** la ilustración NO es una radiografía clínica; las zonas son educativas y orientativas. No afirmar que se incluyen 18 casos clínicos distintos. El módulo necesita validación experta para usos formativos rigurosos. Se recomienda comprobarlo en iPhone después del despliegue; las pruebas automatizadas no sustituyen la inspección visual real.
+
+## Atlas corporal 5.1
+
+Laboratorio de 1.000 ejercicios por técnica y región: RX 350, TC 300, RM 250, mamografía 60 y DXA 40. Incluye 80 contextos gráficos simplificados, filtros, rotaciones sin repetir dentro de la tanda, estudio, examen, ampliación, repaso de fallos e historial compatible con la versión anterior. Son mapas didácticos y preguntas técnicas; **no son mil radiografías ni estudios clínicos**. Ver `LABORATORIO_RX.md` e inventario de objetivos. El banco general de 5.000 preguntas y sus IDs se conserva.

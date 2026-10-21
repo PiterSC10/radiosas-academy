@@ -4,7 +4,7 @@ const key='radiosas_academy_v1',app={innerHTML:''},handlers={},storage={};
 const seed={attempts:[{id:'legacy-37',kind:'practice',label:'Test anterior',year:0,questions:['q1'],answers:[0],keys:[0],correct:1,wrong:0,blank:0,elapsed:60000,ended:1700000000000}],draft:null,custom:[],favorites:['q1'],topicStatuses:{1:'Dominado'},studyPlan:{'2026-10-21':'Anatomía'},dailyGoal:30,rotations:{'general::Todas':{lastBatch:['q1'],pending:[],cycles:0}},seenQuestions:['q1']};
 storage[key]=JSON.stringify(seed);
 const ctx={console,Date,Math,Array,Object,Number,String,JSON,Error,Map,Set,Blob,URL,setTimeout:()=>0,clearTimeout(){},setInterval(){},confirm:()=>true,alert(){},localStorage:{getItem:k=>storage[k]??null,setItem:(k,v)=>storage[k]=v},document:{getElementById:id=>id==='app'?app:null,addEventListener:(t,f)=>handlers[t]=f,createElement:()=>({classList:{add(){},remove(){}},click(){},remove(){}}),body:{appendChild(){},classList:{toggle(){}}}},window:{scrollTo(){}}};
-vm.createContext(ctx);for(const f of ['data.js','bank-master.js','bank-5000.js','lab-data.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
+vm.createContext(ctx);for(const f of ['data.js','bank-master.js','bank-5000.js','lab-data.js','lab-atlas.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
 const state=JSON.parse(storage[key]);for(const f of ['attempts','favorites','topicStatuses','studyPlan','dailyGoal','rotations','seenQuestions','custom'])assert.deepEqual(state[f],seed[f],f);
 assert.deepEqual(JSON.parse(storage[key+'_backup_before_4_0']),seed,'exact pre-update backup');
 assert(app.innerHTML.includes('edition4'));assert(app.innerHTML.includes('data-action="goto-reales"'));assert(app.innerHTML.includes('data-action="quick"'));assert(app.innerHTML.includes('data-action="goto-estadisticas"'));
@@ -13,5 +13,5 @@ assert(app.innerHTML.includes('100,0/100'));assert(app.innerHTML.includes('Nota 
 for(const field of ['attempts','favorites','rotations'])assert.deepEqual(JSON.parse(storage[key])[field],seed[field]);
 const manifest=JSON.parse(fs.readFileSync(__dirname+'/manifest.webmanifest','utf8'));for(const i of manifest.icons)assert(fs.existsSync(__dirname+'/'+i.src));
 const sw=fs.readFileSync(__dirname+'/sw.js','utf8');const assets=sw.match(/const ASSETS = (\[.*?\]);/)[1];for(const file of JSON.parse(assets.replace(/'/g,'"')))assert(fs.existsSync(__dirname+'/'+file.split('?')[0]),file);
-assert(sw.includes('radiosas-v5-0-laboratorio'));assert(!fs.readFileSync(__dirname+'/app.js','utf8').includes('localStorage.clear'));
+assert(sw.includes('radiosas-v5-1-atlas-corporal'));assert(!fs.readFileSync(__dirname+'/app.js','utf8').includes('localStorage.clear'));
 console.log('EDITION4 OK: legacy schema and rollback backup intact; real score, accessible chart, root assets, PWA cache and main actions.');

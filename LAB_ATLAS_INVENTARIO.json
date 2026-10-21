@@ -1,0 +1,3987 @@
+{
+  "total": 1000,
+  "atlasCount": 80,
+  "byTechnique": {
+    "RX": 350,
+    "TC": 300,
+    "RM": 250,
+    "Mamografía": 60,
+    "DXA": 40
+  },
+  "sources": {
+    "upper": {
+      "title": "OpenStax · Huesos del miembro superior",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-2-bones-of-the-upper-limb"
+    },
+    "lower": {
+      "title": "OpenStax · Huesos del miembro inferior",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/8-4-bones-of-the-lower-limb"
+    },
+    "axial": {
+      "title": "OpenStax · Esqueleto axial",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/7-introduction"
+    },
+    "ct": {
+      "title": "NIH/NIBIB · Tomografía computarizada",
+      "url": "https://www.nibib.nih.gov/science-education/science-topics/computed-tomography-ct"
+    },
+    "mr": {
+      "title": "NIH/NIBIB · Resonancia magnética",
+      "url": "https://www.nibib.nih.gov/science-education/science-topics/magnetic-resonance-imaging-mri"
+    },
+    "mammo": {
+      "title": "ACR/RSNA · Mamografía",
+      "url": "https://www.radiologyinfo.org/en/info/mammo"
+    },
+    "dxa": {
+      "title": "ACR/RSNA · Densitometría ósea",
+      "url": "https://www.radiologyinfo.org/en/info/dexa"
+    },
+    "anatomy": {
+      "title": "OpenStax · Anatomía y fisiología 2e",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/1-introduction"
+    },
+    "mrphysics": {
+      "title": "NCBI · Medical Imaging Systems · MRI",
+      "url": "https://www.ncbi.nlm.nih.gov/books/NBK546152/"
+    },
+    "mrsafety": {
+      "title": "ACR/RSNA · Seguridad en RM",
+      "url": "https://www.radiologyinfo.org/en/info/safety-mr"
+    },
+    "iscd": {
+      "title": "ISCD · Posiciones oficiales DXA adultos",
+      "url": "https://iscd.org/text-based-official-adult-positions/"
+    }
+  },
+  "objectives": [
+    {
+      "id": "rx-mano-derecha-pa--escafoides",
+      "objective": "RX|Mano derecha|PA|Escafoides"
+    },
+    {
+      "id": "rx-mano-derecha-pa--semilunar",
+      "objective": "RX|Mano derecha|PA|Semilunar"
+    },
+    {
+      "id": "rx-mano-derecha-pa--piramidal",
+      "objective": "RX|Mano derecha|PA|Piramidal"
+    },
+    {
+      "id": "rx-mano-derecha-pa--pisiforme",
+      "objective": "RX|Mano derecha|PA|Pisiforme"
+    },
+    {
+      "id": "rx-mano-derecha-pa--trapecio",
+      "objective": "RX|Mano derecha|PA|Trapecio"
+    },
+    {
+      "id": "rx-mano-derecha-pa--trapezoide",
+      "objective": "RX|Mano derecha|PA|Trapezoide"
+    },
+    {
+      "id": "rx-mano-derecha-pa--grande",
+      "objective": "RX|Mano derecha|PA|Grande"
+    },
+    {
+      "id": "rx-mano-derecha-pa--ganchoso",
+      "objective": "RX|Mano derecha|PA|Ganchoso"
+    },
+    {
+      "id": "rx-mano-derecha-pa--metacarpiano-i",
+      "objective": "RX|Mano derecha|PA|Metacarpiano I"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-proximal-del-pulgar",
+      "objective": "RX|Mano derecha|PA|Falange proximal del pulgar"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-distal-del-pulgar",
+      "objective": "RX|Mano derecha|PA|Falange distal del pulgar"
+    },
+    {
+      "id": "rx-mano-derecha-pa--metacarpiano-2",
+      "objective": "RX|Mano derecha|PA|Metacarpiano 2"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-proximal-del-dedo-2",
+      "objective": "RX|Mano derecha|PA|Falange proximal del dedo 2"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-media-del-dedo-2",
+      "objective": "RX|Mano derecha|PA|Falange media del dedo 2"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-distal-del-dedo-2",
+      "objective": "RX|Mano derecha|PA|Falange distal del dedo 2"
+    },
+    {
+      "id": "rx-mano-derecha-pa--metacarpiano-3",
+      "objective": "RX|Mano derecha|PA|Metacarpiano 3"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-proximal-del-dedo-3",
+      "objective": "RX|Mano derecha|PA|Falange proximal del dedo 3"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-media-del-dedo-3",
+      "objective": "RX|Mano derecha|PA|Falange media del dedo 3"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-distal-del-dedo-3",
+      "objective": "RX|Mano derecha|PA|Falange distal del dedo 3"
+    },
+    {
+      "id": "rx-mano-derecha-pa--metacarpiano-4",
+      "objective": "RX|Mano derecha|PA|Metacarpiano 4"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-proximal-del-dedo-4",
+      "objective": "RX|Mano derecha|PA|Falange proximal del dedo 4"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-media-del-dedo-4",
+      "objective": "RX|Mano derecha|PA|Falange media del dedo 4"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-distal-del-dedo-4",
+      "objective": "RX|Mano derecha|PA|Falange distal del dedo 4"
+    },
+    {
+      "id": "rx-mano-derecha-pa--metacarpiano-5",
+      "objective": "RX|Mano derecha|PA|Metacarpiano 5"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-proximal-del-dedo-5",
+      "objective": "RX|Mano derecha|PA|Falange proximal del dedo 5"
+    },
+    {
+      "id": "rx-mano-derecha-pa--falange-media-del-dedo-5",
+      "objective": "RX|Mano derecha|PA|Falange media del dedo 5"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--escafoides",
+      "objective": "RX|Mano derecha|Oblicua|Escafoides"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--semilunar",
+      "objective": "RX|Mano derecha|Oblicua|Semilunar"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--piramidal",
+      "objective": "RX|Mano derecha|Oblicua|Piramidal"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--pisiforme",
+      "objective": "RX|Mano derecha|Oblicua|Pisiforme"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--trapecio",
+      "objective": "RX|Mano derecha|Oblicua|Trapecio"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--trapezoide",
+      "objective": "RX|Mano derecha|Oblicua|Trapezoide"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--grande",
+      "objective": "RX|Mano derecha|Oblicua|Grande"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--ganchoso",
+      "objective": "RX|Mano derecha|Oblicua|Ganchoso"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--metacarpiano-i",
+      "objective": "RX|Mano derecha|Oblicua|Metacarpiano I"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-proximal-del-pulgar",
+      "objective": "RX|Mano derecha|Oblicua|Falange proximal del pulgar"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-distal-del-pulgar",
+      "objective": "RX|Mano derecha|Oblicua|Falange distal del pulgar"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--metacarpiano-2",
+      "objective": "RX|Mano derecha|Oblicua|Metacarpiano 2"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-proximal-del-dedo-2",
+      "objective": "RX|Mano derecha|Oblicua|Falange proximal del dedo 2"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-media-del-dedo-2",
+      "objective": "RX|Mano derecha|Oblicua|Falange media del dedo 2"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-distal-del-dedo-2",
+      "objective": "RX|Mano derecha|Oblicua|Falange distal del dedo 2"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--metacarpiano-3",
+      "objective": "RX|Mano derecha|Oblicua|Metacarpiano 3"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-proximal-del-dedo-3",
+      "objective": "RX|Mano derecha|Oblicua|Falange proximal del dedo 3"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-media-del-dedo-3",
+      "objective": "RX|Mano derecha|Oblicua|Falange media del dedo 3"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-distal-del-dedo-3",
+      "objective": "RX|Mano derecha|Oblicua|Falange distal del dedo 3"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--metacarpiano-4",
+      "objective": "RX|Mano derecha|Oblicua|Metacarpiano 4"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-proximal-del-dedo-4",
+      "objective": "RX|Mano derecha|Oblicua|Falange proximal del dedo 4"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-media-del-dedo-4",
+      "objective": "RX|Mano derecha|Oblicua|Falange media del dedo 4"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-distal-del-dedo-4",
+      "objective": "RX|Mano derecha|Oblicua|Falange distal del dedo 4"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--metacarpiano-5",
+      "objective": "RX|Mano derecha|Oblicua|Metacarpiano 5"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-proximal-del-dedo-5",
+      "objective": "RX|Mano derecha|Oblicua|Falange proximal del dedo 5"
+    },
+    {
+      "id": "rx-mano-derecha-oblicua--falange-media-del-dedo-5",
+      "objective": "RX|Mano derecha|Oblicua|Falange media del dedo 5"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--calcaneo",
+      "objective": "RX|Pie derecho|Dorsoplantar|Calcáneo"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--astragalo",
+      "objective": "RX|Pie derecho|Dorsoplantar|Astrágalo"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--navicular",
+      "objective": "RX|Pie derecho|Dorsoplantar|Navicular"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--cuboides",
+      "objective": "RX|Pie derecho|Dorsoplantar|Cuboides"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--cuneiforme-medial",
+      "objective": "RX|Pie derecho|Dorsoplantar|Cuneiforme medial"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--cuneiforme-intermedio",
+      "objective": "RX|Pie derecho|Dorsoplantar|Cuneiforme intermedio"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--cuneiforme-lateral",
+      "objective": "RX|Pie derecho|Dorsoplantar|Cuneiforme lateral"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--metatarsiano-1",
+      "objective": "RX|Pie derecho|Dorsoplantar|Metatarsiano 1"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-proximal-del-dedo-1-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange proximal del dedo 1 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-distal-del-dedo-1-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange distal del dedo 1 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--metatarsiano-2",
+      "objective": "RX|Pie derecho|Dorsoplantar|Metatarsiano 2"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-proximal-del-dedo-2-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange proximal del dedo 2 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-media-del-dedo-2-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange media del dedo 2 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-distal-del-dedo-2-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange distal del dedo 2 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--metatarsiano-3",
+      "objective": "RX|Pie derecho|Dorsoplantar|Metatarsiano 3"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-proximal-del-dedo-3-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange proximal del dedo 3 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-media-del-dedo-3-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange media del dedo 3 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-distal-del-dedo-3-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange distal del dedo 3 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--metatarsiano-4",
+      "objective": "RX|Pie derecho|Dorsoplantar|Metatarsiano 4"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-proximal-del-dedo-4-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange proximal del dedo 4 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-media-del-dedo-4-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange media del dedo 4 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-distal-del-dedo-4-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange distal del dedo 4 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--metatarsiano-5",
+      "objective": "RX|Pie derecho|Dorsoplantar|Metatarsiano 5"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-proximal-del-dedo-5-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange proximal del dedo 5 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-dorsoplantar--falange-media-del-dedo-5-del-pie",
+      "objective": "RX|Pie derecho|Dorsoplantar|Falange media del dedo 5 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--calcaneo",
+      "objective": "RX|Pie derecho|Oblicua|Calcáneo"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--astragalo",
+      "objective": "RX|Pie derecho|Oblicua|Astrágalo"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--navicular",
+      "objective": "RX|Pie derecho|Oblicua|Navicular"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--cuboides",
+      "objective": "RX|Pie derecho|Oblicua|Cuboides"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--cuneiforme-medial",
+      "objective": "RX|Pie derecho|Oblicua|Cuneiforme medial"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--cuneiforme-intermedio",
+      "objective": "RX|Pie derecho|Oblicua|Cuneiforme intermedio"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--cuneiforme-lateral",
+      "objective": "RX|Pie derecho|Oblicua|Cuneiforme lateral"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--metatarsiano-1",
+      "objective": "RX|Pie derecho|Oblicua|Metatarsiano 1"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-proximal-del-dedo-1-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange proximal del dedo 1 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-distal-del-dedo-1-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange distal del dedo 1 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--metatarsiano-2",
+      "objective": "RX|Pie derecho|Oblicua|Metatarsiano 2"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-proximal-del-dedo-2-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange proximal del dedo 2 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-media-del-dedo-2-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange media del dedo 2 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-distal-del-dedo-2-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange distal del dedo 2 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--metatarsiano-3",
+      "objective": "RX|Pie derecho|Oblicua|Metatarsiano 3"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-proximal-del-dedo-3-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange proximal del dedo 3 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-media-del-dedo-3-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange media del dedo 3 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-distal-del-dedo-3-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange distal del dedo 3 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--metatarsiano-4",
+      "objective": "RX|Pie derecho|Oblicua|Metatarsiano 4"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-proximal-del-dedo-4-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange proximal del dedo 4 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-media-del-dedo-4-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange media del dedo 4 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-distal-del-dedo-4-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange distal del dedo 4 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--metatarsiano-5",
+      "objective": "RX|Pie derecho|Oblicua|Metatarsiano 5"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-proximal-del-dedo-5-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange proximal del dedo 5 del pie"
+    },
+    {
+      "id": "rx-pie-derecho-oblicua--falange-media-del-dedo-5-del-pie",
+      "objective": "RX|Pie derecho|Oblicua|Falange media del dedo 5 del pie"
+    },
+    {
+      "id": "rx-hombro-ap--cabeza-humeral",
+      "objective": "RX|Hombro|AP|Cabeza humeral"
+    },
+    {
+      "id": "rx-hombro-ap--cuello-anatomico-humeral",
+      "objective": "RX|Hombro|AP|Cuello anatómico humeral"
+    },
+    {
+      "id": "rx-hombro-ap--cuello-quirurgico-humeral",
+      "objective": "RX|Hombro|AP|Cuello quirúrgico humeral"
+    },
+    {
+      "id": "rx-hombro-ap--tuberculo-mayor",
+      "objective": "RX|Hombro|AP|Tubérculo mayor"
+    },
+    {
+      "id": "rx-hombro-ap--tuberculo-menor",
+      "objective": "RX|Hombro|AP|Tubérculo menor"
+    },
+    {
+      "id": "rx-hombro-ap--diafisis-humeral",
+      "objective": "RX|Hombro|AP|Diáfisis humeral"
+    },
+    {
+      "id": "rx-hombro-ap--cavidad-glenoidea",
+      "objective": "RX|Hombro|AP|Cavidad glenoidea"
+    },
+    {
+      "id": "rx-hombro-ap--acromion",
+      "objective": "RX|Hombro|AP|Acromion"
+    },
+    {
+      "id": "rx-hombro-ap--apofisis-coracoides",
+      "objective": "RX|Hombro|AP|Apófisis coracoides"
+    },
+    {
+      "id": "rx-hombro-ap--clavicula-distal",
+      "objective": "RX|Hombro|AP|Clavícula distal"
+    },
+    {
+      "id": "rx-hombro-ap--cuerpo-de-la-escapula",
+      "objective": "RX|Hombro|AP|Cuerpo de la escápula"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--espina-de-la-escapula",
+      "objective": "RX|Escápula|Lateral en Y|Espina de la escápula"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--acromion-escapular",
+      "objective": "RX|Escápula|Lateral en Y|Acromion escapular"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--coracoides-escapular",
+      "objective": "RX|Escápula|Lateral en Y|Coracoides escapular"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--cuerpo-escapular-lateral",
+      "objective": "RX|Escápula|Lateral en Y|Cuerpo escapular lateral"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--angulo-inferior-escapular",
+      "objective": "RX|Escápula|Lateral en Y|Ángulo inferior escapular"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--glenoides-en-perfil",
+      "objective": "RX|Escápula|Lateral en Y|Glenoides en perfil"
+    },
+    {
+      "id": "rx-escapula-lateral-en-y--borde-lateral-escapular",
+      "objective": "RX|Escápula|Lateral en Y|Borde lateral escapular"
+    },
+    {
+      "id": "rx-codo-ap--troclea-humeral",
+      "objective": "RX|Codo|AP|Tróclea humeral"
+    },
+    {
+      "id": "rx-codo-ap--capitulo-humeral",
+      "objective": "RX|Codo|AP|Capítulo humeral"
+    },
+    {
+      "id": "rx-codo-ap--epicondilo-lateral",
+      "objective": "RX|Codo|AP|Epicóndilo lateral"
+    },
+    {
+      "id": "rx-codo-ap--epicondilo-medial",
+      "objective": "RX|Codo|AP|Epicóndilo medial"
+    },
+    {
+      "id": "rx-codo-ap--cabeza-radial",
+      "objective": "RX|Codo|AP|Cabeza radial"
+    },
+    {
+      "id": "rx-codo-ap--cuello-radial",
+      "objective": "RX|Codo|AP|Cuello radial"
+    },
+    {
+      "id": "rx-codo-ap--tuberosidad-radial",
+      "objective": "RX|Codo|AP|Tuberosidad radial"
+    },
+    {
+      "id": "rx-codo-ap--olecranon",
+      "objective": "RX|Codo|AP|Olécranon"
+    },
+    {
+      "id": "rx-codo-ap--apofisis-coronoides-cubital",
+      "objective": "RX|Codo|AP|Apófisis coronoides cubital"
+    },
+    {
+      "id": "rx-codo-ap--escotadura-troclear",
+      "objective": "RX|Codo|AP|Escotadura troclear"
+    },
+    {
+      "id": "rx-codo-ap--diafisis-proximal-del-radio",
+      "objective": "RX|Codo|AP|Diáfisis proximal del radio"
+    },
+    {
+      "id": "rx-codo-lateral--olecranon-en-perfil",
+      "objective": "RX|Codo|Lateral|Olécranon en perfil"
+    },
+    {
+      "id": "rx-codo-lateral--apofisis-coronoides-en-perfil",
+      "objective": "RX|Codo|Lateral|Apófisis coronoides en perfil"
+    },
+    {
+      "id": "rx-codo-lateral--escotadura-troclear-en-perfil",
+      "objective": "RX|Codo|Lateral|Escotadura troclear en perfil"
+    },
+    {
+      "id": "rx-codo-lateral--cabeza-radial-en-perfil",
+      "objective": "RX|Codo|Lateral|Cabeza radial en perfil"
+    },
+    {
+      "id": "rx-codo-lateral--cuello-radial-en-perfil",
+      "objective": "RX|Codo|Lateral|Cuello radial en perfil"
+    },
+    {
+      "id": "rx-codo-lateral--fosa-olecraniana",
+      "objective": "RX|Codo|Lateral|Fosa olecraniana"
+    },
+    {
+      "id": "rx-codo-lateral--humero-distal-lateral",
+      "objective": "RX|Codo|Lateral|Húmero distal lateral"
+    },
+    {
+      "id": "rx-codo-lateral--cubito-proximal-lateral",
+      "objective": "RX|Codo|Lateral|Cúbito proximal lateral"
+    },
+    {
+      "id": "rx-codo-lateral--radio-proximal-lateral",
+      "objective": "RX|Codo|Lateral|Radio proximal lateral"
+    },
+    {
+      "id": "rx-pelvis-ap--cresta-iliaca-derecha",
+      "objective": "RX|Pelvis|AP|Cresta ilíaca derecha"
+    },
+    {
+      "id": "rx-pelvis-ap--cresta-iliaca-izquierda",
+      "objective": "RX|Pelvis|AP|Cresta ilíaca izquierda"
+    },
+    {
+      "id": "rx-pelvis-ap--ala-iliaca-derecha",
+      "objective": "RX|Pelvis|AP|Ala ilíaca derecha"
+    },
+    {
+      "id": "rx-pelvis-ap--ala-iliaca-izquierda",
+      "objective": "RX|Pelvis|AP|Ala ilíaca izquierda"
+    },
+    {
+      "id": "rx-pelvis-ap--sacro",
+      "objective": "RX|Pelvis|AP|Sacro"
+    },
+    {
+      "id": "rx-pelvis-ap--articulacion-sacroiliaca-derecha",
+      "objective": "RX|Pelvis|AP|Articulación sacroilíaca derecha"
+    },
+    {
+      "id": "rx-pelvis-ap--articulacion-sacroiliaca-izquierda",
+      "objective": "RX|Pelvis|AP|Articulación sacroilíaca izquierda"
+    },
+    {
+      "id": "rx-pelvis-ap--acetabulo-derecho",
+      "objective": "RX|Pelvis|AP|Acetábulo derecho"
+    },
+    {
+      "id": "rx-pelvis-ap--acetabulo-izquierdo",
+      "objective": "RX|Pelvis|AP|Acetábulo izquierdo"
+    },
+    {
+      "id": "rx-pelvis-ap--sinfisis-pubica",
+      "objective": "RX|Pelvis|AP|Sínfisis púbica"
+    },
+    {
+      "id": "rx-pelvis-ap--agujero-obturador-derecho",
+      "objective": "RX|Pelvis|AP|Agujero obturador derecho"
+    },
+    {
+      "id": "rx-pelvis-ap--agujero-obturador-izquierdo",
+      "objective": "RX|Pelvis|AP|Agujero obturador izquierdo"
+    },
+    {
+      "id": "rx-pelvis-ap--tuberosidad-isquiatica-derecha",
+      "objective": "RX|Pelvis|AP|Tuberosidad isquiática derecha"
+    },
+    {
+      "id": "rx-pelvis-ap--tuberosidad-isquiatica-izquierda",
+      "objective": "RX|Pelvis|AP|Tuberosidad isquiática izquierda"
+    },
+    {
+      "id": "rx-femur-proximal-ap--cabeza-femoral",
+      "objective": "RX|Fémur proximal|AP|Cabeza femoral"
+    },
+    {
+      "id": "rx-femur-proximal-ap--cuello-femoral",
+      "objective": "RX|Fémur proximal|AP|Cuello femoral"
+    },
+    {
+      "id": "rx-femur-proximal-ap--trocanter-mayor",
+      "objective": "RX|Fémur proximal|AP|Trocánter mayor"
+    },
+    {
+      "id": "rx-femur-proximal-ap--trocanter-menor",
+      "objective": "RX|Fémur proximal|AP|Trocánter menor"
+    },
+    {
+      "id": "rx-femur-proximal-ap--region-intertrocanterica",
+      "objective": "RX|Fémur proximal|AP|Región intertrocantérica"
+    },
+    {
+      "id": "rx-femur-proximal-ap--diafisis-femoral-proximal",
+      "objective": "RX|Fémur proximal|AP|Diáfisis femoral proximal"
+    },
+    {
+      "id": "rx-femur-proximal-ap--fovea-de-la-cabeza-femoral",
+      "objective": "RX|Fémur proximal|AP|Fóvea de la cabeza femoral"
+    },
+    {
+      "id": "rx-rodilla-ap--condilo-femoral-medial",
+      "objective": "RX|Rodilla|AP|Cóndilo femoral medial"
+    },
+    {
+      "id": "rx-rodilla-ap--condilo-femoral-lateral",
+      "objective": "RX|Rodilla|AP|Cóndilo femoral lateral"
+    },
+    {
+      "id": "rx-rodilla-ap--escotadura-intercondilea",
+      "objective": "RX|Rodilla|AP|Escotadura intercondílea"
+    },
+    {
+      "id": "rx-rodilla-ap--meseta-tibial-medial",
+      "objective": "RX|Rodilla|AP|Meseta tibial medial"
+    },
+    {
+      "id": "rx-rodilla-ap--meseta-tibial-lateral",
+      "objective": "RX|Rodilla|AP|Meseta tibial lateral"
+    },
+    {
+      "id": "rx-rodilla-ap--eminencia-intercondilea",
+      "objective": "RX|Rodilla|AP|Eminencia intercondílea"
+    },
+    {
+      "id": "rx-rodilla-ap--cabeza-del-perone",
+      "objective": "RX|Rodilla|AP|Cabeza del peroné"
+    },
+    {
+      "id": "rx-rodilla-ap--cuello-del-perone",
+      "objective": "RX|Rodilla|AP|Cuello del peroné"
+    },
+    {
+      "id": "rx-rodilla-ap--tuberosidad-tibial",
+      "objective": "RX|Rodilla|AP|Tuberosidad tibial"
+    },
+    {
+      "id": "rx-rodilla-ap--diafisis-tibial-proximal",
+      "objective": "RX|Rodilla|AP|Diáfisis tibial proximal"
+    },
+    {
+      "id": "rx-rodilla-ap--interlinea-femorotibial-medial",
+      "objective": "RX|Rodilla|AP|Interlínea femorotibial medial"
+    },
+    {
+      "id": "rx-rodilla-lateral--rotula",
+      "objective": "RX|Rodilla|Lateral|Rótula"
+    },
+    {
+      "id": "rx-rodilla-lateral--troclea-femoral-en-perfil",
+      "objective": "RX|Rodilla|Lateral|Tróclea femoral en perfil"
+    },
+    {
+      "id": "rx-rodilla-lateral--condilos-femorales-superpuestos",
+      "objective": "RX|Rodilla|Lateral|Cóndilos femorales superpuestos"
+    },
+    {
+      "id": "rx-rodilla-lateral--meseta-tibial-en-perfil",
+      "objective": "RX|Rodilla|Lateral|Meseta tibial en perfil"
+    },
+    {
+      "id": "rx-rodilla-lateral--tuberosidad-tibial-en-perfil",
+      "objective": "RX|Rodilla|Lateral|Tuberosidad tibial en perfil"
+    },
+    {
+      "id": "rx-rodilla-lateral--cabeza-fibular-en-perfil",
+      "objective": "RX|Rodilla|Lateral|Cabeza fibular en perfil"
+    },
+    {
+      "id": "rx-rodilla-lateral--espacio-femoropatelar",
+      "objective": "RX|Rodilla|Lateral|Espacio femoropatelar"
+    },
+    {
+      "id": "rx-rodilla-lateral--diafisis-distal-femoral",
+      "objective": "RX|Rodilla|Lateral|Diáfisis distal femoral"
+    },
+    {
+      "id": "rx-rodilla-lateral--diafisis-proximal-tibial-lateral",
+      "objective": "RX|Rodilla|Lateral|Diáfisis proximal tibial lateral"
+    },
+    {
+      "id": "rx-tobillo-ap--maleolo-medial",
+      "objective": "RX|Tobillo|AP|Maléolo medial"
+    },
+    {
+      "id": "rx-tobillo-ap--maleolo-lateral",
+      "objective": "RX|Tobillo|AP|Maléolo lateral"
+    },
+    {
+      "id": "rx-tobillo-ap--cupula-astragalina",
+      "objective": "RX|Tobillo|AP|Cúpula astragalina"
+    },
+    {
+      "id": "rx-tobillo-ap--plafon-tibial",
+      "objective": "RX|Tobillo|AP|Plafón tibial"
+    },
+    {
+      "id": "rx-tobillo-ap--diafisis-tibial-distal",
+      "objective": "RX|Tobillo|AP|Diáfisis tibial distal"
+    },
+    {
+      "id": "rx-tobillo-ap--perone-distal",
+      "objective": "RX|Tobillo|AP|Peroné distal"
+    },
+    {
+      "id": "rx-tobillo-ap--interlinea-tibiotalar",
+      "objective": "RX|Tobillo|AP|Interlínea tibiotalar"
+    },
+    {
+      "id": "rx-tobillo-ap--sindesmosis-distal",
+      "objective": "RX|Tobillo|AP|Sindesmosis distal"
+    },
+    {
+      "id": "rx-tobillo-ap--cuerpo-del-astragalo",
+      "objective": "RX|Tobillo|AP|Cuerpo del astrágalo"
+    },
+    {
+      "id": "rx-tobillo-lateral--tibia-distal-en-perfil",
+      "objective": "RX|Tobillo|Lateral|Tibia distal en perfil"
+    },
+    {
+      "id": "rx-tobillo-lateral--astragalo-en-perfil",
+      "objective": "RX|Tobillo|Lateral|Astrágalo en perfil"
+    },
+    {
+      "id": "rx-tobillo-lateral--cuello-del-astragalo",
+      "objective": "RX|Tobillo|Lateral|Cuello del astrágalo"
+    },
+    {
+      "id": "rx-tobillo-lateral--cabeza-del-astragalo",
+      "objective": "RX|Tobillo|Lateral|Cabeza del astrágalo"
+    },
+    {
+      "id": "rx-tobillo-lateral--calcaneo-en-perfil",
+      "objective": "RX|Tobillo|Lateral|Calcáneo en perfil"
+    },
+    {
+      "id": "rx-tobillo-lateral--tuberosidad-posterior-del-calcaneo",
+      "objective": "RX|Tobillo|Lateral|Tuberosidad posterior del calcáneo"
+    },
+    {
+      "id": "rx-tobillo-lateral--sustentaculo-del-astragalo",
+      "objective": "RX|Tobillo|Lateral|Sustentáculo del astrágalo"
+    },
+    {
+      "id": "rx-tobillo-lateral--navicular-en-perfil",
+      "objective": "RX|Tobillo|Lateral|Navicular en perfil"
+    },
+    {
+      "id": "rx-tobillo-lateral--articulacion-subtalar",
+      "objective": "RX|Tobillo|Lateral|Articulación subtalar"
+    },
+    {
+      "id": "rx-craneo-frontal--hueso-frontal",
+      "objective": "RX|Cráneo|Frontal|Hueso frontal"
+    },
+    {
+      "id": "rx-craneo-frontal--orbita-derecha",
+      "objective": "RX|Cráneo|Frontal|Órbita derecha"
+    },
+    {
+      "id": "rx-craneo-frontal--orbita-izquierda",
+      "objective": "RX|Cráneo|Frontal|Órbita izquierda"
+    },
+    {
+      "id": "rx-craneo-frontal--seno-frontal-derecho",
+      "objective": "RX|Cráneo|Frontal|Seno frontal derecho"
+    },
+    {
+      "id": "rx-craneo-frontal--seno-frontal-izquierdo",
+      "objective": "RX|Cráneo|Frontal|Seno frontal izquierdo"
+    },
+    {
+      "id": "rx-craneo-frontal--tabique-nasal-oseo",
+      "objective": "RX|Cráneo|Frontal|Tabique nasal óseo"
+    },
+    {
+      "id": "rx-craneo-frontal--maxilar-derecho",
+      "objective": "RX|Cráneo|Frontal|Maxilar derecho"
+    },
+    {
+      "id": "rx-craneo-frontal--maxilar-izquierdo",
+      "objective": "RX|Cráneo|Frontal|Maxilar izquierdo"
+    },
+    {
+      "id": "rx-craneo-frontal--cuerpo-mandibular",
+      "objective": "RX|Cráneo|Frontal|Cuerpo mandibular"
+    },
+    {
+      "id": "rx-craneo-frontal--rama-mandibular-derecha",
+      "objective": "RX|Cráneo|Frontal|Rama mandibular derecha"
+    },
+    {
+      "id": "rx-craneo-frontal--rama-mandibular-izquierda",
+      "objective": "RX|Cráneo|Frontal|Rama mandibular izquierda"
+    },
+    {
+      "id": "rx-craneo-frontal--arco-cigomatico-derecho",
+      "objective": "RX|Cráneo|Frontal|Arco cigomático derecho"
+    },
+    {
+      "id": "rx-craneo-lateral--frontal-en-perfil",
+      "objective": "RX|Cráneo|Lateral|Frontal en perfil"
+    },
+    {
+      "id": "rx-craneo-lateral--parietal-en-perfil",
+      "objective": "RX|Cráneo|Lateral|Parietal en perfil"
+    },
+    {
+      "id": "rx-craneo-lateral--occipital-en-perfil",
+      "objective": "RX|Cráneo|Lateral|Occipital en perfil"
+    },
+    {
+      "id": "rx-craneo-lateral--temporal-en-perfil",
+      "objective": "RX|Cráneo|Lateral|Temporal en perfil"
+    },
+    {
+      "id": "rx-craneo-lateral--silla-turca",
+      "objective": "RX|Cráneo|Lateral|Silla turca"
+    },
+    {
+      "id": "rx-craneo-lateral--dorso-de-la-silla",
+      "objective": "RX|Cráneo|Lateral|Dorso de la silla"
+    },
+    {
+      "id": "rx-craneo-lateral--seno-esfenoidal",
+      "objective": "RX|Cráneo|Lateral|Seno esfenoidal"
+    },
+    {
+      "id": "rx-craneo-lateral--seno-frontal-lateral",
+      "objective": "RX|Cráneo|Lateral|Seno frontal lateral"
+    },
+    {
+      "id": "rx-craneo-lateral--maxilar-en-perfil",
+      "objective": "RX|Cráneo|Lateral|Maxilar en perfil"
+    },
+    {
+      "id": "rx-craneo-lateral--mandibula-en-perfil",
+      "objective": "RX|Cráneo|Lateral|Mandíbula en perfil"
+    },
+    {
+      "id": "rx-craneo-lateral--condilo-mandibular",
+      "objective": "RX|Cráneo|Lateral|Cóndilo mandibular"
+    },
+    {
+      "id": "rx-craneo-lateral--apofisis-mastoides",
+      "objective": "RX|Cráneo|Lateral|Apófisis mastoides"
+    },
+    {
+      "id": "rx-columna-cervical-ap--c1",
+      "objective": "RX|Columna cervical|AP|C1"
+    },
+    {
+      "id": "rx-columna-cervical-ap--c2",
+      "objective": "RX|Columna cervical|AP|C2"
+    },
+    {
+      "id": "rx-columna-cervical-ap--c3",
+      "objective": "RX|Columna cervical|AP|C3"
+    },
+    {
+      "id": "rx-columna-cervical-ap--c4",
+      "objective": "RX|Columna cervical|AP|C4"
+    },
+    {
+      "id": "rx-columna-cervical-ap--c5",
+      "objective": "RX|Columna cervical|AP|C5"
+    },
+    {
+      "id": "rx-columna-cervical-ap--c6",
+      "objective": "RX|Columna cervical|AP|C6"
+    },
+    {
+      "id": "rx-columna-cervical-lateral--c1",
+      "objective": "RX|Columna cervical|Lateral|C1"
+    },
+    {
+      "id": "rx-columna-cervical-lateral--c2",
+      "objective": "RX|Columna cervical|Lateral|C2"
+    },
+    {
+      "id": "rx-columna-cervical-lateral--c3",
+      "objective": "RX|Columna cervical|Lateral|C3"
+    },
+    {
+      "id": "rx-columna-cervical-lateral--c4",
+      "objective": "RX|Columna cervical|Lateral|C4"
+    },
+    {
+      "id": "rx-columna-cervical-lateral--c5",
+      "objective": "RX|Columna cervical|Lateral|C5"
+    },
+    {
+      "id": "rx-columna-cervical-lateral--c6",
+      "objective": "RX|Columna cervical|Lateral|C6"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t1",
+      "objective": "RX|Columna torácica|AP|T1"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t2",
+      "objective": "RX|Columna torácica|AP|T2"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t3",
+      "objective": "RX|Columna torácica|AP|T3"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t4",
+      "objective": "RX|Columna torácica|AP|T4"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t5",
+      "objective": "RX|Columna torácica|AP|T5"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t6",
+      "objective": "RX|Columna torácica|AP|T6"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t7",
+      "objective": "RX|Columna torácica|AP|T7"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t8",
+      "objective": "RX|Columna torácica|AP|T8"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t9",
+      "objective": "RX|Columna torácica|AP|T9"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t10",
+      "objective": "RX|Columna torácica|AP|T10"
+    },
+    {
+      "id": "rx-columna-toracica-ap--t11",
+      "objective": "RX|Columna torácica|AP|T11"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t1",
+      "objective": "RX|Columna torácica|Lateral|T1"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t2",
+      "objective": "RX|Columna torácica|Lateral|T2"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t3",
+      "objective": "RX|Columna torácica|Lateral|T3"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t4",
+      "objective": "RX|Columna torácica|Lateral|T4"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t5",
+      "objective": "RX|Columna torácica|Lateral|T5"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t6",
+      "objective": "RX|Columna torácica|Lateral|T6"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t7",
+      "objective": "RX|Columna torácica|Lateral|T7"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t8",
+      "objective": "RX|Columna torácica|Lateral|T8"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t9",
+      "objective": "RX|Columna torácica|Lateral|T9"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t10",
+      "objective": "RX|Columna torácica|Lateral|T10"
+    },
+    {
+      "id": "rx-columna-toracica-lateral--t11",
+      "objective": "RX|Columna torácica|Lateral|T11"
+    },
+    {
+      "id": "rx-columna-lumbar-ap--l1",
+      "objective": "RX|Columna lumbar|AP|L1"
+    },
+    {
+      "id": "rx-columna-lumbar-ap--l2",
+      "objective": "RX|Columna lumbar|AP|L2"
+    },
+    {
+      "id": "rx-columna-lumbar-ap--l3",
+      "objective": "RX|Columna lumbar|AP|L3"
+    },
+    {
+      "id": "rx-columna-lumbar-ap--l4",
+      "objective": "RX|Columna lumbar|AP|L4"
+    },
+    {
+      "id": "rx-columna-lumbar-ap--l5",
+      "objective": "RX|Columna lumbar|AP|L5"
+    },
+    {
+      "id": "rx-columna-lumbar-lateral--l1",
+      "objective": "RX|Columna lumbar|Lateral|L1"
+    },
+    {
+      "id": "rx-columna-lumbar-lateral--l2",
+      "objective": "RX|Columna lumbar|Lateral|L2"
+    },
+    {
+      "id": "rx-columna-lumbar-lateral--l3",
+      "objective": "RX|Columna lumbar|Lateral|L3"
+    },
+    {
+      "id": "rx-columna-lumbar-lateral--l4",
+      "objective": "RX|Columna lumbar|Lateral|L4"
+    },
+    {
+      "id": "rx-columna-lumbar-lateral--l5",
+      "objective": "RX|Columna lumbar|Lateral|L5"
+    },
+    {
+      "id": "rx-humero-ap--diafisis-proximal-humero",
+      "objective": "RX|Húmero|AP|Diáfisis proximal · Húmero"
+    },
+    {
+      "id": "rx-humero-ap--diafisis-media-humero",
+      "objective": "RX|Húmero|AP|Diáfisis media · Húmero"
+    },
+    {
+      "id": "rx-humero-ap--diafisis-distal-humero",
+      "objective": "RX|Húmero|AP|Diáfisis distal · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--cabeza-humero",
+      "objective": "RX|Húmero|Lateral|Cabeza · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--tuberculo-mayor-humero",
+      "objective": "RX|Húmero|Lateral|Tubérculo mayor · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--cuello-quirurgico-humero",
+      "objective": "RX|Húmero|Lateral|Cuello quirúrgico · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--diafisis-proximal-humero",
+      "objective": "RX|Húmero|Lateral|Diáfisis proximal · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--diafisis-media-humero",
+      "objective": "RX|Húmero|Lateral|Diáfisis media · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--diafisis-distal-humero",
+      "objective": "RX|Húmero|Lateral|Diáfisis distal · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--epicondilo-medial-humero",
+      "objective": "RX|Húmero|Lateral|Epicóndilo medial · Húmero"
+    },
+    {
+      "id": "rx-humero-lateral--epicondilo-lateral-humero",
+      "objective": "RX|Húmero|Lateral|Epicóndilo lateral · Húmero"
+    },
+    {
+      "id": "rx-antebrazo-ap--diafisis-radial-antebrazo",
+      "objective": "RX|Antebrazo|AP|Diáfisis radial · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-ap--estiloides-radial-antebrazo",
+      "objective": "RX|Antebrazo|AP|Estiloides radial · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-ap--diafisis-cubital-antebrazo",
+      "objective": "RX|Antebrazo|AP|Diáfisis cubital · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-ap--cabeza-cubital-antebrazo",
+      "objective": "RX|Antebrazo|AP|Cabeza cubital · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-ap--estiloides-cubital-antebrazo",
+      "objective": "RX|Antebrazo|AP|Estiloides cubital · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--cabeza-radial-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Cabeza radial · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--tuberosidad-radial-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Tuberosidad radial · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--diafisis-radial-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Diáfisis radial · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--estiloides-radial-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Estiloides radial · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--olecranon-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Olécranon · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--diafisis-cubital-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Diáfisis cubital · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--cabeza-cubital-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Cabeza cubital · Antebrazo"
+    },
+    {
+      "id": "rx-antebrazo-lateral--estiloides-cubital-antebrazo",
+      "objective": "RX|Antebrazo|Lateral|Estiloides cubital · Antebrazo"
+    },
+    {
+      "id": "rx-pierna-ap--condilo-tibial-medial-pierna",
+      "objective": "RX|Pierna|AP|Cóndilo tibial medial · Pierna"
+    },
+    {
+      "id": "rx-pierna-ap--condilo-tibial-lateral-pierna",
+      "objective": "RX|Pierna|AP|Cóndilo tibial lateral · Pierna"
+    },
+    {
+      "id": "rx-pierna-ap--tuberosidad-tibial-pierna",
+      "objective": "RX|Pierna|AP|Tuberosidad tibial · Pierna"
+    },
+    {
+      "id": "rx-pierna-ap--cresta-tibial-pierna",
+      "objective": "RX|Pierna|AP|Cresta tibial · Pierna"
+    },
+    {
+      "id": "rx-pierna-ap--diafisis-tibial-pierna",
+      "objective": "RX|Pierna|AP|Diáfisis tibial · Pierna"
+    },
+    {
+      "id": "rx-pierna-ap--diafisis-fibular-pierna",
+      "objective": "RX|Pierna|AP|Diáfisis fibular · Pierna"
+    },
+    {
+      "id": "rx-pierna-lateral--condilo-tibial-medial-pierna",
+      "objective": "RX|Pierna|Lateral|Cóndilo tibial medial · Pierna"
+    },
+    {
+      "id": "rx-pierna-lateral--condilo-tibial-lateral-pierna",
+      "objective": "RX|Pierna|Lateral|Cóndilo tibial lateral · Pierna"
+    },
+    {
+      "id": "rx-pierna-lateral--tuberosidad-tibial-pierna",
+      "objective": "RX|Pierna|Lateral|Tuberosidad tibial · Pierna"
+    },
+    {
+      "id": "rx-pierna-lateral--cresta-tibial-pierna",
+      "objective": "RX|Pierna|Lateral|Cresta tibial · Pierna"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--lobulo-frontal-derecho",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Lóbulo frontal derecho"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--lobulo-frontal-izquierdo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Lóbulo frontal izquierdo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--nucleo-caudado-derecho",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Núcleo caudado derecho"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--nucleo-caudado-izquierdo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Núcleo caudado izquierdo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--putamen-derecho",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Putamen derecho"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--putamen-izquierdo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Putamen izquierdo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--talamo-derecho",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Tálamo derecho"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--talamo-izquierdo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Tálamo izquierdo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--tercer-ventriculo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Tercer ventrículo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--ventriculo-lateral-derecho",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Ventrículo lateral derecho"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--ventriculo-lateral-izquierdo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Ventrículo lateral izquierdo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--lobulo-occipital-derecho",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Lóbulo occipital derecho"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--lobulo-occipital-izquierdo",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Lóbulo occipital izquierdo"
+    },
+    {
+      "id": "tc-encefalo-ganglios-basales-axial--hoz-cerebral",
+      "objective": "TC|Encéfalo · ganglios basales|Axial|Hoz cerebral"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--hemisferio-cerebeloso-derecho",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Hemisferio cerebeloso derecho"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--hemisferio-cerebeloso-izquierdo",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Hemisferio cerebeloso izquierdo"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--vermis-cerebeloso",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Vermis cerebeloso"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--puente",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Puente"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--cuarto-ventriculo",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Cuarto ventrículo"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--penasco-temporal-derecho",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Peñasco temporal derecho"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--penasco-temporal-izquierdo",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Peñasco temporal izquierdo"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--lobulo-temporal-derecho",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Lóbulo temporal derecho"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--lobulo-temporal-izquierdo",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Lóbulo temporal izquierdo"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--clivus",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Clivus"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--seno-esfenoidal",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Seno esfenoidal"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--orbita-derecha",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Órbita derecha"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--orbita-izquierda",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Órbita izquierda"
+    },
+    {
+      "id": "tc-encefalo-fosa-posterior-axial--celdillas-mastoideas-derechas",
+      "objective": "TC|Encéfalo · fosa posterior|Axial|Celdillas mastoideas derechas"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--traquea-cervical",
+      "objective": "TC|Cuello · región tiroidea|Axial|Tráquea cervical"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--esofago-cervical",
+      "objective": "TC|Cuello · región tiroidea|Axial|Esófago cervical"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--lobulo-tiroideo-derecho",
+      "objective": "TC|Cuello · región tiroidea|Axial|Lóbulo tiroideo derecho"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--lobulo-tiroideo-izquierdo",
+      "objective": "TC|Cuello · región tiroidea|Axial|Lóbulo tiroideo izquierdo"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--carotida-comun-derecha",
+      "objective": "TC|Cuello · región tiroidea|Axial|Carótida común derecha"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--carotida-comun-izquierda",
+      "objective": "TC|Cuello · región tiroidea|Axial|Carótida común izquierda"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--yugular-interna-derecha",
+      "objective": "TC|Cuello · región tiroidea|Axial|Yugular interna derecha"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--yugular-interna-izquierda",
+      "objective": "TC|Cuello · región tiroidea|Axial|Yugular interna izquierda"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--esternocleidomastoideo-derecho",
+      "objective": "TC|Cuello · región tiroidea|Axial|Esternocleidomastoideo derecho"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--esternocleidomastoideo-izquierdo",
+      "objective": "TC|Cuello · región tiroidea|Axial|Esternocleidomastoideo izquierdo"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--cuerpo-vertebral-cervical",
+      "objective": "TC|Cuello · región tiroidea|Axial|Cuerpo vertebral cervical"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--canal-vertebral-cervical",
+      "objective": "TC|Cuello · región tiroidea|Axial|Canal vertebral cervical"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--musculo-largo-del-cuello-derecho",
+      "objective": "TC|Cuello · región tiroidea|Axial|Músculo largo del cuello derecho"
+    },
+    {
+      "id": "tc-cuello-region-tiroidea-axial--musculo-largo-del-cuello-izquierdo",
+      "objective": "TC|Cuello · región tiroidea|Axial|Músculo largo del cuello izquierdo"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--pulmon-derecho-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Pulmón derecho superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--pulmon-izquierdo-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Pulmón izquierdo superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--arco-aortico",
+      "objective": "TC|Tórax · arco aórtico|Axial|Arco aórtico"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--traquea-toracica",
+      "objective": "TC|Tórax · arco aórtico|Axial|Tráquea torácica"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--esofago-toracico-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Esófago torácico superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--vena-cava-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Vena cava superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--esternon-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Esternón superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--cuerpo-vertebral-toracico-alto",
+      "objective": "TC|Tórax · arco aórtico|Axial|Cuerpo vertebral torácico alto"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--canal-toracico-alto",
+      "objective": "TC|Tórax · arco aórtico|Axial|Canal torácico alto"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--escapula-derecha-en-torax-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Escápula derecha en tórax superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--escapula-izquierda-en-torax-superior",
+      "objective": "TC|Tórax · arco aórtico|Axial|Escápula izquierda en tórax superior"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--pectoral-derecho",
+      "objective": "TC|Tórax · arco aórtico|Axial|Pectoral derecho"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--pectoral-izquierdo",
+      "objective": "TC|Tórax · arco aórtico|Axial|Pectoral izquierdo"
+    },
+    {
+      "id": "tc-torax-arco-aortico-axial--costilla-derecha-lateral",
+      "objective": "TC|Tórax · arco aórtico|Axial|Costilla derecha lateral"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--bronquio-principal-derecho",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Bronquio principal derecho"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--bronquio-principal-izquierdo",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Bronquio principal izquierdo"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--carina",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Carina"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--arteria-pulmonar-derecha",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Arteria pulmonar derecha"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--arteria-pulmonar-izquierda",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Arteria pulmonar izquierda"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--aorta-ascendente",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Aorta ascendente"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--aorta-descendente-toracica",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Aorta descendente torácica"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--vena-acigos",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Vena ácigos"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--esofago-subcarinal",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Esófago subcarinal"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--pulmon-derecho-a-nivel-hiliar",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Pulmón derecho a nivel hiliar"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--pulmon-izquierdo-a-nivel-hiliar",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Pulmón izquierdo a nivel hiliar"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--cuerpo-vertebral-a-nivel-hiliar",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Cuerpo vertebral a nivel hiliar"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--esternon-medio",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Esternón medio"
+    },
+    {
+      "id": "tc-torax-bifurcacion-traqueal-axial--costilla-posterior-derecha",
+      "objective": "TC|Tórax · bifurcación traqueal|Axial|Costilla posterior derecha"
+    },
+    {
+      "id": "tc-torax-corazon-axial--ventriculo-derecho",
+      "objective": "TC|Tórax · corazón|Axial|Ventrículo derecho"
+    },
+    {
+      "id": "tc-torax-corazon-axial--ventriculo-izquierdo",
+      "objective": "TC|Tórax · corazón|Axial|Ventrículo izquierdo"
+    },
+    {
+      "id": "tc-torax-corazon-axial--auricula-derecha",
+      "objective": "TC|Tórax · corazón|Axial|Aurícula derecha"
+    },
+    {
+      "id": "tc-torax-corazon-axial--auricula-izquierda",
+      "objective": "TC|Tórax · corazón|Axial|Aurícula izquierda"
+    },
+    {
+      "id": "tc-torax-corazon-axial--tabique-interventricular",
+      "objective": "TC|Tórax · corazón|Axial|Tabique interventricular"
+    },
+    {
+      "id": "tc-torax-corazon-axial--aorta-toracica-descendente",
+      "objective": "TC|Tórax · corazón|Axial|Aorta torácica descendente"
+    },
+    {
+      "id": "tc-torax-corazon-axial--esofago-retrocardiaco",
+      "objective": "TC|Tórax · corazón|Axial|Esófago retrocardíaco"
+    },
+    {
+      "id": "tc-torax-corazon-axial--pulmon-derecho-basal",
+      "objective": "TC|Tórax · corazón|Axial|Pulmón derecho basal"
+    },
+    {
+      "id": "tc-torax-corazon-axial--pulmon-izquierdo-basal",
+      "objective": "TC|Tórax · corazón|Axial|Pulmón izquierdo basal"
+    },
+    {
+      "id": "tc-torax-corazon-axial--esternon-inferior",
+      "objective": "TC|Tórax · corazón|Axial|Esternón inferior"
+    },
+    {
+      "id": "tc-torax-corazon-axial--vertebra-toracica-inferior",
+      "objective": "TC|Tórax · corazón|Axial|Vértebra torácica inferior"
+    },
+    {
+      "id": "tc-torax-corazon-axial--canal-vertebral-toracico-inferior",
+      "objective": "TC|Tórax · corazón|Axial|Canal vertebral torácico inferior"
+    },
+    {
+      "id": "tc-torax-corazon-axial--pared-toracica-derecha",
+      "objective": "TC|Tórax · corazón|Axial|Pared torácica derecha"
+    },
+    {
+      "id": "tc-torax-corazon-axial--pared-toracica-izquierda",
+      "objective": "TC|Tórax · corazón|Axial|Pared torácica izquierda"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--lobulo-hepatico-derecho",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Lóbulo hepático derecho"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--lobulo-hepatico-izquierdo",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Lóbulo hepático izquierdo"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--bazo",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Bazo"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--estomago",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Estómago"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--aorta-abdominal-superior",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Aorta abdominal superior"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--vena-cava-inferior-superior",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Vena cava inferior superior"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--glandula-suprarrenal-derecha",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Glándula suprarrenal derecha"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--glandula-suprarrenal-izquierda",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Glándula suprarrenal izquierda"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--pilar-diafragmatico-derecho",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Pilar diafragmático derecho"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--pilar-diafragmatico-izquierdo",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Pilar diafragmático izquierdo"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--cuerpo-vertebral-lumbar-alto",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Cuerpo vertebral lumbar alto"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--canal-lumbar-alto",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Canal lumbar alto"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--pared-abdominal-anterior-derecha",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Pared abdominal anterior derecha"
+    },
+    {
+      "id": "tc-abdomen-higado-y-bazo-axial--pared-abdominal-anterior-izquierda",
+      "objective": "TC|Abdomen · hígado y bazo|Axial|Pared abdominal anterior izquierda"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--rinon-derecho",
+      "objective": "TC|Abdomen · hilios renales|Axial|Riñón derecho"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--rinon-izquierdo",
+      "objective": "TC|Abdomen · hilios renales|Axial|Riñón izquierdo"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--pelvis-renal-derecha",
+      "objective": "TC|Abdomen · hilios renales|Axial|Pelvis renal derecha"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--pelvis-renal-izquierda",
+      "objective": "TC|Abdomen · hilios renales|Axial|Pelvis renal izquierda"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--aorta-infrarrenal",
+      "objective": "TC|Abdomen · hilios renales|Axial|Aorta infrarrenal"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--vena-cava-inferior-infrarrenal",
+      "objective": "TC|Abdomen · hilios renales|Axial|Vena cava inferior infrarrenal"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--pancreas",
+      "objective": "TC|Abdomen · hilios renales|Axial|Páncreas"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--duodeno",
+      "objective": "TC|Abdomen · hilios renales|Axial|Duodeno"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--colon-ascendente",
+      "objective": "TC|Abdomen · hilios renales|Axial|Colon ascendente"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--colon-descendente",
+      "objective": "TC|Abdomen · hilios renales|Axial|Colon descendente"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--psoas-derecho",
+      "objective": "TC|Abdomen · hilios renales|Axial|Psoas derecho"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--psoas-izquierdo",
+      "objective": "TC|Abdomen · hilios renales|Axial|Psoas izquierdo"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--cuerpo-vertebral-lumbar-medio",
+      "objective": "TC|Abdomen · hilios renales|Axial|Cuerpo vertebral lumbar medio"
+    },
+    {
+      "id": "tc-abdomen-hilios-renales-axial--recto-abdominal-derecho",
+      "objective": "TC|Abdomen · hilios renales|Axial|Recto abdominal derecho"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--arteria-mesenterica-superior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Arteria mesentérica superior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--vena-mesenterica-superior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Vena mesentérica superior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--yeyuno",
+      "objective": "TC|Abdomen · mesenterio|Axial|Yeyuno"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--ileon",
+      "objective": "TC|Abdomen · mesenterio|Axial|Íleon"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--mesenterio",
+      "objective": "TC|Abdomen · mesenterio|Axial|Mesenterio"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--colon-ascendente-infrarrenal",
+      "objective": "TC|Abdomen · mesenterio|Axial|Colon ascendente infrarrenal"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--colon-descendente-infrarrenal",
+      "objective": "TC|Abdomen · mesenterio|Axial|Colon descendente infrarrenal"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--aorta-lumbar-inferior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Aorta lumbar inferior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--vena-cava-lumbar-inferior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Vena cava lumbar inferior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--psoas-mayor-derecho-inferior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Psoas mayor derecho inferior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--psoas-mayor-izquierdo-inferior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Psoas mayor izquierdo inferior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--cuerpo-vertebral-lumbar-inferior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Cuerpo vertebral lumbar inferior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--canal-lumbar-inferior",
+      "objective": "TC|Abdomen · mesenterio|Axial|Canal lumbar inferior"
+    },
+    {
+      "id": "tc-abdomen-mesenterio-axial--oblicuo-externo-derecho",
+      "objective": "TC|Abdomen · mesenterio|Axial|Oblicuo externo derecho"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--ala-iliaca-derecha-seccional",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Ala ilíaca derecha seccional"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--ala-iliaca-izquierda-seccional",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Ala ilíaca izquierda seccional"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--sacro-superior-seccional",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Sacro superior seccional"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--musculo-iliaco-derecho",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Músculo ilíaco derecho"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--musculo-iliaco-izquierdo",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Músculo ilíaco izquierdo"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--psoas-derecho-pelvico",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Psoas derecho pélvico"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--psoas-izquierdo-pelvico",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Psoas izquierdo pélvico"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--arteria-iliaca-comun-derecha",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Arteria ilíaca común derecha"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--arteria-iliaca-comun-izquierda",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Arteria ilíaca común izquierda"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--colon-sigmoide",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Colon sigmoide"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--asas-ileales-pelvicas",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Asas ileales pélvicas"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--recto-superior",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Recto superior"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--gluteo-mayor-derecho-superior",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Glúteo mayor derecho superior"
+    },
+    {
+      "id": "tc-pelvis-estrecho-superior-axial--gluteo-mayor-izquierdo-superior",
+      "objective": "TC|Pelvis · estrecho superior|Axial|Glúteo mayor izquierdo superior"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--cabeza-femoral-derecha-seccional",
+      "objective": "TC|Pelvis · acetábulos|Axial|Cabeza femoral derecha seccional"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--cabeza-femoral-izquierda-seccional",
+      "objective": "TC|Pelvis · acetábulos|Axial|Cabeza femoral izquierda seccional"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--acetabulo-derecho-seccional",
+      "objective": "TC|Pelvis · acetábulos|Axial|Acetábulo derecho seccional"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--acetabulo-izquierdo-seccional",
+      "objective": "TC|Pelvis · acetábulos|Axial|Acetábulo izquierdo seccional"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--vejiga",
+      "objective": "TC|Pelvis · acetábulos|Axial|Vejiga"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--recto-medio",
+      "objective": "TC|Pelvis · acetábulos|Axial|Recto medio"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--obturador-interno-derecho",
+      "objective": "TC|Pelvis · acetábulos|Axial|Obturador interno derecho"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--obturador-interno-izquierdo",
+      "objective": "TC|Pelvis · acetábulos|Axial|Obturador interno izquierdo"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--gluteo-medio-derecho",
+      "objective": "TC|Pelvis · acetábulos|Axial|Glúteo medio derecho"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--gluteo-medio-izquierdo",
+      "objective": "TC|Pelvis · acetábulos|Axial|Glúteo medio izquierdo"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--gluteo-mayor-derecho",
+      "objective": "TC|Pelvis · acetábulos|Axial|Glúteo mayor derecho"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--gluteo-mayor-izquierdo",
+      "objective": "TC|Pelvis · acetábulos|Axial|Glúteo mayor izquierdo"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--sacro-medio",
+      "objective": "TC|Pelvis · acetábulos|Axial|Sacro medio"
+    },
+    {
+      "id": "tc-pelvis-acetabulos-axial--pubis-derecho-seccional",
+      "objective": "TC|Pelvis · acetábulos|Axial|Pubis derecho seccional"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--seno-maxilar-derecho",
+      "objective": "TC|Senos paranasales|Coronal|Seno maxilar derecho"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--seno-maxilar-izquierdo",
+      "objective": "TC|Senos paranasales|Coronal|Seno maxilar izquierdo"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--celdillas-etmoidales-derechas",
+      "objective": "TC|Senos paranasales|Coronal|Celdillas etmoidales derechas"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--celdillas-etmoidales-izquierdas",
+      "objective": "TC|Senos paranasales|Coronal|Celdillas etmoidales izquierdas"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--tabique-nasal",
+      "objective": "TC|Senos paranasales|Coronal|Tabique nasal"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--cornete-inferior-derecho",
+      "objective": "TC|Senos paranasales|Coronal|Cornete inferior derecho"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--cornete-inferior-izquierdo",
+      "objective": "TC|Senos paranasales|Coronal|Cornete inferior izquierdo"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--cornete-medio-derecho",
+      "objective": "TC|Senos paranasales|Coronal|Cornete medio derecho"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--cornete-medio-izquierdo",
+      "objective": "TC|Senos paranasales|Coronal|Cornete medio izquierdo"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--orbita-derecha-coronal",
+      "objective": "TC|Senos paranasales|Coronal|Órbita derecha coronal"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--orbita-izquierda-coronal",
+      "objective": "TC|Senos paranasales|Coronal|Órbita izquierda coronal"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--paladar-duro",
+      "objective": "TC|Senos paranasales|Coronal|Paladar duro"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--seno-frontal-derecho-coronal",
+      "objective": "TC|Senos paranasales|Coronal|Seno frontal derecho coronal"
+    },
+    {
+      "id": "tc-senos-paranasales-coronal--seno-frontal-izquierdo-coronal",
+      "objective": "TC|Senos paranasales|Coronal|Seno frontal izquierdo coronal"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--cuerpo-vertebral-lumbar",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Cuerpo vertebral lumbar"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--pediculo-derecho",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Pedículo derecho"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--pediculo-izquierdo",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Pedículo izquierdo"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--lamina-derecha",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Lámina derecha"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--lamina-izquierda",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Lámina izquierda"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--apofisis-espinosa-lumbar",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Apófisis espinosa lumbar"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--apofisis-transversa-derecha",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Apófisis transversa derecha"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--apofisis-transversa-izquierda",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Apófisis transversa izquierda"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--canal-vertebral-lumbar",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Canal vertebral lumbar"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--faceta-articular-derecha",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Faceta articular derecha"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--faceta-articular-izquierda",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Faceta articular izquierda"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--psoas-mayor-derecho-seccional",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Psoas mayor derecho seccional"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--psoas-mayor-izquierdo-seccional",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Psoas mayor izquierdo seccional"
+    },
+    {
+      "id": "tc-columna-lumbar-vertebra-axial--multifido-derecho",
+      "objective": "TC|Columna lumbar · vértebra|Axial|Multífido derecho"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--cuerpo-cervical-seccional",
+      "objective": "TC|Columna cervical · vértebra|Axial|Cuerpo cervical seccional"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--foramen-transverso-derecho",
+      "objective": "TC|Columna cervical · vértebra|Axial|Foramen transverso derecho"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--foramen-transverso-izquierdo",
+      "objective": "TC|Columna cervical · vértebra|Axial|Foramen transverso izquierdo"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--canal-cervical-seccional",
+      "objective": "TC|Columna cervical · vértebra|Axial|Canal cervical seccional"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--pediculo-cervical-derecho",
+      "objective": "TC|Columna cervical · vértebra|Axial|Pedículo cervical derecho"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--pediculo-cervical-izquierdo",
+      "objective": "TC|Columna cervical · vértebra|Axial|Pedículo cervical izquierdo"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--lamina-cervical-derecha",
+      "objective": "TC|Columna cervical · vértebra|Axial|Lámina cervical derecha"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--lamina-cervical-izquierda",
+      "objective": "TC|Columna cervical · vértebra|Axial|Lámina cervical izquierda"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--apofisis-espinosa-bifida",
+      "objective": "TC|Columna cervical · vértebra|Axial|Apófisis espinosa bífida"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--carotida-derecha-cervical",
+      "objective": "TC|Columna cervical · vértebra|Axial|Carótida derecha cervical"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--carotida-izquierda-cervical",
+      "objective": "TC|Columna cervical · vértebra|Axial|Carótida izquierda cervical"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--musculo-largo-del-cuello-derecho-seccional",
+      "objective": "TC|Columna cervical · vértebra|Axial|Músculo largo del cuello derecho seccional"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--musculo-largo-del-cuello-izquierdo-seccional",
+      "objective": "TC|Columna cervical · vértebra|Axial|Músculo largo del cuello izquierdo seccional"
+    },
+    {
+      "id": "tc-columna-cervical-vertebra-axial--musculo-paravertebral-cervical-derecho",
+      "objective": "TC|Columna cervical · vértebra|Axial|Músculo paravertebral cervical derecho"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--apice-pulmonar-derecho-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Ápice pulmonar derecho coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--apice-pulmonar-izquierdo-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Ápice pulmonar izquierdo coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--bronquio-derecho-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Bronquio derecho coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--bronquio-izquierdo-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Bronquio izquierdo coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--traquea-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Tráquea coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--ventriculo-izquierdo-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Ventrículo izquierdo coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--auricula-derecha-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Aurícula derecha coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--hemidiafragma-derecho-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Hemidiafragma derecho coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--hemidiafragma-izquierdo-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Hemidiafragma izquierdo coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--seno-costofrenico-derecho-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Seno costofrénico derecho coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--seno-costofrenico-izquierdo-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Seno costofrénico izquierdo coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--hilio-derecho-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Hilio derecho coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--hilio-izquierdo-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Hilio izquierdo coronal"
+    },
+    {
+      "id": "tc-torax-reconstruccion-anterior-coronal--aorta-ascendente-coronal",
+      "objective": "TC|Tórax · reconstrucción anterior|Coronal|Aorta ascendente coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--higado-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Hígado coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--bazo-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Bazo coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--estomago-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Estómago coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--rinon-derecho-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Riñón derecho coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--rinon-izquierdo-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Riñón izquierdo coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--ureter-derecho-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Uréter derecho coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--ureter-izquierdo-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Uréter izquierdo coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--vejiga-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Vejiga coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--colon-ascendente-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Colon ascendente coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--colon-descendente-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Colon descendente coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--colon-transverso-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Colon transverso coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--aorta-abdominal-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Aorta abdominal coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--vena-cava-inferior-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Vena cava inferior coronal"
+    },
+    {
+      "id": "tc-abdomen-reconstruccion-visceral-coronal--psoas-derecho-coronal",
+      "objective": "TC|Abdomen · reconstrucción visceral|Coronal|Psoas derecho coronal"
+    },
+    {
+      "id": "tc-muslo-medio-axial--femur",
+      "objective": "TC|Muslo medio|Axial|Fémur"
+    },
+    {
+      "id": "tc-muslo-medio-axial--cuadriceps",
+      "objective": "TC|Muslo medio|Axial|Cuádriceps"
+    },
+    {
+      "id": "tc-muslo-medio-axial--recto-femoral",
+      "objective": "TC|Muslo medio|Axial|Recto femoral"
+    },
+    {
+      "id": "tc-muslo-medio-axial--vasto-medial",
+      "objective": "TC|Muslo medio|Axial|Vasto medial"
+    },
+    {
+      "id": "tc-muslo-medio-axial--vasto-lateral",
+      "objective": "TC|Muslo medio|Axial|Vasto lateral"
+    },
+    {
+      "id": "tc-muslo-medio-axial--vasto-intermedio",
+      "objective": "TC|Muslo medio|Axial|Vasto intermedio"
+    },
+    {
+      "id": "tc-muslo-medio-axial--sartorio",
+      "objective": "TC|Muslo medio|Axial|Sartorio"
+    },
+    {
+      "id": "tc-muslo-medio-axial--aductor-largo",
+      "objective": "TC|Muslo medio|Axial|Aductor largo"
+    },
+    {
+      "id": "tc-muslo-medio-axial--aductor-mayor",
+      "objective": "TC|Muslo medio|Axial|Aductor mayor"
+    },
+    {
+      "id": "tc-muslo-medio-axial--biceps-femoral",
+      "objective": "TC|Muslo medio|Axial|Bíceps femoral"
+    },
+    {
+      "id": "tc-muslo-medio-axial--semitendinoso",
+      "objective": "TC|Muslo medio|Axial|Semitendinoso"
+    },
+    {
+      "id": "tc-muslo-medio-axial--semimembranoso",
+      "objective": "TC|Muslo medio|Axial|Semimembranoso"
+    },
+    {
+      "id": "tc-muslo-medio-axial--arteria-femoral",
+      "objective": "TC|Muslo medio|Axial|Arteria femoral"
+    },
+    {
+      "id": "tc-muslo-medio-axial--vena-femoral",
+      "objective": "TC|Muslo medio|Axial|Vena femoral"
+    },
+    {
+      "id": "tc-pierna-media-axial--tibia",
+      "objective": "TC|Pierna media|Axial|Tibia"
+    },
+    {
+      "id": "tc-pierna-media-axial--perone",
+      "objective": "TC|Pierna media|Axial|Peroné"
+    },
+    {
+      "id": "tc-pierna-media-axial--tibial-anterior",
+      "objective": "TC|Pierna media|Axial|Tibial anterior"
+    },
+    {
+      "id": "tc-pierna-media-axial--extensor-largo-de-los-dedos",
+      "objective": "TC|Pierna media|Axial|Extensor largo de los dedos"
+    },
+    {
+      "id": "tc-pierna-media-axial--extensor-largo-del-hallux",
+      "objective": "TC|Pierna media|Axial|Extensor largo del hallux"
+    },
+    {
+      "id": "tc-pierna-media-axial--peroneo-largo",
+      "objective": "TC|Pierna media|Axial|Peroneo largo"
+    },
+    {
+      "id": "tc-pierna-media-axial--peroneo-corto",
+      "objective": "TC|Pierna media|Axial|Peroneo corto"
+    },
+    {
+      "id": "tc-pierna-media-axial--soleo",
+      "objective": "TC|Pierna media|Axial|Sóleo"
+    },
+    {
+      "id": "tc-pierna-media-axial--gastrocnemio-medial",
+      "objective": "TC|Pierna media|Axial|Gastrocnemio medial"
+    },
+    {
+      "id": "tc-pierna-media-axial--gastrocnemio-lateral",
+      "objective": "TC|Pierna media|Axial|Gastrocnemio lateral"
+    },
+    {
+      "id": "tc-pierna-media-axial--tibial-posterior",
+      "objective": "TC|Pierna media|Axial|Tibial posterior"
+    },
+    {
+      "id": "tc-pierna-media-axial--flexor-largo-de-los-dedos",
+      "objective": "TC|Pierna media|Axial|Flexor largo de los dedos"
+    },
+    {
+      "id": "tc-pierna-media-axial--flexor-largo-del-hallux",
+      "objective": "TC|Pierna media|Axial|Flexor largo del hallux"
+    },
+    {
+      "id": "tc-pierna-media-axial--membrana-interosea",
+      "objective": "TC|Pierna media|Axial|Membrana interósea"
+    },
+    {
+      "id": "tc-brazo-medio-axial--humero",
+      "objective": "TC|Brazo medio|Axial|Húmero"
+    },
+    {
+      "id": "tc-brazo-medio-axial--biceps-braquial",
+      "objective": "TC|Brazo medio|Axial|Bíceps braquial"
+    },
+    {
+      "id": "tc-brazo-medio-axial--braquial",
+      "objective": "TC|Brazo medio|Axial|Braquial"
+    },
+    {
+      "id": "tc-brazo-medio-axial--triceps-cabeza-larga",
+      "objective": "TC|Brazo medio|Axial|Tríceps cabeza larga"
+    },
+    {
+      "id": "tc-brazo-medio-axial--triceps-cabeza-lateral",
+      "objective": "TC|Brazo medio|Axial|Tríceps cabeza lateral"
+    },
+    {
+      "id": "tc-brazo-medio-axial--triceps-cabeza-medial",
+      "objective": "TC|Brazo medio|Axial|Tríceps cabeza medial"
+    },
+    {
+      "id": "tc-brazo-medio-axial--arteria-braquial",
+      "objective": "TC|Brazo medio|Axial|Arteria braquial"
+    },
+    {
+      "id": "tc-brazo-medio-axial--venas-braquiales",
+      "objective": "TC|Brazo medio|Axial|Venas braquiales"
+    },
+    {
+      "id": "tc-brazo-medio-axial--nervio-mediano",
+      "objective": "TC|Brazo medio|Axial|Nervio mediano"
+    },
+    {
+      "id": "tc-brazo-medio-axial--nervio-radial",
+      "objective": "TC|Brazo medio|Axial|Nervio radial"
+    },
+    {
+      "id": "tc-brazo-medio-axial--nervio-cubital",
+      "objective": "TC|Brazo medio|Axial|Nervio cubital"
+    },
+    {
+      "id": "tc-brazo-medio-axial--tabique-intermuscular-medial",
+      "objective": "TC|Brazo medio|Axial|Tabique intermuscular medial"
+    },
+    {
+      "id": "tc-brazo-medio-axial--tabique-intermuscular-lateral",
+      "objective": "TC|Brazo medio|Axial|Tabique intermuscular lateral"
+    },
+    {
+      "id": "tc-brazo-medio-axial--piel-anterior-del-brazo",
+      "objective": "TC|Brazo medio|Axial|Piel anterior del brazo"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--radio",
+      "objective": "TC|Antebrazo medio|Axial|Radio"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--cubito",
+      "objective": "TC|Antebrazo medio|Axial|Cúbito"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--membrana-interosea-antebraquial",
+      "objective": "TC|Antebrazo medio|Axial|Membrana interósea antebraquial"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--flexor-superficial-de-los-dedos",
+      "objective": "TC|Antebrazo medio|Axial|Flexor superficial de los dedos"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--flexor-profundo-de-los-dedos",
+      "objective": "TC|Antebrazo medio|Axial|Flexor profundo de los dedos"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--flexor-largo-del-pulgar",
+      "objective": "TC|Antebrazo medio|Axial|Flexor largo del pulgar"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--braquiorradial",
+      "objective": "TC|Antebrazo medio|Axial|Braquiorradial"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--extensor-comun-de-los-dedos",
+      "objective": "TC|Antebrazo medio|Axial|Extensor común de los dedos"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--extensor-cubital-del-carpo",
+      "objective": "TC|Antebrazo medio|Axial|Extensor cubital del carpo"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--flexor-cubital-del-carpo",
+      "objective": "TC|Antebrazo medio|Axial|Flexor cubital del carpo"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--pronador-redondo",
+      "objective": "TC|Antebrazo medio|Axial|Pronador redondo"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--arteria-radial",
+      "objective": "TC|Antebrazo medio|Axial|Arteria radial"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--arteria-cubital",
+      "objective": "TC|Antebrazo medio|Axial|Arteria cubital"
+    },
+    {
+      "id": "tc-antebrazo-medio-axial--nervio-mediano-antebraquial",
+      "objective": "TC|Antebrazo medio|Axial|Nervio mediano antebraquial"
+    },
+    {
+      "id": "rm-encefalo-sagital--cuerpo-calloso",
+      "objective": "RM|Encéfalo|Sagital|Cuerpo calloso"
+    },
+    {
+      "id": "rm-encefalo-sagital--rodilla-del-cuerpo-calloso",
+      "objective": "RM|Encéfalo|Sagital|Rodilla del cuerpo calloso"
+    },
+    {
+      "id": "rm-encefalo-sagital--esplenio-del-cuerpo-calloso",
+      "objective": "RM|Encéfalo|Sagital|Esplenio del cuerpo calloso"
+    },
+    {
+      "id": "rm-encefalo-sagital--talamo-sagital",
+      "objective": "RM|Encéfalo|Sagital|Tálamo sagital"
+    },
+    {
+      "id": "rm-encefalo-sagital--hipofisis",
+      "objective": "RM|Encéfalo|Sagital|Hipófisis"
+    },
+    {
+      "id": "rm-encefalo-sagital--quiasma-optico",
+      "objective": "RM|Encéfalo|Sagital|Quiasma óptico"
+    },
+    {
+      "id": "rm-encefalo-sagital--puente-sagital",
+      "objective": "RM|Encéfalo|Sagital|Puente sagital"
+    },
+    {
+      "id": "rm-encefalo-sagital--bulbo-raquideo",
+      "objective": "RM|Encéfalo|Sagital|Bulbo raquídeo"
+    },
+    {
+      "id": "rm-encefalo-coronal--sustancia-blanca-frontal-derecha",
+      "objective": "RM|Encéfalo|Coronal|Sustancia blanca frontal derecha"
+    },
+    {
+      "id": "rm-encefalo-coronal--sustancia-blanca-frontal-izquierda",
+      "objective": "RM|Encéfalo|Coronal|Sustancia blanca frontal izquierda"
+    },
+    {
+      "id": "rm-encefalo-coronal--corteza-cerebral-derecha",
+      "objective": "RM|Encéfalo|Coronal|Corteza cerebral derecha"
+    },
+    {
+      "id": "rm-encefalo-coronal--corteza-cerebral-izquierda",
+      "objective": "RM|Encéfalo|Coronal|Corteza cerebral izquierda"
+    },
+    {
+      "id": "rm-encefalo-coronal--ventriculo-lateral-derecho-coronal",
+      "objective": "RM|Encéfalo|Coronal|Ventrículo lateral derecho coronal"
+    },
+    {
+      "id": "rm-encefalo-coronal--ventriculo-lateral-izquierdo-coronal",
+      "objective": "RM|Encéfalo|Coronal|Ventrículo lateral izquierdo coronal"
+    },
+    {
+      "id": "rm-encefalo-coronal--tercer-ventriculo-coronal",
+      "objective": "RM|Encéfalo|Coronal|Tercer ventrículo coronal"
+    },
+    {
+      "id": "rm-encefalo-coronal--talamo-derecho-coronal",
+      "objective": "RM|Encéfalo|Coronal|Tálamo derecho coronal"
+    },
+    {
+      "id": "rm-encefalo-axial--sustancia-blanca-parietal-derecha",
+      "objective": "RM|Encéfalo|Axial|Sustancia blanca parietal derecha"
+    },
+    {
+      "id": "rm-encefalo-axial--sustancia-blanca-parietal-izquierda",
+      "objective": "RM|Encéfalo|Axial|Sustancia blanca parietal izquierda"
+    },
+    {
+      "id": "rm-encefalo-axial--corteza-frontal-derecha-axial",
+      "objective": "RM|Encéfalo|Axial|Corteza frontal derecha axial"
+    },
+    {
+      "id": "rm-encefalo-axial--corteza-frontal-izquierda-axial",
+      "objective": "RM|Encéfalo|Axial|Corteza frontal izquierda axial"
+    },
+    {
+      "id": "rm-encefalo-axial--asta-frontal-ventricular-derecha",
+      "objective": "RM|Encéfalo|Axial|Asta frontal ventricular derecha"
+    },
+    {
+      "id": "rm-encefalo-axial--asta-frontal-ventricular-izquierda",
+      "objective": "RM|Encéfalo|Axial|Asta frontal ventricular izquierda"
+    },
+    {
+      "id": "rm-encefalo-axial--capsula-interna-derecha",
+      "objective": "RM|Encéfalo|Axial|Cápsula interna derecha"
+    },
+    {
+      "id": "rm-encefalo-axial--capsula-interna-izquierda",
+      "objective": "RM|Encéfalo|Axial|Cápsula interna izquierda"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--disco-l1-l2",
+      "objective": "RM|Columna lumbar|Sagital|Disco L1-L2"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--disco-l2-l3",
+      "objective": "RM|Columna lumbar|Sagital|Disco L2-L3"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--disco-l3-l4",
+      "objective": "RM|Columna lumbar|Sagital|Disco L3-L4"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--disco-l4-l5",
+      "objective": "RM|Columna lumbar|Sagital|Disco L4-L5"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--disco-l5-s1",
+      "objective": "RM|Columna lumbar|Sagital|Disco L5-S1"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--cono-medular",
+      "objective": "RM|Columna lumbar|Sagital|Cono medular"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--saco-dural-lumbar",
+      "objective": "RM|Columna lumbar|Sagital|Saco dural lumbar"
+    },
+    {
+      "id": "rm-columna-lumbar-sagital--cola-de-caballo",
+      "objective": "RM|Columna lumbar|Sagital|Cola de caballo"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--disco-intervertebral-lumbar-borde-lateral",
+      "objective": "RM|Columna lumbar|Axial|Disco intervertebral lumbar · borde lateral"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--nucleo-pulposo",
+      "objective": "RM|Columna lumbar|Axial|Núcleo pulposo"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--anillo-fibroso-anterior",
+      "objective": "RM|Columna lumbar|Axial|Anillo fibroso anterior"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--anillo-fibroso-posterior",
+      "objective": "RM|Columna lumbar|Axial|Anillo fibroso posterior"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--saco-dural-axial",
+      "objective": "RM|Columna lumbar|Axial|Saco dural axial"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--articulacion-facetaria-derecha-rm",
+      "objective": "RM|Columna lumbar|Axial|Articulación facetaria derecha RM"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--articulacion-facetaria-izquierda-rm",
+      "objective": "RM|Columna lumbar|Axial|Articulación facetaria izquierda RM"
+    },
+    {
+      "id": "rm-columna-lumbar-axial--ligamento-amarillo-derecho",
+      "objective": "RM|Columna lumbar|Axial|Ligamento amarillo derecho"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--cuerpo-l1-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Cuerpo L1 coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--cuerpo-l2-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Cuerpo L2 coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--cuerpo-l3-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Cuerpo L3 coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--cuerpo-l4-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Cuerpo L4 coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--cuerpo-l5-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Cuerpo L5 coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--psoas-derecho-rm-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Psoas derecho RM coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--psoas-izquierdo-rm-coronal",
+      "objective": "RM|Columna lumbar|Coronal|Psoas izquierdo RM coronal"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--ala-sacra-derecha-rm",
+      "objective": "RM|Columna lumbar|Coronal|Ala sacra derecha RM"
+    },
+    {
+      "id": "rm-columna-lumbar-coronal--ala-sacra-izquierda-rm",
+      "objective": "RM|Columna lumbar|Coronal|Ala sacra izquierda RM"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--medula-cervical",
+      "objective": "RM|Columna cervical|Sagital|Médula cervical"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--liquido-cefalorraquideo-cervical",
+      "objective": "RM|Columna cervical|Sagital|Líquido cefalorraquídeo cervical"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--cuerpo-de-c2-rm",
+      "objective": "RM|Columna cervical|Sagital|Cuerpo de C2 RM"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--disco-c2-c3",
+      "objective": "RM|Columna cervical|Sagital|Disco C2-C3"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--disco-c3-c4",
+      "objective": "RM|Columna cervical|Sagital|Disco C3-C4"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--disco-c4-c5",
+      "objective": "RM|Columna cervical|Sagital|Disco C4-C5"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--disco-c5-c6",
+      "objective": "RM|Columna cervical|Sagital|Disco C5-C6"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--disco-c6-c7",
+      "objective": "RM|Columna cervical|Sagital|Disco C6-C7"
+    },
+    {
+      "id": "rm-columna-cervical-sagital--odontoides-rm",
+      "objective": "RM|Columna cervical|Sagital|Odontoides RM"
+    },
+    {
+      "id": "rm-columna-cervical-axial--medula-cervical-axial",
+      "objective": "RM|Columna cervical|Axial|Médula cervical axial"
+    },
+    {
+      "id": "rm-columna-cervical-axial--lcr-perimedular-anterior",
+      "objective": "RM|Columna cervical|Axial|LCR perimedular anterior"
+    },
+    {
+      "id": "rm-columna-cervical-axial--lcr-perimedular-posterior",
+      "objective": "RM|Columna cervical|Axial|LCR perimedular posterior"
+    },
+    {
+      "id": "rm-columna-cervical-axial--disco-cervical-axial",
+      "objective": "RM|Columna cervical|Axial|Disco cervical axial"
+    },
+    {
+      "id": "rm-columna-cervical-axial--foramen-neural-derecho",
+      "objective": "RM|Columna cervical|Axial|Foramen neural derecho"
+    },
+    {
+      "id": "rm-columna-cervical-axial--foramen-neural-izquierdo",
+      "objective": "RM|Columna cervical|Axial|Foramen neural izquierdo"
+    },
+    {
+      "id": "rm-columna-cervical-axial--arteria-vertebral-derecha",
+      "objective": "RM|Columna cervical|Axial|Arteria vertebral derecha"
+    },
+    {
+      "id": "rm-columna-cervical-axial--arteria-vertebral-izquierda",
+      "objective": "RM|Columna cervical|Axial|Arteria vertebral izquierda"
+    },
+    {
+      "id": "rm-columna-cervical-axial--multifido-cervical-derecho",
+      "objective": "RM|Columna cervical|Axial|Multífido cervical derecho"
+    },
+    {
+      "id": "rm-rodilla-sagital--ligamento-cruzado-anterior",
+      "objective": "RM|Rodilla|Sagital|Ligamento cruzado anterior"
+    },
+    {
+      "id": "rm-rodilla-sagital--ligamento-cruzado-posterior",
+      "objective": "RM|Rodilla|Sagital|Ligamento cruzado posterior"
+    },
+    {
+      "id": "rm-rodilla-sagital--cuerno-anterior-del-menisco-medial",
+      "objective": "RM|Rodilla|Sagital|Cuerno anterior del menisco medial"
+    },
+    {
+      "id": "rm-rodilla-sagital--cuerno-posterior-del-menisco-medial",
+      "objective": "RM|Rodilla|Sagital|Cuerno posterior del menisco medial"
+    },
+    {
+      "id": "rm-rodilla-sagital--tendon-rotuliano",
+      "objective": "RM|Rodilla|Sagital|Tendón rotuliano"
+    },
+    {
+      "id": "rm-rodilla-sagital--tendon-cuadricipital",
+      "objective": "RM|Rodilla|Sagital|Tendón cuadricipital"
+    },
+    {
+      "id": "rm-rodilla-sagital--rotula-sagital-rm",
+      "objective": "RM|Rodilla|Sagital|Rótula sagital RM"
+    },
+    {
+      "id": "rm-rodilla-sagital--cartilago-troclear",
+      "objective": "RM|Rodilla|Sagital|Cartílago troclear"
+    },
+    {
+      "id": "rm-rodilla-sagital--cartilago-tibial",
+      "objective": "RM|Rodilla|Sagital|Cartílago tibial"
+    },
+    {
+      "id": "rm-rodilla-coronal--menisco-medial",
+      "objective": "RM|Rodilla|Coronal|Menisco medial"
+    },
+    {
+      "id": "rm-rodilla-coronal--menisco-lateral",
+      "objective": "RM|Rodilla|Coronal|Menisco lateral"
+    },
+    {
+      "id": "rm-rodilla-coronal--ligamento-colateral-medial",
+      "objective": "RM|Rodilla|Coronal|Ligamento colateral medial"
+    },
+    {
+      "id": "rm-rodilla-coronal--ligamento-colateral-lateral",
+      "objective": "RM|Rodilla|Coronal|Ligamento colateral lateral"
+    },
+    {
+      "id": "rm-rodilla-coronal--condilo-femoral-medial-rm",
+      "objective": "RM|Rodilla|Coronal|Cóndilo femoral medial RM"
+    },
+    {
+      "id": "rm-rodilla-coronal--condilo-femoral-lateral-rm",
+      "objective": "RM|Rodilla|Coronal|Cóndilo femoral lateral RM"
+    },
+    {
+      "id": "rm-rodilla-coronal--meseta-tibial-medial-rm",
+      "objective": "RM|Rodilla|Coronal|Meseta tibial medial RM"
+    },
+    {
+      "id": "rm-rodilla-coronal--meseta-tibial-lateral-rm",
+      "objective": "RM|Rodilla|Coronal|Meseta tibial lateral RM"
+    },
+    {
+      "id": "rm-rodilla-coronal--eminencia-tibial-coronal",
+      "objective": "RM|Rodilla|Coronal|Eminencia tibial coronal"
+    },
+    {
+      "id": "rm-rodilla-axial--faceta-medial-rotuliana",
+      "objective": "RM|Rodilla|Axial|Faceta medial rotuliana"
+    },
+    {
+      "id": "rm-rodilla-axial--faceta-lateral-rotuliana",
+      "objective": "RM|Rodilla|Axial|Faceta lateral rotuliana"
+    },
+    {
+      "id": "rm-rodilla-axial--cresta-rotuliana",
+      "objective": "RM|Rodilla|Axial|Cresta rotuliana"
+    },
+    {
+      "id": "rm-rodilla-axial--troclea-femoral-axial",
+      "objective": "RM|Rodilla|Axial|Tróclea femoral axial"
+    },
+    {
+      "id": "rm-rodilla-axial--condilo-medial-axial",
+      "objective": "RM|Rodilla|Axial|Cóndilo medial axial"
+    },
+    {
+      "id": "rm-rodilla-axial--condilo-lateral-axial",
+      "objective": "RM|Rodilla|Axial|Cóndilo lateral axial"
+    },
+    {
+      "id": "rm-rodilla-axial--retinaculo-medial",
+      "objective": "RM|Rodilla|Axial|Retináculo medial"
+    },
+    {
+      "id": "rm-rodilla-axial--retinaculo-lateral",
+      "objective": "RM|Rodilla|Axial|Retináculo lateral"
+    },
+    {
+      "id": "rm-rodilla-axial--arteria-poplitea",
+      "objective": "RM|Rodilla|Axial|Arteria poplítea"
+    },
+    {
+      "id": "rm-hombro-coronal--tendon-supraespinoso",
+      "objective": "RM|Hombro|Coronal|Tendón supraespinoso"
+    },
+    {
+      "id": "rm-hombro-coronal--musculo-supraespinoso",
+      "objective": "RM|Hombro|Coronal|Músculo supraespinoso"
+    },
+    {
+      "id": "rm-hombro-coronal--tendon-de-la-porcion-larga-del-biceps",
+      "objective": "RM|Hombro|Coronal|Tendón de la porción larga del bíceps"
+    },
+    {
+      "id": "rm-hombro-coronal--labrum-superior",
+      "objective": "RM|Hombro|Coronal|Labrum superior"
+    },
+    {
+      "id": "rm-hombro-coronal--labrum-inferior",
+      "objective": "RM|Hombro|Coronal|Labrum inferior"
+    },
+    {
+      "id": "rm-hombro-coronal--cartilago-humeral",
+      "objective": "RM|Hombro|Coronal|Cartílago humeral"
+    },
+    {
+      "id": "rm-hombro-coronal--acromion-rm-coronal",
+      "objective": "RM|Hombro|Coronal|Acromion RM coronal"
+    },
+    {
+      "id": "rm-hombro-coronal--musculo-deltoides",
+      "objective": "RM|Hombro|Coronal|Músculo deltoides"
+    },
+    {
+      "id": "rm-hombro-coronal--receso-axilar",
+      "objective": "RM|Hombro|Coronal|Receso axilar"
+    },
+    {
+      "id": "rm-hombro-axial--tendon-subescapular",
+      "objective": "RM|Hombro|Axial|Tendón subescapular"
+    },
+    {
+      "id": "rm-hombro-axial--musculo-subescapular",
+      "objective": "RM|Hombro|Axial|Músculo subescapular"
+    },
+    {
+      "id": "rm-hombro-axial--tendon-infraespinoso",
+      "objective": "RM|Hombro|Axial|Tendón infraespinoso"
+    },
+    {
+      "id": "rm-hombro-axial--musculo-infraespinoso",
+      "objective": "RM|Hombro|Axial|Músculo infraespinoso"
+    },
+    {
+      "id": "rm-hombro-axial--labrum-anterior",
+      "objective": "RM|Hombro|Axial|Labrum anterior"
+    },
+    {
+      "id": "rm-hombro-axial--labrum-posterior",
+      "objective": "RM|Hombro|Axial|Labrum posterior"
+    },
+    {
+      "id": "rm-hombro-axial--glenoides-axial",
+      "objective": "RM|Hombro|Axial|Glenoides axial"
+    },
+    {
+      "id": "rm-hombro-axial--cabeza-humeral-axial",
+      "objective": "RM|Hombro|Axial|Cabeza humeral axial"
+    },
+    {
+      "id": "rm-hombro-axial--corredera-bicipital",
+      "objective": "RM|Hombro|Axial|Corredera bicipital"
+    },
+    {
+      "id": "rm-hombro-sagital--musculo-supraespinoso-sagital",
+      "objective": "RM|Hombro|Sagital|Músculo supraespinoso sagital"
+    },
+    {
+      "id": "rm-hombro-sagital--musculo-infraespinoso-sagital",
+      "objective": "RM|Hombro|Sagital|Músculo infraespinoso sagital"
+    },
+    {
+      "id": "rm-hombro-sagital--musculo-subescapular-sagital",
+      "objective": "RM|Hombro|Sagital|Músculo subescapular sagital"
+    },
+    {
+      "id": "rm-hombro-sagital--musculo-redondo-menor",
+      "objective": "RM|Hombro|Sagital|Músculo redondo menor"
+    },
+    {
+      "id": "rm-hombro-sagital--escapula-sagital-rm",
+      "objective": "RM|Hombro|Sagital|Escápula sagital RM"
+    },
+    {
+      "id": "rm-hombro-sagital--deltoides-anterior",
+      "objective": "RM|Hombro|Sagital|Deltoides anterior"
+    },
+    {
+      "id": "rm-hombro-sagital--deltoides-posterior",
+      "objective": "RM|Hombro|Sagital|Deltoides posterior"
+    },
+    {
+      "id": "rm-hombro-sagital--acromion-sagital",
+      "objective": "RM|Hombro|Sagital|Acromion sagital"
+    },
+    {
+      "id": "rm-hombro-sagital--coracoides-sagital",
+      "objective": "RM|Hombro|Sagital|Coracoides sagital"
+    },
+    {
+      "id": "rm-cadera-coronal--labrum-acetabular-superior",
+      "objective": "RM|Cadera|Coronal|Labrum acetabular superior"
+    },
+    {
+      "id": "rm-cadera-coronal--cartilago-acetabular",
+      "objective": "RM|Cadera|Coronal|Cartílago acetabular"
+    },
+    {
+      "id": "rm-cadera-coronal--cabeza-femoral-rm-coronal",
+      "objective": "RM|Cadera|Coronal|Cabeza femoral RM coronal"
+    },
+    {
+      "id": "rm-cadera-coronal--cuello-femoral-rm-coronal",
+      "objective": "RM|Cadera|Coronal|Cuello femoral RM coronal"
+    },
+    {
+      "id": "rm-cadera-coronal--trocanter-mayor-rm",
+      "objective": "RM|Cadera|Coronal|Trocánter mayor RM"
+    },
+    {
+      "id": "rm-cadera-coronal--tendon-del-gluteo-medio",
+      "objective": "RM|Cadera|Coronal|Tendón del glúteo medio"
+    },
+    {
+      "id": "rm-cadera-coronal--gluteo-medio",
+      "objective": "RM|Cadera|Coronal|Glúteo medio"
+    },
+    {
+      "id": "rm-cadera-coronal--iliopsoas-coronal",
+      "objective": "RM|Cadera|Coronal|Iliopsoas coronal"
+    },
+    {
+      "id": "rm-cadera-coronal--ligamento-de-la-cabeza-femoral",
+      "objective": "RM|Cadera|Coronal|Ligamento de la cabeza femoral"
+    },
+    {
+      "id": "rm-cadera-axial--labrum-anterior-de-cadera",
+      "objective": "RM|Cadera|Axial|Labrum anterior de cadera"
+    },
+    {
+      "id": "rm-cadera-axial--labrum-posterior-de-cadera",
+      "objective": "RM|Cadera|Axial|Labrum posterior de cadera"
+    },
+    {
+      "id": "rm-cadera-axial--cabeza-femoral-rm-axial",
+      "objective": "RM|Cadera|Axial|Cabeza femoral RM axial"
+    },
+    {
+      "id": "rm-cadera-axial--acetabulo-rm-axial",
+      "objective": "RM|Cadera|Axial|Acetábulo RM axial"
+    },
+    {
+      "id": "rm-cadera-axial--tendon-iliopsoas",
+      "objective": "RM|Cadera|Axial|Tendón iliopsoas"
+    },
+    {
+      "id": "rm-cadera-axial--gluteo-menor",
+      "objective": "RM|Cadera|Axial|Glúteo menor"
+    },
+    {
+      "id": "rm-cadera-axial--gluteo-medio-axial",
+      "objective": "RM|Cadera|Axial|Glúteo medio axial"
+    },
+    {
+      "id": "rm-cadera-axial--gluteo-mayor-axial",
+      "objective": "RM|Cadera|Axial|Glúteo mayor axial"
+    },
+    {
+      "id": "rm-cadera-axial--obturador-interno-axial-rm",
+      "objective": "RM|Cadera|Axial|Obturador interno axial RM"
+    },
+    {
+      "id": "rm-cadera-sagital--cabeza-femoral-rm-sagital",
+      "objective": "RM|Cadera|Sagital|Cabeza femoral RM sagital"
+    },
+    {
+      "id": "rm-cadera-sagital--labrum-anterosuperior",
+      "objective": "RM|Cadera|Sagital|Labrum anterosuperior"
+    },
+    {
+      "id": "rm-cadera-sagital--labrum-posterosuperior",
+      "objective": "RM|Cadera|Sagital|Labrum posterosuperior"
+    },
+    {
+      "id": "rm-cadera-sagital--cartilago-femoral-sagital",
+      "objective": "RM|Cadera|Sagital|Cartílago femoral sagital"
+    },
+    {
+      "id": "rm-cadera-sagital--techo-acetabular",
+      "objective": "RM|Cadera|Sagital|Techo acetabular"
+    },
+    {
+      "id": "rm-cadera-sagital--tendon-iliopsoas-sagital",
+      "objective": "RM|Cadera|Sagital|Tendón iliopsoas sagital"
+    },
+    {
+      "id": "rm-cadera-sagital--recto-femoral-proximal",
+      "objective": "RM|Cadera|Sagital|Recto femoral proximal"
+    },
+    {
+      "id": "rm-cadera-sagital--gluteo-mayor-sagital",
+      "objective": "RM|Cadera|Sagital|Glúteo mayor sagital"
+    },
+    {
+      "id": "rm-cadera-sagital--ligamento-isquiofemoral",
+      "objective": "RM|Cadera|Sagital|Ligamento isquiofemoral"
+    },
+    {
+      "id": "rm-tobillo-sagital--tendon-de-aquiles",
+      "objective": "RM|Tobillo|Sagital|Tendón de Aquiles"
+    },
+    {
+      "id": "rm-tobillo-sagital--fascia-plantar",
+      "objective": "RM|Tobillo|Sagital|Fascia plantar"
+    },
+    {
+      "id": "rm-tobillo-sagital--grasa-de-kager",
+      "objective": "RM|Tobillo|Sagital|Grasa de Kager"
+    },
+    {
+      "id": "rm-tobillo-sagital--astragalo-rm-sagital",
+      "objective": "RM|Tobillo|Sagital|Astrágalo RM sagital"
+    },
+    {
+      "id": "rm-tobillo-sagital--calcaneo-rm-sagital",
+      "objective": "RM|Tobillo|Sagital|Calcáneo RM sagital"
+    },
+    {
+      "id": "rm-tobillo-sagital--cartilago-tibiotalar",
+      "objective": "RM|Tobillo|Sagital|Cartílago tibiotalar"
+    },
+    {
+      "id": "rm-tobillo-sagital--tendon-tibial-anterior",
+      "objective": "RM|Tobillo|Sagital|Tendón tibial anterior"
+    },
+    {
+      "id": "rm-tobillo-sagital--articulacion-subtalar-rm",
+      "objective": "RM|Tobillo|Sagital|Articulación subtalar RM"
+    },
+    {
+      "id": "rm-tobillo-sagital--navicular-rm-sagital",
+      "objective": "RM|Tobillo|Sagital|Navicular RM sagital"
+    },
+    {
+      "id": "rm-tobillo-coronal--ligamento-deltoideo",
+      "objective": "RM|Tobillo|Coronal|Ligamento deltoideo"
+    },
+    {
+      "id": "rm-tobillo-coronal--ligamento-calcaneofibular",
+      "objective": "RM|Tobillo|Coronal|Ligamento calcaneofibular"
+    },
+    {
+      "id": "rm-tobillo-coronal--maleolo-medial-rm",
+      "objective": "RM|Tobillo|Coronal|Maléolo medial RM"
+    },
+    {
+      "id": "rm-tobillo-coronal--maleolo-lateral-rm",
+      "objective": "RM|Tobillo|Coronal|Maléolo lateral RM"
+    },
+    {
+      "id": "rm-tobillo-coronal--cupula-astragalina-rm",
+      "objective": "RM|Tobillo|Coronal|Cúpula astragalina RM"
+    },
+    {
+      "id": "rm-tobillo-coronal--cartilago-tibiotalar-coronal",
+      "objective": "RM|Tobillo|Coronal|Cartílago tibiotalar coronal"
+    },
+    {
+      "id": "rm-tobillo-coronal--calcaneo-rm-coronal",
+      "objective": "RM|Tobillo|Coronal|Calcáneo RM coronal"
+    },
+    {
+      "id": "rm-tobillo-coronal--sustentaculo-del-astragalo-rm",
+      "objective": "RM|Tobillo|Coronal|Sustentáculo del astrágalo RM"
+    },
+    {
+      "id": "rm-tobillo-coronal--articulacion-subtalar-coronal",
+      "objective": "RM|Tobillo|Coronal|Articulación subtalar coronal"
+    },
+    {
+      "id": "rm-tobillo-axial--tendon-tibial-posterior",
+      "objective": "RM|Tobillo|Axial|Tendón tibial posterior"
+    },
+    {
+      "id": "rm-tobillo-axial--flexor-largo-de-los-dedos-del-tobillo",
+      "objective": "RM|Tobillo|Axial|Flexor largo de los dedos del tobillo"
+    },
+    {
+      "id": "rm-tobillo-axial--flexor-largo-del-hallux-del-tobillo",
+      "objective": "RM|Tobillo|Axial|Flexor largo del hallux del tobillo"
+    },
+    {
+      "id": "rm-tobillo-axial--tendon-de-aquiles-axial",
+      "objective": "RM|Tobillo|Axial|Tendón de Aquiles axial"
+    },
+    {
+      "id": "rm-tobillo-axial--tendones-peroneos",
+      "objective": "RM|Tobillo|Axial|Tendones peroneos"
+    },
+    {
+      "id": "rm-tobillo-axial--tendon-tibial-anterior-axial",
+      "objective": "RM|Tobillo|Axial|Tendón tibial anterior axial"
+    },
+    {
+      "id": "rm-tobillo-axial--extensor-largo-del-hallux-axial",
+      "objective": "RM|Tobillo|Axial|Extensor largo del hallux axial"
+    },
+    {
+      "id": "rm-tobillo-axial--tendones-extensores-de-los-dedos",
+      "objective": "RM|Tobillo|Axial|Tendones extensores de los dedos"
+    },
+    {
+      "id": "rm-tobillo-axial--tibia-rm-axial-de-tobillo",
+      "objective": "RM|Tobillo|Axial|Tibia RM axial de tobillo"
+    },
+    {
+      "id": "rm-muneca-coronal--fibrocartilago-triangular",
+      "objective": "RM|Muñeca|Coronal|Fibrocartílago triangular"
+    },
+    {
+      "id": "rm-muneca-coronal--escafoides-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Escafoides RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--semilunar-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Semilunar RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--piramidal-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Piramidal RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--radio-distal-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Radio distal RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--cubito-distal-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Cúbito distal RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--hueso-grande-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Hueso grande RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--ganchoso-rm-coronal",
+      "objective": "RM|Muñeca|Coronal|Ganchoso RM coronal"
+    },
+    {
+      "id": "rm-muneca-coronal--ligamento-escafolunar",
+      "objective": "RM|Muñeca|Coronal|Ligamento escafolunar"
+    },
+    {
+      "id": "rm-muneca-axial--nervio-mediano-del-carpo",
+      "objective": "RM|Muñeca|Axial|Nervio mediano del carpo"
+    },
+    {
+      "id": "rm-muneca-axial--retinaculo-flexor",
+      "objective": "RM|Muñeca|Axial|Retináculo flexor"
+    },
+    {
+      "id": "rm-muneca-axial--tendones-flexores-superficiales",
+      "objective": "RM|Muñeca|Axial|Tendones flexores superficiales"
+    },
+    {
+      "id": "rm-muneca-axial--tendones-flexores-profundos",
+      "objective": "RM|Muñeca|Axial|Tendones flexores profundos"
+    },
+    {
+      "id": "rm-muneca-axial--tendon-flexor-largo-del-pulgar",
+      "objective": "RM|Muñeca|Axial|Tendón flexor largo del pulgar"
+    },
+    {
+      "id": "rm-muneca-axial--escafoides-rm-axial",
+      "objective": "RM|Muñeca|Axial|Escafoides RM axial"
+    },
+    {
+      "id": "rm-muneca-axial--pisiforme-rm-axial",
+      "objective": "RM|Muñeca|Axial|Pisiforme RM axial"
+    },
+    {
+      "id": "rm-muneca-axial--gancho-del-ganchoso",
+      "objective": "RM|Muñeca|Axial|Gancho del ganchoso"
+    },
+    {
+      "id": "rm-muneca-axial--tendones-extensores-dorsales",
+      "objective": "RM|Muñeca|Axial|Tendones extensores dorsales"
+    },
+    {
+      "id": "rm-muneca-sagital--radio-distal-rm-sagital",
+      "objective": "RM|Muñeca|Sagital|Radio distal RM sagital"
+    },
+    {
+      "id": "rm-muneca-sagital--semilunar-rm-sagital",
+      "objective": "RM|Muñeca|Sagital|Semilunar RM sagital"
+    },
+    {
+      "id": "rm-muneca-sagital--hueso-grande-rm-sagital",
+      "objective": "RM|Muñeca|Sagital|Hueso grande RM sagital"
+    },
+    {
+      "id": "rm-muneca-sagital--base-metacarpiana-rm-sagital",
+      "objective": "RM|Muñeca|Sagital|Base metacarpiana RM sagital"
+    },
+    {
+      "id": "rm-muneca-sagital--tendones-flexores-sagitales",
+      "objective": "RM|Muñeca|Sagital|Tendones flexores sagitales"
+    },
+    {
+      "id": "rm-muneca-sagital--tendones-extensores-sagitales",
+      "objective": "RM|Muñeca|Sagital|Tendones extensores sagitales"
+    },
+    {
+      "id": "rm-muneca-sagital--articulacion-radiolunar",
+      "objective": "RM|Muñeca|Sagital|Articulación radiolunar"
+    },
+    {
+      "id": "rm-muneca-sagital--articulacion-lunocapitada",
+      "objective": "RM|Muñeca|Sagital|Articulación lunocapitada"
+    },
+    {
+      "id": "rm-muneca-sagital--retinaculo-flexor-sagital",
+      "objective": "RM|Muñeca|Sagital|Retináculo flexor sagital"
+    },
+    {
+      "id": "rm-codo-sagital--tendon-tricipital",
+      "objective": "RM|Codo|Sagital|Tendón tricipital"
+    },
+    {
+      "id": "rm-codo-sagital--tendon-braquial",
+      "objective": "RM|Codo|Sagital|Tendón braquial"
+    },
+    {
+      "id": "rm-codo-sagital--cartilago-troclear-rm",
+      "objective": "RM|Codo|Sagital|Cartílago troclear RM"
+    },
+    {
+      "id": "rm-codo-sagital--olecranon-rm-sagital",
+      "objective": "RM|Codo|Sagital|Olécranon RM sagital"
+    },
+    {
+      "id": "rm-codo-sagital--coronoides-rm-sagital",
+      "objective": "RM|Codo|Sagital|Coronoides RM sagital"
+    },
+    {
+      "id": "rm-codo-sagital--grasa-anterior-del-codo",
+      "objective": "RM|Codo|Sagital|Grasa anterior del codo"
+    },
+    {
+      "id": "rm-codo-sagital--grasa-posterior-del-codo",
+      "objective": "RM|Codo|Sagital|Grasa posterior del codo"
+    },
+    {
+      "id": "rm-codo-sagital--receso-anterior-del-codo",
+      "objective": "RM|Codo|Sagital|Receso anterior del codo"
+    },
+    {
+      "id": "rm-codo-sagital--troclea-humeral-rm-sagital",
+      "objective": "RM|Codo|Sagital|Tróclea humeral RM sagital"
+    },
+    {
+      "id": "rm-codo-coronal--ligamento-colateral-cubital",
+      "objective": "RM|Codo|Coronal|Ligamento colateral cubital"
+    },
+    {
+      "id": "rm-codo-coronal--ligamento-colateral-radial",
+      "objective": "RM|Codo|Coronal|Ligamento colateral radial"
+    },
+    {
+      "id": "rm-codo-coronal--tendon-flexor-comun",
+      "objective": "RM|Codo|Coronal|Tendón flexor común"
+    },
+    {
+      "id": "rm-codo-coronal--tendon-extensor-comun",
+      "objective": "RM|Codo|Coronal|Tendón extensor común"
+    },
+    {
+      "id": "rm-codo-coronal--cabeza-radial-rm-coronal",
+      "objective": "RM|Codo|Coronal|Cabeza radial RM coronal"
+    },
+    {
+      "id": "rm-codo-coronal--troclea-rm-coronal",
+      "objective": "RM|Codo|Coronal|Tróclea RM coronal"
+    },
+    {
+      "id": "rm-codo-coronal--capitulo-rm-coronal",
+      "objective": "RM|Codo|Coronal|Capítulo RM coronal"
+    },
+    {
+      "id": "rm-codo-coronal--cartilago-humerocubital",
+      "objective": "RM|Codo|Coronal|Cartílago humerocubital"
+    },
+    {
+      "id": "rm-codo-coronal--cuello-radial-rm-coronal",
+      "objective": "RM|Codo|Coronal|Cuello radial RM coronal"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--pezon-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Pezón · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--region-retroareolar-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Región retroareolar · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--contorno-cutaneo-lateral-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Contorno cutáneo lateral · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--contorno-cutaneo-medial-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Contorno cutáneo medial · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--tejido-fibroglandular-central-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Tejido fibroglandular central · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--tejido-adiposo-anterior-lateral-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Tejido adiposo anterior lateral · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--region-posterior-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Región posterior · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--borde-de-la-pared-toracica-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Borde de la pared torácica · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--mitad-lateral-de-la-mama-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Mitad lateral de la mama · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-cc--mitad-medial-de-la-mama-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|CC|Mitad medial de la mama · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--pezon-en-mlo-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Pezón en MLO · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--region-retroareolar-en-mlo-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Región retroareolar en MLO · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--musculo-pectoral-en-mlo-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Músculo pectoral en MLO · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--cola-axilar-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Cola axilar · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--pliegue-inframamario-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Pliegue inframamario · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--tejido-fibroglandular-en-mlo-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Tejido fibroglandular en MLO · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--tejido-adiposo-inferior-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Tejido adiposo inferior · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--piel-anterior-en-mlo-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Piel anterior en MLO · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--region-superior-en-mlo-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Región superior en MLO · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-derecha-mlo--region-posterior-inferior-mama-derecha",
+      "objective": "Mamografía|Mama Derecha|MLO|Región posterior inferior · mama derecha"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--pezon-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Pezón · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--region-retroareolar-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Región retroareolar · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--contorno-cutaneo-lateral-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Contorno cutáneo lateral · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--contorno-cutaneo-medial-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Contorno cutáneo medial · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--tejido-fibroglandular-central-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Tejido fibroglandular central · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--tejido-adiposo-anterior-lateral-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Tejido adiposo anterior lateral · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--region-posterior-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Región posterior · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--borde-de-la-pared-toracica-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Borde de la pared torácica · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--mitad-lateral-de-la-mama-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Mitad lateral de la mama · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-cc--mitad-medial-de-la-mama-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|CC|Mitad medial de la mama · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--pezon-en-mlo-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Pezón en MLO · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--region-retroareolar-en-mlo-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Región retroareolar en MLO · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--musculo-pectoral-en-mlo-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Músculo pectoral en MLO · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--cola-axilar-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Cola axilar · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--pliegue-inframamario-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Pliegue inframamario · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--tejido-fibroglandular-en-mlo-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Tejido fibroglandular en MLO · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--tejido-adiposo-inferior-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Tejido adiposo inferior · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--piel-anterior-en-mlo-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Piel anterior en MLO · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--region-superior-en-mlo-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Región superior en MLO · mama izquierda"
+    },
+    {
+      "id": "mamografia-mama-izquierda-mlo--region-posterior-inferior-mama-izquierda",
+      "objective": "Mamografía|Mama Izquierda|MLO|Región posterior inferior · mama izquierda"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--cuerpo-vertebral-l1-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Cuerpo vertebral L1 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--cuerpo-vertebral-l2-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Cuerpo vertebral L2 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--cuerpo-vertebral-l3-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Cuerpo vertebral L3 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--cuerpo-vertebral-l4-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Cuerpo vertebral L4 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--espacio-l1-l2-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Espacio L1-L2 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--espacio-l2-l3-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Espacio L2-L3 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--espacio-l3-l4-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Espacio L3-L4 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--referencia-l5-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Referencia L5 · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--referencia-sacra-dxa",
+      "objective": "DXA|Región lumbar de análisis|PA|Referencia sacra · DXA"
+    },
+    {
+      "id": "dxa-region-lumbar-de-analisis-pa--region-lumbar-l1-l4-limite-lateral",
+      "objective": "DXA|Región lumbar de análisis|PA|Región lumbar L1-L4 · límite lateral"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--cabeza-femoral-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Cabeza femoral · DXA"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--cuello-femoral-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Cuello femoral · DXA"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--trocanter-mayor-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Trocánter mayor · DXA"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--trocanter-menor-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Trocánter menor · DXA"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--region-intertrocanterica-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Región intertrocantérica · DXA"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--diafisis-femoral-proximal-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Diáfisis femoral proximal · DXA"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--eje-largo-del-cuello-femoral",
+      "objective": "DXA|Fémur proximal de análisis|AP|Eje largo del cuello femoral"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--borde-superior-del-cuello",
+      "objective": "DXA|Fémur proximal de análisis|AP|Borde superior del cuello"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--borde-inferior-del-cuello",
+      "objective": "DXA|Fémur proximal de análisis|AP|Borde inferior del cuello"
+    },
+    {
+      "id": "dxa-femur-proximal-de-analisis-ap--referencia-acetabular-dxa",
+      "objective": "DXA|Fémur proximal de análisis|AP|Referencia acetabular · DXA"
+    },
+    {
+      "id": "mamografia-tecnica-energia-utilizada",
+      "objective": "Mamografía|técnica|Energía utilizada"
+    },
+    {
+      "id": "mamografia-tecnica-significado-cc",
+      "objective": "Mamografía|técnica|Significado CC"
+    },
+    {
+      "id": "mamografia-tecnica-significado-mlo",
+      "objective": "Mamografía|técnica|Significado MLO"
+    },
+    {
+      "id": "mamografia-tecnica-compresion-y-espesor",
+      "objective": "Mamografía|técnica|Compresión y espesor"
+    },
+    {
+      "id": "mamografia-tecnica-compresion-y-movimiento",
+      "objective": "Mamografía|técnica|Compresión y movimiento"
+    },
+    {
+      "id": "mamografia-tecnica-tejidos-superpuestos",
+      "objective": "Mamografía|técnica|Tejidos superpuestos"
+    },
+    {
+      "id": "mamografia-tecnica-detector-digital",
+      "objective": "Mamografía|técnica|Detector digital"
+    },
+    {
+      "id": "mamografia-tecnica-tomosintesis",
+      "objective": "Mamografía|técnica|Tomosíntesis"
+    },
+    {
+      "id": "mamografia-tecnica-marcador-de-lado",
+      "objective": "Mamografía|técnica|Marcador de lado"
+    },
+    {
+      "id": "mamografia-tecnica-pectoral-en-mlo",
+      "objective": "Mamografía|técnica|Pectoral en MLO"
+    },
+    {
+      "id": "mamografia-tecnica-pliegue-inframamario",
+      "objective": "Mamografía|técnica|Pliegue inframamario"
+    },
+    {
+      "id": "mamografia-tecnica-pezon-de-perfil",
+      "objective": "Mamografía|técnica|Pezón de perfil"
+    },
+    {
+      "id": "mamografia-tecnica-pliegues-cutaneos",
+      "objective": "Mamografía|técnica|Pliegues cutáneos"
+    },
+    {
+      "id": "mamografia-tecnica-region-retroareolar",
+      "objective": "Mamografía|técnica|Región retroareolar"
+    },
+    {
+      "id": "mamografia-tecnica-mama-y-torax",
+      "objective": "Mamografía|técnica|Mama y tórax"
+    },
+    {
+      "id": "mamografia-tecnica-grasa-mamaria",
+      "objective": "Mamografía|técnica|Grasa mamaria"
+    },
+    {
+      "id": "mamografia-tecnica-inclinacion-mlo",
+      "objective": "Mamografía|técnica|Inclinación MLO"
+    },
+    {
+      "id": "mamografia-tecnica-movimiento-durante-exposicion",
+      "objective": "Mamografía|técnica|Movimiento durante exposición"
+    },
+    {
+      "id": "mamografia-tecnica-dos-vistas",
+      "objective": "Mamografía|técnica|Dos vistas"
+    },
+    {
+      "id": "mamografia-tecnica-cribado-y-diagnostico",
+      "objective": "Mamografía|técnica|Cribado y diagnóstico"
+    },
+    {
+      "id": "dxa-tecnica-principio-fisico",
+      "objective": "DXA|técnica|Principio físico"
+    },
+    {
+      "id": "dxa-tecnica-magnitud-areal",
+      "objective": "DXA|técnica|Magnitud areal"
+    },
+    {
+      "id": "dxa-tecnica-unidad-dmo",
+      "objective": "DXA|técnica|Unidad DMO"
+    },
+    {
+      "id": "dxa-tecnica-lumbar-estandar",
+      "objective": "DXA|técnica|Lumbar estándar"
+    },
+    {
+      "id": "dxa-tecnica-cadera-y-cuello",
+      "objective": "DXA|técnica|Cadera y cuello"
+    },
+    {
+      "id": "dxa-tecnica-referencia-anatomica",
+      "objective": "DXA|técnica|Referencia anatómica"
+    },
+    {
+      "id": "dxa-tecnica-roi",
+      "objective": "DXA|técnica|ROI"
+    },
+    {
+      "id": "dxa-tecnica-repetibilidad",
+      "objective": "DXA|técnica|Repetibilidad"
+    },
+    {
+      "id": "dxa-tecnica-artefacto-metalico",
+      "objective": "DXA|técnica|Artefacto metálico"
+    },
+    {
+      "id": "dxa-tecnica-t-score-referencia",
+      "objective": "DXA|técnica|T-score referencia"
+    },
+    {
+      "id": "dxa-tecnica-z-score-referencia",
+      "objective": "DXA|técnica|Z-score referencia"
+    },
+    {
+      "id": "dxa-tecnica-mismo-equipo",
+      "objective": "DXA|técnica|Mismo equipo"
+    },
+    {
+      "id": "dxa-tecnica-fantoma",
+      "objective": "DXA|técnica|Fantoma"
+    },
+    {
+      "id": "dxa-tecnica-radiacion-dxa",
+      "objective": "DXA|técnica|Radiación DXA"
+    },
+    {
+      "id": "dxa-tecnica-dxa-frente-tc",
+      "objective": "DXA|técnica|DXA frente TC"
+    },
+    {
+      "id": "dxa-tecnica-region-lumbar-y-superposicion",
+      "objective": "DXA|técnica|Región lumbar y superposición"
+    },
+    {
+      "id": "dxa-tecnica-cabeza-y-cuello",
+      "objective": "DXA|técnica|Cabeza y cuello"
+    },
+    {
+      "id": "dxa-tecnica-antebrazo",
+      "objective": "DXA|técnica|Antebrazo"
+    },
+    {
+      "id": "dxa-tecnica-informe-tecnico",
+      "objective": "DXA|técnica|Informe técnico"
+    },
+    {
+      "id": "dxa-tecnica-contenido-mineral-oseo",
+      "objective": "DXA|técnica|Contenido mineral óseo"
+    },
+    {
+      "id": "rx-concepto-ap",
+      "objective": "RX|concepto|AP"
+    },
+    {
+      "id": "rx-concepto-pa",
+      "objective": "RX|concepto|PA"
+    },
+    {
+      "id": "rx-concepto-lateral",
+      "objective": "RX|concepto|Lateral"
+    },
+    {
+      "id": "rx-concepto-oblicua",
+      "objective": "RX|concepto|Oblicua"
+    },
+    {
+      "id": "rx-concepto-axial",
+      "objective": "RX|concepto|Axial"
+    },
+    {
+      "id": "rx-concepto-plano-sagital",
+      "objective": "RX|concepto|Plano sagital"
+    },
+    {
+      "id": "rx-concepto-plano-coronal",
+      "objective": "RX|concepto|Plano coronal"
+    },
+    {
+      "id": "rx-concepto-plano-transversal",
+      "objective": "RX|concepto|Plano transversal"
+    },
+    {
+      "id": "rx-concepto-proximal",
+      "objective": "RX|concepto|Proximal"
+    },
+    {
+      "id": "rx-concepto-distal",
+      "objective": "RX|concepto|Distal"
+    },
+    {
+      "id": "rx-concepto-medial",
+      "objective": "RX|concepto|Medial"
+    },
+    {
+      "id": "rx-concepto-colimacion",
+      "objective": "RX|concepto|Colimación"
+    },
+    {
+      "id": "rx-concepto-dispersion",
+      "objective": "RX|concepto|Dispersión"
+    },
+    {
+      "id": "rx-concepto-distancia-objeto-receptor",
+      "objective": "RX|concepto|Distancia objeto receptor"
+    },
+    {
+      "id": "rx-concepto-foco",
+      "objective": "RX|concepto|Foco"
+    },
+    {
+      "id": "rx-concepto-rotacion-toracica",
+      "objective": "RX|concepto|Rotación torácica"
+    },
+    {
+      "id": "rx-concepto-mortaja",
+      "objective": "RX|concepto|Mortaja"
+    },
+    {
+      "id": "rx-concepto-escafoides",
+      "objective": "RX|concepto|Escafoides"
+    },
+    {
+      "id": "rx-concepto-odontoides",
+      "objective": "RX|concepto|Odontoides"
+    },
+    {
+      "id": "rx-concepto-y-escapular",
+      "objective": "RX|concepto|Y escapular"
+    },
+    {
+      "id": "tc-concepto-atenuacion",
+      "objective": "TC|concepto|Atenuación"
+    },
+    {
+      "id": "tc-concepto-agua-hu",
+      "objective": "TC|concepto|Agua HU"
+    },
+    {
+      "id": "tc-concepto-aire-hu",
+      "objective": "TC|concepto|Aire HU"
+    },
+    {
+      "id": "tc-concepto-ventana-nivel",
+      "objective": "TC|concepto|Ventana nivel"
+    },
+    {
+      "id": "tc-concepto-ventana-anchura",
+      "objective": "TC|concepto|Ventana anchura"
+    },
+    {
+      "id": "tc-concepto-ventana-osea",
+      "objective": "TC|concepto|Ventana ósea"
+    },
+    {
+      "id": "tc-concepto-ventana-pulmonar",
+      "objective": "TC|concepto|Ventana pulmonar"
+    },
+    {
+      "id": "tc-concepto-mpr",
+      "objective": "TC|concepto|MPR"
+    },
+    {
+      "id": "tc-concepto-voxel",
+      "objective": "TC|concepto|Voxel"
+    },
+    {
+      "id": "tc-concepto-pixel",
+      "objective": "TC|concepto|Pixel"
+    },
+    {
+      "id": "tc-concepto-corte-fino",
+      "objective": "TC|concepto|Corte fino"
+    },
+    {
+      "id": "tc-concepto-volumen-parcial",
+      "objective": "TC|concepto|Volumen parcial"
+    },
+    {
+      "id": "tc-concepto-pitch",
+      "objective": "TC|concepto|Pitch"
+    },
+    {
+      "id": "tc-concepto-topograma",
+      "objective": "TC|concepto|Topograma"
+    },
+    {
+      "id": "tc-concepto-metal-tc",
+      "objective": "TC|concepto|Metal TC"
+    },
+    {
+      "id": "tc-concepto-movimiento-tc",
+      "objective": "TC|concepto|Movimiento TC"
+    },
+    {
+      "id": "tc-concepto-contraste-tc",
+      "objective": "TC|concepto|Contraste TC"
+    },
+    {
+      "id": "tc-concepto-orientacion-axial",
+      "objective": "TC|concepto|Orientación axial"
+    },
+    {
+      "id": "tc-concepto-coronal-tc",
+      "objective": "TC|concepto|Coronal TC"
+    },
+    {
+      "id": "tc-concepto-cobertura",
+      "objective": "TC|concepto|Cobertura"
+    },
+    {
+      "id": "rm-concepto-t1-significado",
+      "objective": "RM|concepto|T1 significado"
+    },
+    {
+      "id": "rm-concepto-t2-significado",
+      "objective": "RM|concepto|T2 significado"
+    },
+    {
+      "id": "rm-concepto-tr",
+      "objective": "RM|concepto|TR"
+    },
+    {
+      "id": "rm-concepto-te",
+      "objective": "RM|concepto|TE"
+    },
+    {
+      "id": "rm-concepto-ti",
+      "objective": "RM|concepto|TI"
+    },
+    {
+      "id": "rm-concepto-t1-parametros",
+      "objective": "RM|concepto|T1 parámetros"
+    },
+    {
+      "id": "rm-concepto-t2-parametros",
+      "objective": "RM|concepto|T2 parámetros"
+    },
+    {
+      "id": "rm-concepto-dp-parametros",
+      "objective": "RM|concepto|DP parámetros"
+    },
+    {
+      "id": "rm-concepto-flair",
+      "objective": "RM|concepto|FLAIR"
+    },
+    {
+      "id": "rm-concepto-stir",
+      "objective": "RM|concepto|STIR"
+    },
+    {
+      "id": "rm-concepto-dwi",
+      "objective": "RM|concepto|DWI"
+    },
+    {
+      "id": "rm-concepto-adc",
+      "objective": "RM|concepto|ADC"
+    },
+    {
+      "id": "rm-concepto-t2-estrella",
+      "objective": "RM|concepto|T2 estrella"
+    },
+    {
+      "id": "rm-concepto-supresion-grasa",
+      "objective": "RM|concepto|Supresión grasa"
+    },
+    {
+      "id": "rm-concepto-lcr-t2",
+      "objective": "RM|concepto|LCR T2"
+    },
+    {
+      "id": "rm-concepto-lcr-t1",
+      "objective": "RM|concepto|LCR T1"
+    },
+    {
+      "id": "rm-concepto-bobina",
+      "objective": "RM|concepto|Bobina"
+    },
+    {
+      "id": "rm-concepto-gradientes",
+      "objective": "RM|concepto|Gradientes"
+    },
+    {
+      "id": "rm-concepto-campo-estatico",
+      "objective": "RM|concepto|Campo estático"
+    },
+    {
+      "id": "rm-concepto-rf",
+      "objective": "RM|concepto|RF"
+    },
+    {
+      "id": "rm-concepto-ionizante",
+      "objective": "RM|concepto|Ionizante"
+    },
+    {
+      "id": "rm-concepto-ruido-rm",
+      "objective": "RM|concepto|Ruido RM"
+    },
+    {
+      "id": "rm-concepto-metal-cribado",
+      "objective": "RM|concepto|Metal cribado"
+    },
+    {
+      "id": "rm-concepto-mr-conditional",
+      "objective": "RM|concepto|MR Conditional"
+    },
+    {
+      "id": "rm-concepto-proyectiles",
+      "objective": "RM|concepto|Proyectiles"
+    },
+    {
+      "id": "rm-concepto-proteccion-auditiva",
+      "objective": "RM|concepto|Protección auditiva"
+    },
+    {
+      "id": "rm-concepto-contacto-termico",
+      "objective": "RM|concepto|Contacto térmico"
+    },
+    {
+      "id": "rm-concepto-gadolinio",
+      "objective": "RM|concepto|Gadolinio"
+    },
+    {
+      "id": "rm-concepto-inmovilidad-rm",
+      "objective": "RM|concepto|Inmovilidad RM"
+    },
+    {
+      "id": "rm-concepto-imagen-multicontraste",
+      "objective": "RM|concepto|Imagen multicontraste"
+    },
+    {
+      "id": "rx-tecnica-adicional-mas",
+      "objective": "RX|concepto adicional|mAs"
+    },
+    {
+      "id": "rx-tecnica-adicional-kvp",
+      "objective": "RX|concepto adicional|kVp"
+    },
+    {
+      "id": "rx-tecnica-adicional-radiopaco",
+      "objective": "RX|concepto adicional|Radiopaco"
+    },
+    {
+      "id": "rx-tecnica-adicional-radiolucido",
+      "objective": "RX|concepto adicional|Radiolucido"
+    },
+    {
+      "id": "rx-tecnica-adicional-inverso-cuadrado",
+      "objective": "RX|concepto adicional|Inverso cuadrado"
+    },
+    {
+      "id": "rx-tecnica-adicional-identificacion",
+      "objective": "RX|concepto adicional|Identificación"
+    },
+    {
+      "id": "rx-tecnica-adicional-repeticion-exposicion",
+      "objective": "RX|concepto adicional|Repetición exposición"
+    },
+    {
+      "id": "rx-tecnica-adicional-marcador-fisico",
+      "objective": "RX|concepto adicional|Marcador físico"
+    },
+    {
+      "id": "rx-tecnica-adicional-detector-campo",
+      "objective": "RX|concepto adicional|Detector campo"
+    },
+    {
+      "id": "rx-tecnica-adicional-respiracion",
+      "objective": "RX|concepto adicional|Respiración"
+    },
+    {
+      "id": "rx-tecnica-adicional-atenuacion-hueso",
+      "objective": "RX|concepto adicional|Atenuación hueso"
+    }
+  ]
+}

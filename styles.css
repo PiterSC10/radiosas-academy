@@ -137,3 +137,17 @@ input[type=file]{width:100%;max-width:100%;min-width:0;font-size:12px}.premium-s
  .in-lab .lab-viewer{width:min(100%,300px,max(220px,calc((100svh - 540px)*.8235)))}
  .in-lab .lab-controls{position:static}
 }
+/* Atlas 5.1: filters, sectional diagrams, quizzes and bounded zoom on touch screens. */
+.lab-filter-panel{border:1px solid #345b6d;border-radius:12px;background:#102b3c;padding:10px;margin:10px auto 14px;max-width:900px;color:#c9dce6;font-size:12px}
+.lab-filter-panel summary{cursor:pointer;font-weight:750;min-height:30px;padding:5px}
+.lab-filter-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;padding:12px 0}
+.lab-filter-grid label{display:flex;flex-direction:column;gap:5px;min-width:0}.lab-filter-grid select{width:100%;min-height:44px;background:#142e42;color:#e7f2f8;border:1px solid #467083;border-radius:8px;padding:8px}
+.lab-filter-grid input[type=checkbox]{width:22px;height:22px;accent-color:#65e4cd}.lab-filter-panel p{font-size:11px;line-height:1.5}
+.lab-catalogue-counts{text-align:center;color:#a4c6d7;font-size:11px;line-height:1.5;margin:4px auto 8px}
+.lab-viewport{overflow:auto;max-height:65svh;overscroll-behavior:contain;scrollbar-width:thin}.lab-viewport.is-zoomed .lab-viewer{width:650px!important;max-width:none;margin:0}
+.lab-answer-choices{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;margin:12px 0}.lab-answer-choices button{min-height:48px;min-width:0;padding:10px;border:1px solid #50798d;border-radius:9px;background:#18364a;color:#d4e9ef;cursor:pointer;text-align:left;font-size:12px;overflow-wrap:anywhere}.lab-answer-choices button.is-selected{border-color:#ebd07b;background:#3c3a2d}.lab-answer-choices button:disabled{opacity:.4}
+.lab-concept{padding:30px 20px;text-align:center;background:radial-gradient(ellipse,#194656,#081b2b)}.lab-concept span{font-size:11px;letter-spacing:2px;color:#7fe3d7}.lab-concept h3{font-size:26px;margin:25px 0}.lab-concept p{font-size:12px;color:#b2cdd8}
+.lab-viewer-toolbar>div{display:flex;gap:5px}.lab-screen-head>div{min-width:0}.lab-screen-head h2{overflow-wrap:anywhere}.lab-screen-head small{font-size:10px;color:#9abaca}
+.lab-feedback a{font-size:11px;color:#93e8db}.lab-empty h2{font-size:20px}.lab-controls{flex-wrap:wrap}.lab-controls .button{min-width:90px}.lab-history .rowline{gap:10px}
+@media(max-width:760px){.lab-filter-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.in-lab .lab-screen-head h2{font-size:15px}.lab-filter-panel{margin:6px auto}.lab-answer-choices button{font-size:11px}.lab-catalogue-counts{font-size:10px}.lab-viewport{max-height:60svh}.in-lab .lab-viewer{width:min(100%,300px,max(220px,calc((100svh - 600px)*.8235)))}}
+@media(prefers-reduced-motion:reduce){.lab-viewer,.lab-controls{scroll-behavior:auto}}

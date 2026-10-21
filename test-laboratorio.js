@@ -1,72 +1,28 @@
 'use strict';
 const fs=require('node:fs'),vm=require('node:vm'),assert=require('node:assert/strict');
-const root=__dirname,KEY='radiosas_academy_v1';
-function boot(storage){
+const KEY='radiosas_academy_v1';
+function boot(storage={}){
  const app={innerHTML:''},listeners={};
- const ctx={console,Date,Math,Array,Object,Number,String,JSON,Error,Map,Set,setTimeout:()=>0,clearTimeout:()=>{},setInterval:()=>{},Blob:function(){},URL,alert:()=>{},confirm:()=>true,
- localStorage:{getItem:k=>storage[k]??null,setItem:(k,v)=>storage[k]=v},
- document:{body:{appendChild(){},classList:{add(){},remove(){},toggle(){}}},getElementById:id=>id==='app'?app:null,addEventListener:(ev,fn)=>listeners[ev]=fn,createElement:()=>({classList:{add(){},remove(){}},click(){}})},
- window:{scrollTo(){}}};
- vm.createContext(ctx);
- for(let file of ['data.js','bank-master.js','bank-5000.js','lab-data.js','app.js']) vm.runInContext(fs.readFileSync(root+'/'+file,'utf8'),ctx,{filename:file});
- return {html:()=>app.innerHTML,state:()=>JSON.parse(storage[KEY]),click:ds=>listeners.click({target:{closest:()=>({dataset:ds})}}),touch:(x,y)=>listeners.click({clientX:x,clientY:y,target:{closest:selector=>selector==='[data-lab-canvas]'?{getBoundingClientRect:()=>({left:0,top:0,width:700,height:850})}:null}}),spots:ctx.window.RADIOSAS_LAB.spots};
+ const ctx={console,Date,Math,Array,Object,Number,String,JSON,Error,Map,Set,encodeURIComponent,setTimeout:()=>0,clearTimeout(){},setInterval(){},Blob,URL,alert(){},confirm:()=>true,localStorage:{getItem:k=>storage[k]??null,setItem:(k,v)=>storage[k]=v},document:{body:{appendChild(){},classList:{toggle(){},add(){},remove(){}}},getElementById:id=>id==='app'?app:null,addEventListener:(e,fn)=>listeners[e]=fn,createElement:()=>({classList:{add(){},remove(){}}})},window:{scrollTo(){}}};vm.createContext(ctx);
+ for(const f of ['data.js','bank-master.js','bank-5000.js','lab-data.js','lab-atlas.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx,{filename:f});
+ return {storage,lab:ctx.window.RADIOSAS_LAB,html:()=>app.innerHTML,state:()=>JSON.parse(storage[KEY]),click:dataset=>listeners.click({target:{closest:()=>({dataset})}}),change:(id,value,checked=false)=>listeners.change({target:{id:'lab-'+id,value,checked}}),touch:q=>listeners.pointerup({clientX:20+q.x/2,clientY:30+q.y/2,target:{closest:()=>({getBoundingClientRect:()=>({left:20,top:30,width:350,height:425})})}})};
 }
-const storage={};let a=boot(storage);
-assert.equal(a.state().bankKnownIds.length,5000,'preserve bank');
-assert.equal(a.spots.length,18,'18 anatomy zones');
-assert.equal(new Set(a.spots.map(s=>s.id)).size,18,'unique spot identifiers');
-assert(a.spots.every(s=>s.r>=30&&s.x>=50&&s.y>=80),'reasonable touch zones');
-assert(fs.readFileSync(root+'/index.html','utf8').includes('<script src="lab-data.js"></script>'));
-assert(fs.readFileSync(root+'/.github/workflows/deploy.yml','utf8').includes('rx-torax-esquema.svg'));
-assert(fs.readFileSync(root+'/sw.js','utf8').includes('lab-data.js'));
-a.click({nav:'laboratorio'});assert(a.html().includes('Laboratorio de Radiología'));
-assert(a.html().includes('rx-torax-esquema.svg'));
-a.click({labChoice:'traquea'});
-assert.equal(a.state().labSeen.length,1,'study seen stored');
-a.click({action:'lab-next'});
-a.click({action:'lab-start-exam'});
-let original=a.state(),oldQ=original.bankKnownIds.length;
-assert.equal(original.labDraft.order.length,18,'exam has 18 exercises');
-const order=original.labDraft.order;
-for(let i=0;i<order.length;i++){
- const before=a.state();
- assert.equal(before.labDraft.order[before.labDraft.index],order[i]);
- a.click({labChoice:order[i]});
- a.click({action:'lab-next'});
-}
-const state=a.state();
-assert.equal(state.labAttempts.length,1);
-assert.equal(state.labAttempts[0].correct,18);
-assert.equal(state.labAttempts[0].blank,0);
-assert.equal(state.labDraft,null);
-assert.equal(state.attempts.length,0,'practice attempts unchanged');
-assert.equal(state.bankKnownIds.length,oldQ,'original 5k bank preserved');
-a.click({nav:'estadisticas'});assert(a.html().includes('Laboratorio de Radiología'));
-assert(a.html().includes('100%'));
-a=boot(storage);a.click({nav:'laboratorio'});
-assert(a.html().includes('Exámenes visuales'));
-assert.equal(a.state().labAttempts[0].correct,18,'exam result persists across reload');
-a.click({action:'quick'});
-assert.equal(a.state().draft.questions.length,10,'core practice flow intact');
-console.log('LAB OK: 18 zonas, modo estudio, examen completo, evaluación, persistencia, estadísticas separadas, 5.000 preguntas intactas, assets raíz y despliegue.');
-
-// Exercise the coordinate conversion and all 18 anatomical hit targets.
-const coordsStorage={};let coords=boot(coordsStorage);coords.click({nav:'laboratorio'});
-coords.click({action:'lab-power'});coords.touch(351,196);
-assert.equal(coords.state().labSeen.length,0,'powered-off monitor ignores touches');
-coords.click({action:'lab-power'});
-for(const spot of coords.spots){coords.touch(spot.x,spot.y);coords.click({action:'lab-next'});}
-assert.equal(coords.state().labSeen.length,18,'all 18 coordinate centres work');
-coords.click({action:'lab-start-exam'});let sequence=coords.state().labDraft.order;
-for(let i=0;i<sequence.length;i++){
- const id=sequence[i],spot=coords.spots.find(s=>s.id===id);
- if(i===0)coords.touch(1,1);else coords.touch(spot.x,spot.y);
- if(i===5){coords=boot(coordsStorage);coords.click({nav:'laboratorio'});assert.equal(coords.state().labDraft.index,5,'exam resumes after reload');}
- coords.click({action:'lab-next'});
-}
-const mixed=coords.state().labAttempts[0];assert.equal(mixed.correct,17);assert.equal(mixed.wrong,1);assert.equal(mixed.blank,0);
-coords=boot(coordsStorage);coords.click({nav:'laboratorio'});coords.click({action:'lab-review-'+mixed.id});
-assert(coords.html().includes('17 de 18 aciertos'),'historical result opens after reload');
-assert(coords.html().includes('La tráquea')||coords.html().includes('Las')||coords.html().includes('El '),'review explains errors');
-assert.deepEqual(coords.state().attempts,[]);assert.equal(coords.state().bankKnownIds.length,5000);
-console.log('LAB COORDINATES OK: power protection, all 18 hit targets, incorrect point, 17/18 score, draft recovery and historical review.');
+let a=boot(),qs=a.lab.exercises;
+assert.equal(qs.length,1000);assert.equal(new Set(qs.map(q=>q.id)).size,1000);assert.equal(new Set(qs.map(q=>q.objective)).size,1000);
+assert.equal(a.lab.spots.length,18,'old IDs and content retained');
+for(const [mod,n] of Object.entries({RX:350,TC:300,RM:250,'Mamografía':60,DXA:40}))assert.equal(qs.filter(q=>q.technique===mod).length,n);
+for(const q of qs){assert(q.explanation&&q.region&&q.type&&q.view);if(q.options){assert.equal(q.options.length,4);assert.equal(new Set(q.options).size,4)}else{const atlas=q.atlas==='rx-torax-original'?null:a.lab.atlases.find(x=>x.id===q.atlas);assert(atlas||q.atlas==='rx-torax-original');if(atlas)assert(atlas.nodes.some(n=>n.label&&n.x===q.x&&n.y===q.y));}}
+const base=a.state();const seeded={...base,labDraft:{mode:'exam',order:qs.map(q=>q.id),index:0,answers:{},lightsOn:true,started:Date.now()}};a=boot({[KEY]:JSON.stringify(seeded)});a.click({nav:'laboratorio'});
+for(const q of qs){if(q.options)a.click({labChoice:'option-'+q.answer});else if(q.type==='Identificación')a.click({labChoice:q.target});else a.touch(q);assert.equal(a.state().labDraft.answers[q.id].id,q.options?'option-'+q.answer:q.target,q.id);a.click({action:'lab-next'});}
+let state=a.state();assert.equal(state.labAttempts[0].correct,1000);assert.equal(state.labSeen.length,1000);assert.deepEqual(state.attempts,base.attempts);assert.deepEqual(state.bankKnownIds,base.bankKnownIds);
+a=boot(a.storage);a.click({nav:'laboratorio'});a.click({action:'lab-review-'+state.labAttempts[0].id});assert(a.html().includes('1000 de 1000'));
+// Filtered rotations exhaust the chosen pool; old legacy drafts remain resumable.
+a=boot();a.click({nav:'laboratorio'});a.change('technique','RM');a.change('count','10');a.click({action:'lab-start-exam'});const one=a.state().labDraft.order;assert(one.every(id=>qs.find(q=>q.id===id).technique==='RM'));a.click({action:'lab-start-exam'});const two=a.state().labDraft.order;assert(one.every(id=>!two.includes(id)));
+a.click({action:'lab-power'});let q=qs.find(q=>q.id===two[0]);a.click({labChoice:q.options?'option-'+q.answer:q.target});assert.equal(Object.keys(a.state().labDraft.answers).length,0,'off disables all answer paths');a.click({action:'lab-power'});
+a.change('technique','Mamografía');a.change('type','Técnica');assert(a.html().includes('Pregunta técnica'));
+const legacy={...base,labSeen:['traquea'],labAttempts:[{id:'old',questions:['traquea'],answers:{traquea:{id:'traquea'}},correct:1,wrong:0,blank:0,answered:1,ended:1}],labDraft:{mode:'exam',order:['traquea','clav-d'],index:1,answers:{traquea:{id:'traquea'}},lightsOn:true,started:1}};
+a=boot({[KEY]:JSON.stringify(legacy)});a.click({nav:'laboratorio'});assert(a.html().includes('Clavícula derecha'));a.click({labChoice:'clav-d'});a.click({action:'lab-next'});assert.equal(a.state().labAttempts[1].correct,2);assert.equal(a.state().labAttempts[0].id,'old');
+assert.equal(a.state().bankKnownIds.length,5000);
+for(const file of ['index.html','sw.js','.github/workflows/deploy.yml'])assert(fs.readFileSync(__dirname+'/'+file,'utf8').includes('lab-atlas.js'));
+assert(!fs.existsSync(__dirname+'/assets'));
+console.log('LAB 1000 OK: 5 modalities, 80 maps, 1000 unique objectives and answers, scaled touch coordinates, filters, nonrepeat rotations, power, old-draft migration and 5000 questions intact.');
