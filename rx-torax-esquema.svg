@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="700" height="850" viewBox="0 0 700 850" role="img" aria-labelledby="title desc">
+  <title id="title">Esquema anatómico de tórax frontal estilo radiografía</title>
+  <desc id="desc">Ilustración educativa original simplificada. En una proyección frontal, el lado derecho del paciente aparece a la izquierda del observador. No es una radiografía clínica.</desc>
+  <defs>
+    <radialGradient id="film" cx="50%" cy="40%" r="65%"><stop stop-color="#455b66"/><stop offset=".55" stop-color="#182934"/><stop offset="1" stop-color="#07121c"/></radialGradient>
+    <linearGradient id="lung" x1="0" x2=".72" y1="0" y2="1"><stop stop-color="#10232f"/><stop offset=".55" stop-color="#05131f"/><stop offset="1" stop-color="#223744"/></linearGradient>
+    <radialGradient id="bone"><stop stop-color="#d7e4e6" stop-opacity=".48"/><stop offset="1" stop-color="#8ca9b4" stop-opacity=".1"/></radialGradient>
+    <linearGradient id="med" x1="0" y1="0" x2="1" y2="0"><stop stop-color="#879ca2" stop-opacity=".30"/><stop offset=".4" stop-color="#d8e5e7" stop-opacity=".7"/><stop offset="1" stop-color="#93a7ad" stop-opacity=".27"/></linearGradient>
+    <filter id="bloom" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="4"/></filter>
+    <clipPath id="left"><path d="M277 178C236 161 166 168 133 234 103 313 103 495 124 623Q183 603 279 627Q299 581 296 508Q308 412 313 321Q300 222 277 178Z"/></clipPath>
+    <clipPath id="right"><path d="M424 178C473 165 528 167 565 230 597 310 605 506 580 633Q530 608 445 629Q433 570 420 505Q404 427 400 320Q406 229 424 178Z"/></clipPath>
+    <pattern id="grain" width="10" height="10" patternUnits="userSpaceOnUse"><circle cx="2" cy="4" r=".6" fill="#d1ecf1" opacity=".055"/><circle cx="7" cy="8" r=".8" fill="#9bc2d8" opacity=".04"/></pattern>
+  </defs>
+  <rect x="0" y="0" width="700" height="850" rx="28" fill="#07111c"/>
+  <rect x="24" y="18" width="652" height="814" rx="20" fill="url(#film)" stroke="#53798c" stroke-width="2"/>
+  <g opacity=".75"><text x="62" y="76" fill="#e1f1f5" font-family="Arial,sans-serif" font-size="27" font-weight="700">D</text><text x="614" y="76" fill="#e1f1f5" font-family="Arial,sans-serif" font-size="27" font-weight="700">I</text><text x="350" y="75" text-anchor="middle" fill="#a5bbc3" font-family="Arial,sans-serif" font-size="15">ESQUEMA FRONTAL DE TÓRAX</text></g>
+  <path d="M123 192C162 125 244 129 288 153L319 211 382 211 410 151Q518 120 572 193L605 566 576 661 126 661 96 550Z" fill="#acc1c8" opacity=".10"/>
+  <path d="M277 178C236 161 166 168 133 234 103 313 103 495 124 623Q183 603 279 627Q299 581 296 508Q308 412 313 321Q300 222 277 178Z" fill="url(#lung)" stroke="#bdd9df" stroke-opacity=".23" stroke-width="6"/>
+  <path d="M424 178C473 165 528 167 565 230 597 310 605 506 580 633Q530 608 445 629Q433 570 420 505Q404 427 400 320Q406 229 424 178Z" fill="url(#lung)" stroke="#bdd9df" stroke-opacity=".23" stroke-width="6"/>
+  <g stroke="#89aebd" stroke-width="5" opacity=".16" fill="none" clip-path="url(#left)">
+    <path d="M304 318Q237 300 168 366M304 344Q224 345 161 438M306 378Q208 401 157 517M301 422Q223 483 185 576M299 380Q270 283 225 227"/>
+  </g>
+  <g stroke="#89aebd" stroke-width="5" opacity=".16" fill="none" clip-path="url(#right)">
+    <path d="M391 318Q472 296 536 367M390 343Q483 345 545 442M388 380Q496 406 548 524M400 422Q480 483 507 572M391 380Q433 287 477 223"/>
+  </g>
+  <g stroke="#cbdde2" stroke-width="14" stroke-linecap="round" fill="none" opacity=".16">
+    <path d="M333 128Q276 100 214 124L145 167"/><path d="M369 128Q433 100 488 122L555 168"/>
+  </g>
+  <g stroke="#dbedf1" stroke-width="5" stroke-linecap="round" fill="none" opacity=".6">
+    <path d="M333 129Q266 111 213 143L150 179"/><path d="M369 129Q432 109 489 143L549 179"/>
+  </g>
+  <g stroke="#c8dde1" stroke-width="15" fill="none" opacity=".12">
+    <path d="M111 226Q240 198 313 261"/><path d="M108 283Q240 245 313 320"/><path d="M108 351Q247 300 314 389"/><path d="M108 425Q245 360 315 462"/><path d="M110 498Q240 435 317 530"/><path d="M126 565Q248 504 316 587"/>
+    <path d="M589 226Q466 198 390 261"/><path d="M591 283Q465 245 390 320"/><path d="M592 351Q468 300 390 389"/><path d="M593 425Q465 360 385 462"/><path d="M590 498Q470 435 386 530"/><path d="M578 565Q473 504 390 587"/>
+  </g>
+  <g stroke="#d5e7ec" stroke-width="3" fill="none" opacity=".27">
+    <path d="M111 226Q240 198 313 261"/><path d="M108 283Q240 245 313 320"/><path d="M108 351Q247 300 314 389"/><path d="M108 425Q245 360 315 462"/><path d="M110 498Q240 435 317 530"/><path d="M126 565Q248 504 316 587"/>
+    <path d="M589 226Q466 198 390 261"/><path d="M591 283Q465 245 390 320"/><path d="M592 351Q468 300 390 389"/><path d="M593 425Q465 360 385 462"/><path d="M590 498Q470 435 386 530"/><path d="M578 565Q473 504 390 587"/>
+  </g>
+  <path d="M334 112Q345 97 367 112L378 295 393 369 380 563 331 563 319 369 328 295Z" fill="url(#med)" opacity=".59"/>
+  <g opacity=".44" fill="#d9eaf0">
+    <rect x="330" y="253" width="42" height="21" rx="8"/><rect x="329" y="288" width="44" height="21" rx="8"/><rect x="329" y="323" width="44" height="21" rx="8"/><rect x="329" y="360" width="44" height="21" rx="8"/><rect x="330" y="396" width="42" height="21" rx="8"/><rect x="330" y="433" width="42" height="21" rx="8"/><rect x="332" y="470" width="41" height="21" rx="8"/><rect x="333" y="507" width="42" height="21" rx="8"/>
+  </g>
+  <path d="M344 121L344 262M359 121L359 262" stroke="#192e38" stroke-width="5" opacity=".75"/>
+  <path d="M330 266L312 303M370 266L391 303" stroke="#151f29" stroke-width="9" opacity=".65"/>
+  <path d="M380 235Q431 207 441 261Q428 277 408 275L400 343" stroke="#b6cfd7" stroke-width="17" opacity=".28" fill="none"/>
+  <path d="M374 375Q412 351 439 382L456 451Q498 462 494 523Q482 606 397 637L318 628Q320 588 301 549Q291 503 323 472Q352 440 360 410Z" fill="url(#med)" stroke="#bed4d9" stroke-opacity=".2" stroke-width="6"/>
+  <ellipse cx="312" cy="372" rx="39" ry="47" fill="#a7ced6" opacity=".25" filter="url(#bloom)"/>
+  <ellipse cx="422" cy="373" rx="44" ry="47" fill="#a7ced6" opacity=".23" filter="url(#bloom)"/>
+  <path d="M127 634Q192 575 280 621" fill="none" stroke="#c5dde2" stroke-width="15" opacity=".58" stroke-linecap="round"/>
+  <path d="M442 628Q511 582 578 641" fill="none" stroke="#c5dde2" stroke-width="15" opacity=".58" stroke-linecap="round"/>
+  <path d="M122 635Q115 647 105 655M578 638Q590 651 602 660" stroke="#d7e9ed" stroke-width="6" fill="none" stroke-linecap="round" opacity=".55"/>
+  <rect x="24" y="18" width="652" height="814" rx="20" fill="url(#grain)"/>
+  <path d="M71 759h110m-110 0v-21m0 21v21M629 759H519m110 0v-21m0 21v21" stroke="#9ab8c6" opacity=".45" stroke-width="2"/>
+  <text x="350" y="791" font-family="Arial,sans-serif" fill="#bbd1da" font-size="14" text-anchor="middle">ILUSTRACIÓN DIDÁCTICA · NO ES UNA RADIOGRAFÍA CLÍNICA</text>
+</svg>

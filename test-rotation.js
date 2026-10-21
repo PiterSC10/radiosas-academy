@@ -33,6 +33,7 @@ function boot() {
   ctx.window.window=ctx.window;
   vm.createContext(ctx);
   vm.runInContext(fs.readFileSync(__dirname+'/data.js','utf8'),ctx);vm.runInContext(fs.readFileSync(__dirname+'/bank-master.js','utf8'),ctx);
+  vm.runInContext(fs.readFileSync(__dirname+'/lab-data.js','utf8'),ctx);
   vm.runInContext(fs.readFileSync(__dirname+'/app.js','utf8'),ctx);
   return {
     click(dataset) {listeners.click({target:{closest:()=>({dataset})}});},
