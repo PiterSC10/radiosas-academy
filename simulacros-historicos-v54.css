@@ -29,3 +29,11 @@
 .year-feature-button:hover{filter:brightness(1.08)}
 .year-feature-button:focus-visible{outline:3px solid #fff;outline-offset:3px}
 @media(max-width:700px){.year-feature{flex-direction:column;align-items:stretch;gap:13px}.year-feature-button{max-width:none;width:100%;text-align:center}.year-feature p{font-size:12px}}
+
+/* Reinicio de convocatoria sin borrar notas previas */
+.sim54-card-actions{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end;align-items:center;max-width:240px}
+.sim54-card-actions .sim54-btn{flex:1}
+.sim54-btn.reset{background:#263549;color:#ffdac0;border-color:#8d624b}
+.sim54-btn.reset:hover{background:#4c3640}
+.sim54-exam-tools{display:flex;justify-content:flex-end;gap:8px;margin:12px 0}
+@media(max-width:600px){.sim54-card-actions{max-width:none;width:100%}.sim54-card-actions .sim54-btn{flex:auto}}
