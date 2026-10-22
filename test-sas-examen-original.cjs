@@ -14,6 +14,6 @@ assert.equal(m.key('2022-l')[122],null,'pregunta 122 anulada');
 assert.equal(m.key('2018'),null,'sin inventar plantilla no verificada');
 const view=m.list();
 assert.equal((view.match(/data-original="start:/g)||[]).length,5,'5 botones de acceso directo');
-assert.ok(view.includes('Servicio Andaluz de Salud'));
+assert.ok(view.includes('web oficial del SAS'));
 assert.ok(!view.includes('examen inventado'));
 console.log('EXÁMENES SAS ORIGINAL OK: 5 cuadernillos, 450 claves definitivas verificadas, hoja de respuestas e historial sin importar PDFs');
