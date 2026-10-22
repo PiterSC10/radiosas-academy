@@ -7,7 +7,7 @@ const ctx={console,Date,Math,Array,Object,Number,String,JSON,Error,Map,Set,Blob,
 vm.createContext(ctx);for(const f of ['data.js','bank-master.js','bank-5000.js','lab-data.js','lab-atlas.js','app.js'])vm.runInContext(fs.readFileSync(__dirname+'/'+f,'utf8'),ctx);
 const state=JSON.parse(storage[key]);for(const f of ['attempts','favorites','topicStatuses','studyPlan','dailyGoal','rotations','seenQuestions','custom'])assert.deepEqual(state[f],seed[f],f);
 assert.deepEqual(JSON.parse(storage[key+'_backup_before_4_0']),seed,'exact pre-update backup');
-assert(app.innerHTML.includes('edition4'));assert(app.innerHTML.includes('data-action="goto-reales"'));assert(app.innerHTML.includes('data-action="quick"'));assert(app.innerHTML.includes('data-action="goto-estadisticas"'));
+assert(app.innerHTML.includes('edition4'));assert(app.innerHTML.includes('data-action="goto-historicos"'));assert(app.innerHTML.includes('data-action="quick"'));assert(app.innerHTML.includes('data-action="goto-estadisticas"'));
 handlers.click({target:{closest:()=>({dataset:{nav:'estadisticas'}})}});
 assert(app.innerHTML.includes('100,0/100'));assert(app.innerHTML.includes('Nota media'));assert(app.innerHTML.includes('Errores'));assert(app.innerHTML.includes('Ver valores del gráfico'));
 for(const field of ['attempts','favorites','rotations'])assert.deepEqual(JSON.parse(storage[key])[field],seed[field]);
