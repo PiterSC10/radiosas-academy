@@ -1,0 +1,47 @@
+/* RADIOSAS: lector del cuadernillo original SAS + hoja de respuestas interactiva */
+.sasoriginal{padding:10px 0 24px;color:#edf3ff}
+.sas-original-catalog{border-radius:20px;border:1px solid #34566d;padding:clamp(15px,3vw,25px);background:linear-gradient(145deg,#122f48,#111e30)}
+.sas-original-catalog h2,.sasoriginal h2{color:#ffe5a4;font-size:clamp(21px,3vw,29px);margin:4px 0 10px}
+.sas-original-catalog p{font-size:13px;line-height:1.6;color:#b9d0e3}
+.sas-original-years{display:grid;grid-template-columns:1fr;gap:10px;margin:18px 0}
+.sas-original-years article{display:flex;align-items:center;gap:12px;border:1px solid #385673;background:#213d58;padding:13px;border-radius:13px}
+.sas-original-years article>span{font-size:18px;font-weight:850;color:#ffde97;background:#294663;border-radius:9px;padding:10px}
+.sas-original-years article>div{flex:1;min-width:0}
+.sas-original-years article b{display:block;font-size:14px;color:#f7f9ff}
+.sas-original-years small{display:block;color:#bad0e4;font-size:11px;margin-top:5px}
+.sasoriginal button{color:#f9faff;background:#294d6b;border:1px solid #52728b;border-radius:9px;cursor:pointer;padding:10px 12px;font-size:12px;font-weight:750}
+.sasoriginal button:hover{filter:brightness(1.15)}
+.sas-original-years article>button:first-of-type{color:#183048;background:#f2cf87;border-color:#ffe1a0}
+.sasoriginal-note{font-size:11px!important;color:#a9bfd2!important}
+.sasoriginal>header{display:flex;align-items:center;gap:14px;background:#142c43;border:1px solid #3a5d75;border-radius:12px;padding:10px 12px}
+.sasoriginal>header>div{flex:1;min-width:0}
+.sasoriginal>header b,.sasoriginal>header small{display:block}
+.sasoriginal>header b{font-size:14px;color:#ffe3a6}
+.sasoriginal>header small{font-size:11px;color:#c1d1df;margin-top:4px}
+.sasoriginal>header strong{font-variant-numeric:tabular-nums;color:#f3cd7e;white-space:nowrap}
+.sasoriginal-layout{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(280px,1fr);align-items:start;gap:13px;margin:12px 0}
+.sasoriginal-paper,.sasoriginal-answer{background:#142b45;border:1px solid #3e5f7d;border-radius:13px;min-width:0;padding:13px}
+.sasoriginal-paper nav{display:flex;gap:8px;margin-bottom:8px}
+.sasoriginal-paper iframe{width:100%;height:73vh;min-height:530px;background:#f6f6f6;border:0;border-radius:8px}
+.sasoriginal-paper p{font-size:11px;color:#becddd;line-height:1.45}
+.sasoriginal-paper a{color:#f9db98;text-decoration:underline;font-size:12px}
+.sasoriginal-answer{position:sticky;top:10px}
+.sasoriginal-answer b,.sasoriginal-answer small{display:block}
+.sasoriginal-answer b{color:#ffdb94}
+.sasoriginal-answer small{color:#c3d3e5;font-size:11px;margin:5px 0 8px}
+.sasoriginal-answer p{font-size:13px;color:#d6e3ef;line-height:1.55}
+.sasoriginal-options{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:7px;margin:17px 0}
+.sasoriginal-options button{font-size:18px;min-height:52px}
+.sasoriginal-options button:has(+ button){} /* no special interaction needed */
+.sasoriginal-nav{display:flex;gap:8px;margin-bottom:15px}
+.sasoriginal-nav button{flex:1}
+.sasoriginal-answer details>summary{color:#e7dfcd;cursor:pointer;font-size:12px}
+.sasoriginal-map{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:5px;max-height:220px;overflow-y:auto;padding:10px 0}
+.sasoriginal-map button{font-size:11px;padding:6px 2px}
+.sasoriginal-answer>button:last-child{width:100%;margin-top:12px;border-color:#a97669}
+.sasoriginal-result{border:1px solid #435c70;border-radius:14px;text-align:center;background:#162d42;padding:24px}
+.sasoriginal-result>strong{font-size:39px;display:block;color:#f3d48d;margin:15px 0}
+.sasoriginal-result p{color:#bcd1e0;font-size:13px}
+.sasoriginal-result button{margin:4px}
+@media(max-width:850px){.sasoriginal-layout{grid-template-columns:1fr}.sasoriginal-paper iframe{height:55vh;min-height:360px}.sasoriginal-answer{position:relative;top:auto}.sas-original-years article{flex-wrap:wrap}.sas-original-years article>button{flex:1}.sasoriginal{padding:7px 0}}
+@media(max-width:480px){.sasoriginal-paper iframe{height:49vh;min-height:280px}.sasoriginal-map{grid-template-columns:repeat(6,minmax(0,1fr))}.sas-original-years article>div{flex-basis:calc(100% - 80px)}}
