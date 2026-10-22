@@ -26,6 +26,14 @@ jobs:
           node test-oficiales-v53.cjs
           node --check simulacros-historicos-v54.js
           node test-simulacros-historicos-v54.cjs
+      - name: Diagnóstico de lectura de cuadernillos SAS (no bloqueante)
+        run: |
+          node - <<'NODE'
+          const u='https://www.sspa.juntadeandalucia.es/servicioandaluzdesalud/sites/default/files/sincfiles/wsas-media-mediafile_sasdocumento/2024/20240210_55018_te_radiodiagnostico.pdf';
+          fetch(u,{method:'HEAD',headers:{Origin:'https://pitersc10.github.io'},signal:AbortSignal.timeout(12000)})
+            .then(r=>console.log('SAS_CORS_STATUS',r.status,'SAS_CORS_ACAO',r.headers.get('access-control-allow-origin')||'NO_ACAO','SAS_CONTENT_TYPE',r.headers.get('content-type')))
+            .catch(e=>console.log('SAS_CORS_CHECK_UNAVAILABLE',e.message));
+          NODE
       - name: Instalar navegador de pruebas
         run: |
           npm install --ignore-scripts
