@@ -9,7 +9,7 @@ const state=JSON.parse(storage[key]);for(const f of ['attempts','favorites','top
 assert.deepEqual(JSON.parse(storage[key+'_backup_before_4_0']),seed,'exact pre-update backup');
 assert(app.innerHTML.includes('edition4'));assert(app.innerHTML.includes('data-action="goto-historicos"'));assert(app.innerHTML.includes('data-action="quick"'));assert(app.innerHTML.includes('data-action="goto-estadisticas"'));
 handlers.click({target:{closest:()=>({dataset:{nav:'historicos'}})}});
-assert(app.innerHTML.includes('Exámenes auténticos del SAS · por año'),'year tab routes to native source reader');
+assert(app.innerHTML.includes('Exámenes históricos · por año'),'year tab routes to native source reader');
 assert.equal((app.innerHTML.match(/data-original="start:/g)||[]).length,5,'five original exam start actions');
 assert(!app.innerHTML.includes('<iframe'),'no obsolete PDF iframe in exam list');
 handlers.click({target:{closest:()=>({dataset:{nav:'estadisticas'}})}});
