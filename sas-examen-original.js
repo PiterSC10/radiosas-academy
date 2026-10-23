@@ -251,7 +251,7 @@ function parseText(content,id){
   if(q){
    if(part<0){q.text+=(q.text?' ':'')+t;continue}
    // Some 2018 stems precede their number. After option D, the next paragraph may be the following stem.
-   if(is2018 && part===3 && q.options[3] && /[.?!:;]$/.test(q.options[3]) && !/^[a-záéíóúñ]/.test(t)){
+   if(is2018 && part===3 && q.options[3] && /^[A-ZÁÉÍÓÚÜÑ¿¡]/.test(t)){
     flush();pending.push(t);continue;
    }
    q.options[part]+=' '+t;
