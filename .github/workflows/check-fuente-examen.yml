@@ -25,6 +25,18 @@ jobs:
                 print('HTTP',r.status,'SIZE',len(h),'XFO',r.headers.get('X-Frame-Options'),'CSP',r.headers.get('Content-Security-Policy'),'CORS',r.headers.get('Access-Control-Allow-Origin'))
                 print('SCRIPT_SOURCES',re.findall(r'<script[^>]*src=["\\\']([^"\\\']+)',h,re.I)[:15])
                 print('CHECK','contains radio test',bool(re.search(r'(?:radiodiagn[oó]stico|examen oficial)',h,re.I)))
+                if 'testsas.es' in u:
+                  from html.parser import HTMLParser
+                  class Inspector(HTMLParser):
+                    def __init__(self):super().__init__();self.instances=[]
+                    def handle_starttag(self,tag,attrs):
+                      a=dict(attrs); cls=a.get('class','');
+                      if any(k in cls for k in ['wpts-','test-container']):
+                        relevant={k:v[:180] for k,v in a.items() if k in ['class','id'] or k.startswith('data-')}
+                        if relevant and len(self.instances)<30:self.instances.append((tag,relevant))
+                  ins=Inspector();ins.feed(h)
+                  print('EXAM_HTML_ATTRS',ins.instances)
+
                 print('MARKERS',[(w,bool(re.search(w,h,re.I))) for w in ['test-sas','examen.oficial','data-test','pregunta','window\\.','admin-ajax','wp-json','testsas','quiz','cuestionario']])
                 for key in ['Examen oficial SAS 2025','data-test-id','tests-sas','window.tests','admin-ajax.php']:
                   idx=h.lower().find(key.lower())
@@ -59,6 +71,10 @@ jobs:
                           jj=json.loads(body)
                           routes=list(jj.get('routes',{}).keys()) if isinstance(jj,dict) else []
                           print('REST_ROUTES',endpoint,[v for v in routes if 'wpts' in v or 'quiz' in v or 'test' in v][:30])
+                          if endpoint.endswith('/wpts/v1/'):
+                            for p,route in jj.get('routes',{}).items():
+                              print('REST_SCHEMA',p,[{'methods':e.get('methods'),'args':list(e.get('args',{}))} for e in route.get('endpoints',[])])
+
                           print('API_KEYS',endpoint,list(jj)[:15] if isinstance(jj,dict) else None)
                         except Exception:print('API_BODY_META',endpoint,len(body),body[:60])
                         print('API_CORS',endpoint,rr.status,rr.headers.get('Access-Control-Allow-Origin'))
