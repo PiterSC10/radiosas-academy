@@ -74,3 +74,6 @@
 .sasoriginal-error,.sasoriginal-warning{border-left:3px solid #f5bd6f;background:#503f3033;padding:10px 13px;color:#ffdda7!important;font-size:12px!important}
 .sasoriginal-native .sasoriginal-warning{margin:0 0 17px}
 @media(max-width:650px){.sasoriginal-native .sasoriginal-map{grid-template-columns:repeat(7,1fr)}.sasoriginal-native-choices .sasoriginal-option{padding:11px;font-size:13px;gap:10px}.sasoriginal-native>h2{margin:16px 0}.sasoriginal-actions button{flex:1}}
+
+.sasoriginal-source{display:inline-block;padding:11px 14px;margin:6px 0 12px;border-radius:9px;border:1px solid #e8bb6f;background:#3f493f;color:#ffe3aa;font-size:13px;font-weight:750;text-decoration:none}
+.sasoriginal-source:hover{filter:brightness(1.14)}
