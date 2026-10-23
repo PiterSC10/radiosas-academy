@@ -1,0 +1,29 @@
+name: Diagnosticar fuente de exámenes reales
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/check-fuente-examen.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  diagnostico:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Verificar acceso y permiso de inserción
+        run: |
+          python - <<'PY'
+          import urllib.request,re
+          hosts=['https://testsas.es/tecnico-radiodiagnostico/','https://escapa.es/examenes/tecnico-educacion-participacion-comunitaria?ope=tecnico-radiodiagnostico']
+          for u in hosts:
+            try:
+              req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0 RADIOSASAcademy Educational Link Check'})
+              with urllib.request.urlopen(req,timeout=18) as r:
+                h=r.read(1800000).decode('utf-8','replace')
+                print('URL',u)
+                print('HTTP',r.status,'SIZE',len(h),'XFO',r.headers.get('X-Frame-Options'),'CSP',r.headers.get('Content-Security-Policy'),'CORS',r.headers.get('Access-Control-Allow-Origin'))
+                print('SCRIPT_SOURCES',re.findall(r'<script[^>]*src=["\\\']([^"\\\']+)',h,re.I)[:15])
+                print('CHECK','contains radio test',bool(re.search(r'(?:radiodiagn[oó]stico|examen oficial)',h,re.I)))
+            except Exception as ex:print('FAIL',u,str(ex)[:320])
+          PY
