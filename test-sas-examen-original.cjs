@@ -11,12 +11,35 @@ assert.equal(m.key('2024')&&Object.keys(m.key('2024')).length,75);
 assert.equal(Object.keys(m.key('2022-l')).length,150);
 assert.equal(Object.keys(m.key('2022-a')).length,150);
 assert.equal(m.key('2022-l')[122],null,'pregunta 122 anulada');
-assert.equal(m.key('2018'),null,'sin inventar plantilla no verificada');
+assert.equal(Object.keys(m.key('2018')).length,150,'plantilla definitiva oficial 2018');
+assert.equal(m.key('2018')[1],'A');
+assert.equal(m.key('2018')[51],'A');
+assert.equal(m.key('2018')[101],'C');
+assert.equal(m.key('2018')[150],'D');
 const view=m.list();
 assert.equal((view.match(/data-original="start:/g)||[]).length,5,'5 botones de acceso directo');
 assert.ok(view.includes('cuatro respuestas'));
 assert.ok(!view.includes('iframe'),'sin visor PDF incrustado');
 const example=['1 Una pregunta clínica sobre radiografía de tórax de prueba para validación','A) Primera respuesta','B) Segunda respuesta','C) Tercera respuesta','D) Cuarta respuesta','2 Una segunda pregunta clínica sobre resonancia magnética de prueba','A) Respuesta A','B) Respuesta B','C) Respuesta C','D) Respuesta D'].join('\n');
+// En 2018 parte de los enunciados tiene el número al final y en una línea independiente.
+const example2018=[
+ 'Una pregunta extensa sobre seguridad radiológica en el entorno hospitalario',
+ '1',
+ 'A) Respuesta de protección',
+ 'B) Respuesta de equipo',
+ 'C) Respuesta de imagen',
+ 'D) Respuesta de paciente',
+ 'La segunda pregunta trata sobre la formación de imágenes por resonancia',
+ '2',
+ 'A) Respuesta uno',
+ 'B) Respuesta dos',
+ 'C) Respuesta tres',
+ 'D) Respuesta cuatro'
+].join('\n');
+const parsed2018=m.parseText(example2018,'2018');
+assert.equal(parsed2018.found,2,'enunciados históricos numerados tras el texto');
+assert.equal(parsed2018.questions[0].options[3],'Respuesta de paciente');
+assert.ok(parsed2018.questions[1].text.startsWith('La segunda pregunta'));
 const parsed=m.parseText(example,'2025');assert.equal(parsed.questions.length,2);assert.equal(parsed.questions[0].options[3],'Cuarta respuesta');assert.equal(parsed.questions[1].number,2);assert.equal(parsed.complete,false,'dos preguntas no se presentan como examen de 75');
 
 const app={innerHTML:''},callbacks={},storage={};
