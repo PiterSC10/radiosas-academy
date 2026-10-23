@@ -15,7 +15,7 @@ const find=id=>DEFS.find(x=>x.id===id);
 const src=id=>window.RADIOSAS_HIST_ITEMS?.[id]||[];
 const valid=q=>Array.isArray(q)&&q.length===5&&Number.isInteger(q[0])&&q[0]>0&&typeof q[1]==='string'&&q[1].trim().length>14&&Array.isArray(q[2])&&q[2].length===4&&q[2].every(x=>typeof x==='string'&&x.trim())&&new Set(q[2].map(x=>x.trim().toLocaleLowerCase('es'))).size===4&&YES.includes(q[3])&&typeof q[4]==='string'&&q[4].trim();
 const items=id=>{const arr=src(id).filter(valid);const seen=new Set();return arr.filter(q=>!seen.has(q[0])&&seen.add(q[0])).slice().sort((a,b)=>a[0]-b[0])};
-const root=()=>document.querySelector('main.page')||document.getElementById('app');
+const root=()=>document.querySelector?.('main.page')||document.getElementById('app');
 let current=null,position=0,last=null,interval=null;
 const button=(name,action,cl='')=>'<button type="button" class="ed-btn '+cl+'" data-ed="'+action+'">'+name+'</button>';
 function paint(markup){const el=root();if(el)el.innerHTML='<section class="ed-exams">'+markup+'</section>';window.scrollTo?.({top:0,behavior:'instant'})}
