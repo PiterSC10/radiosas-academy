@@ -25,5 +25,14 @@ jobs:
                 print('HTTP',r.status,'SIZE',len(h),'XFO',r.headers.get('X-Frame-Options'),'CSP',r.headers.get('Content-Security-Policy'),'CORS',r.headers.get('Access-Control-Allow-Origin'))
                 print('SCRIPT_SOURCES',re.findall(r'<script[^>]*src=["\\\']([^"\\\']+)',h,re.I)[:15])
                 print('CHECK','contains radio test',bool(re.search(r'(?:radiodiagn[oó]stico|examen oficial)',h,re.I)))
+                print('MARKERS',[(w,bool(re.search(w,h,re.I))) for w in ['test-sas','examen.oficial','data-test','pregunta','window\\.','admin-ajax','wp-json','testsas','quiz','cuestionario']])
+                for key in ['Examen oficial SAS 2025','data-test-id','tests-sas','window.tests','admin-ajax.php']:
+                  idx=h.lower().find(key.lower())
+                  if idx!=-1:
+                    segment=h[max(0,idx-250):idx+900]
+                    segment=re.sub(r'>[^<>]{40,}<','>[TEXT]<',segment)
+                    print('CONTEXT',key,segment[:950].replace('\\n',' ').replace('\\r',' '))
+                print('PAGE_GLOBALS',re.findall(r'window\\.([A-Za-z_$][\\w$]*)\\s*=',h)[:50])
+
             except Exception as ex:print('FAIL',u,str(ex)[:320])
           PY
