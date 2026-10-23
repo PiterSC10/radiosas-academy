@@ -25,6 +25,11 @@ for(const exam of app.definitions){
 }
 assert.equal(grand,116);
 app.list();
+assert.equal((main.innerHTML.match(/data-ed="start:/g)||[]).length,0,'no official start for incomplete exams');
+assert.equal((main.innerHTML.match(/NO DISPONIBLE/g)||[]).length,5);
+assert(main.innerHTML.includes('0 de 5'));
+assert(!map.has('radiosas_examenes_directos_2026_v1'),'view does not mutate historical storage');
+app.practice();
 assert.equal((main.innerHTML.match(/data-ed="start:/g)||[]).length,5);
 assert(!/\.pdf|<iframe|c[oó]digo QR|Abrir cuadernillo|SAS_T[ÉE]CNICO/.test(main.innerHTML),'no PDFs/QR/official document links exposed');
 function click(action){events.click({target:{closest:()=>({dataset:{ed:action}})},preventDefault(){},stopImmediatePropagation(){}})}
@@ -44,5 +49,11 @@ assert.equal(history.attempts[0].correct,1);
 assert.equal(history.attempts[0].blank,19);
 assert.equal(map.get('radiosas_academy_v1'),seed,'old progress must remain byte-identical');
 click('history');
-assert(main.innerHTML.includes('Notas por año'));
-console.log('HISTÓRICOS DIRECTOS OK: 116 preguntas source-linked en 5 años; claves coinciden, 4 opciones, cronómetro, reset, notas, avance y datos anteriores');
+assert(main.innerHTML.includes('Historial de práctica propia'));
+click('reset:2025');
+assert.equal(JSON.parse(map.get('radiosas_examenes_directos_2026_v1')).attempts.length,1,'reset preserves past grades');
+assert.equal(map.get('radiosas_academy_v1'),seed);
+assert(main.innerHTML.includes('PRÁCTICA PROPIA, NO OFICIAL'));
+const html=fs.readFileSync('app.js','utf8');
+assert.equal((html.match(/data-action="goto-historicos"/g)||[]).length,1,'one featured home entry');
+console.log('OK: cinco oficiales bloqueados explícitamente; práctica separada, 116 ítems, reset e historial preservados, un acceso destacado. Cotejo con claves heredadas, NO validación documental oficial.');
