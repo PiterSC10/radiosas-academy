@@ -122,6 +122,38 @@ const getBank=()=>read(CACHE,{}),memory={};
 const getPaper=id=>memory[id]||getBank()[id];
 const setPaper=(id,q)=>{memory[id]=q;try{const bank=getBank();bank[id]=q;localStorage.setItem(CACHE,JSON.stringify(bank))}catch(e){console.warn('No se pudo conservar el cuadernillo en este navegador',e)}};
 const def=id=>exams.find(x=>x.id===id);
+
+/* Si se importó un cuadernillo con la versión 5.3, reutilizar la copia privada del navegador. */
+async function fromPreviousVersion(id){
+ if(typeof indexedDB==='undefined')return null;
+ return new Promise(resolve=>{
+  let done=false;const finish=x=>{if(!done){done=true;resolve(x)}};
+  try{
+   const request=indexedDB.open('radiosas_examenes_fuentes_v53');
+   request.onerror=()=>finish(null);
+   request.onblocked=()=>finish(null);
+   request.onupgradeneeded=()=>{ /* No hay datos anteriores: no crear nada útil. */ };
+   request.onsuccess=()=>{
+    const db=request.result;
+    if(!db.objectStoreNames.contains('exams')){db.close();finish(null);return}
+    try{
+     const tx=db.transaction('exams','readonly'),entry=tx.objectStore('exams').get(id);
+     entry.onerror=()=>{db.close();finish(null)};
+     entry.onsuccess=()=>{
+      const old=entry.result,d=def(id);
+      db.close();
+      if(!old?.valid||!Array.isArray(old.questions)||!d||old.questions.length!==d.n){finish(null);return}
+      const qs=old.questions.map(q=>({number:Number(q.number),text:q.text,options:q.options}));
+      if(qs.every((q,i)=>q.number===i+1&&typeof q.text==='string'&&q.text.length>=12&&Array.isArray(q.options)&&q.options.length===4&&q.options.every(Boolean)))
+       finish({questions:qs,complete:true,found:qs.length,expected:d.n,source:d.url});
+      else finish(null);
+     };
+    }catch{db.close();finish(null)}
+   };
+  }catch{finish(null)}
+ });
+}
+
 let current=null,ticker=null,busy=false,pickerId=null;
 function paint(html){const r=root();if(r)r.innerHTML='<section class="sasoriginal">'+html+'</section>';window.scrollTo?.({top:0,behavior:'instant'})}
 function parseText(content,id){
@@ -197,6 +229,7 @@ async function fromSource(d){
 }
 async function start(id,force){
  const d=def(id);if(!d||busy)return;let paper=getPaper(id);
+ if(!paper?.complete){paper=await fromPreviousVersion(id);if(paper?.complete)setPaper(id,paper)}
  if(!paper?.complete){
   busy=true;loading(d);
   try{paper=await fromSource(d);setPaper(id,paper)}catch(e){busy=false;filePrompt(d,e.message);return}
