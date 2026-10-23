@@ -108,8 +108,59 @@ const rawApl=String.raw`1 A 51 A 101 B
 48 D 98 A 148 D
 49 A 99 A 149 B
 50 D 100 C 150 C`;
+/* Clave de acceso libre 2018, plantilla definitiva del SAS (15/03/2019). Datos de respuestas, sin reproducir enunciados. */
+const raw2018=String.raw`1 A 51 A 101 C
+2 A 52 B 102 D
+3 C 53 A 103 D
+4 A 54 C 104 D
+5 B 55 C 105 D
+6 D 56 D 106 A
+7 D 57 B 107 A
+8 C 58 B 108 B
+9 D 59 C 109 D
+10 D 60 B 110 A
+11 D 61 D 111 A
+12 B 62 A 112 B
+13 D 63 D 113 D
+14 D 64 D 114 B
+15 D 65 A 115 B
+16 D 66 D 116 C
+17 C 67 A 117 D
+18 A 68 C 118 B
+19 A 69 B 119 D
+20 A 70 A 120 C
+21 B 71 B 121 D
+22 D 72 C 122 B
+23 B 73 C 123 B
+24 C 74 C 124 B
+25 C 75 C 125 C
+26 C 76 B 126 D
+27 A 77 D 127 C
+28 A 78 A 128 A
+29 D 79 D 129 A
+30 A 80 B 130 C
+31 D 81 A 131 D
+32 A 82 B 132 B
+33 A 83 B 133 A
+34 C 84 D 134 A
+35 D 85 A 135 B
+36 A 86 C 136 B
+37 D 87 B 137 C
+38 B 88 D 138 D
+39 D 89 A 139 B
+40 A 90 C 140 D
+41 A 91 B 141 D
+42 C 92 B 142 B
+43 B 93 A 143 B
+44 A 94 B 144 B
+45 D 95 C 145 A
+46 D 96 A 146 B
+47 A 97 C 147 B
+48 B 98 C 148 B
+49 B 99 D 149 C
+50 C 100 D 150 D`;
 const parsed=raw=>{const k={};for(const m of raw.matchAll(/(?:^|\s)(\d{1,3})\s+(ANULADA|[A-D])(?=\s|$)/g)){if(+m[1]<=150)k[+m[1]]=m[2]==='ANULADA'?null:m[2]}return k};
-const key=id=>{if(id==='2022-l')return parsed(rawFree);if(id==='2022-a')return parsed(rawApl);const x=window.RADIOSAS_DATA?.exams?.find(x=>x.year===+id)?.answers;return x?.length===75?Object.fromEntries([...x].map((v,i)=>[i+1,v])):null};
+const key=id=>{if(id==='2018')return parsed(raw2018);if(id==='2022-l')return parsed(rawFree);if(id==='2022-a')return parsed(rawApl);const x=window.RADIOSAS_DATA?.exams?.find(x=>x.year===+id)?.answers;return x?.length===75?Object.fromEntries([...x].map((v,i)=>[i+1,v])):null};
 
 const STORE='radiosas_practica_examen_real_v1',CACHE='radiosas_sas_cuestionarios_personales_v57';
 const root=()=>document.querySelector('main.page')||document.getElementById('app');
