@@ -25,9 +25,9 @@ for(const exam of app.definitions){
 }
 assert.equal(grand,116);
 app.list();
-assert.equal((main.innerHTML.match(/data-ed="start:/g)||[]).length,0,'no official start for incomplete exams');
-assert.equal((main.innerHTML.match(/NO DISPONIBLE/g)||[]).length,5);
-assert(main.innerHTML.includes('0 de 5'));
+assert.equal((main.innerHTML.match(/data-ed="start:/g)||[]).length,5,'five adapted historical quizzes visible on opening');
+assert.equal((main.innerHTML.match(/NO DISPONIBLE/g)||[]).length,0,'not a blocked landing page');
+assert(main.innerHTML.includes('116'),'the 116 retrieved adaptations are immediately accessible');
 assert(!map.has('radiosas_examenes_directos_2026_v1'),'view does not mutate historical storage');
 app.practice();
 assert.equal((main.innerHTML.match(/data-ed="start:/g)||[]).length,5);
@@ -54,6 +54,8 @@ click('reset:2025');
 assert.equal(JSON.parse(map.get('radiosas_examenes_directos_2026_v1')).attempts.length,1,'reset preserves past grades');
 assert.equal(map.get('radiosas_academy_v1'),seed);
 assert(main.innerHTML.includes('PRÁCTICA PROPIA, NO OFICIAL'));
+const pageHtml=fs.readFileSync('index.html','utf8');
+assert(pageHtml.includes('sas-examen-original.js?v=620'),'reader for real exam text is loaded');
 const html=fs.readFileSync('app.js','utf8');
 assert.equal((html.match(/data-action="goto-historicos"/g)||[]).length,1,'one featured home entry');
-console.log('OK: cinco oficiales bloqueados explícitamente; práctica separada, 116 ítems, reset e historial preservados, un acceso destacado. Cotejo con claves heredadas, NO validación documental oficial.');
+console.log('OK: cinco quizzes historicos adaptados visibles al abrir, 116 items, reset e historial preservados, originales aparte y un unico acceso destacado.');
