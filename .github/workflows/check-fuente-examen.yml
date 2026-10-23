@@ -92,6 +92,25 @@ jobs:
                         print('AJAX_Q_SCHEMA',[list(v) for v in obj.get('data',{}).get('questions',[])[:1]])
                       except Exception:print('AJAX_META',rr.status,rr.headers.get('Access-Control-Allow-Origin'),len(response),response[:55])
                   except Exception as e:print('AJAX_FAIL',str(e)[:250])
+                  for u in [
+                   'https://testsas.es/wp-admin/admin-ajax.php?action=wpts_get_questions&ids=573',
+                   'https://testsas.es/wp-json/wp/v2/types',
+                   'https://testsas.es/wp-json/wp/v2/',
+                   'https://api.allorigins.win/raw?url=https%3A%2F%2Ftestsas.es%2Fwp-admin%2Fadmin-ajax.php%3Faction%3Dwpts_get_questions%26ids%3D573']:
+                    try:
+                      rq=urllib.request.Request(u,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0'},method='GET')
+                      with urllib.request.urlopen(rq,timeout=14) as rr:
+                        body=rr.read(550000).decode('utf-8','replace')
+                        import json
+                        try:
+                          obj=json.loads(body)
+                          meta={'keys':list(obj)[:20] if isinstance(obj,dict) else [],
+                                'success':obj.get('success') if isinstance(obj,dict) else None,
+                                'types':list(obj.get('routes',{}))[:5] if isinstance(obj,dict) else [],
+                                'questions':len(obj.get('data',{}).get('questions',[])) if isinstance(obj,dict) and isinstance(obj.get('data'),dict) else 0}
+                        except Exception:meta={'text_len':len(body),'first':body[:25]}
+                        print('PUBLIC_GET',u[:94],rr.status,'CORS',rr.headers.get('Access-Control-Allow-Origin'),'META',meta)
+                    except Exception as e:print('PUBLIC_GET_FAIL',u[:94],str(e)[:200])
                   for endpoint in ['https://testsas.es/wp-admin/admin-ajax.php','https://testsas.es/wp-json/wpts/v1/']:
                     try:
                       rq=urllib.request.Request(endpoint,headers={'Origin':'https://pitersc10.github.io','Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type'},method='OPTIONS')
