@@ -181,19 +181,19 @@ async function readRemote(url,isPdf=true){
  }finally{clearTimeout(id)}
 }
 async function fromSource(d){
- const attempts=[
+ const targets=[
    ()=>readRemote(d.url),
    ()=>readRemote('https://api.allorigins.win/raw?url='+encodeURIComponent(d.url)),
    ()=>readRemote('https://r.jina.ai/'+d.url,false)
  ];
- const errors=[];let best=null;
- for(const attempt of attempts){
-  try{const text=await attempt(),p=parseText(text,d.id);if(!best||p.found>best.found)best=p;if(p.complete)return p;errors.push(p.found+'/'+d.n+' preguntas recuperadas')}
-  catch(e){errors.push(String(e.message).slice(0,150))}
- }
- const err=errors.join(' · ');
- if(best?.found)throw Error(err+' (no se admiten exámenes incompletos)');
- throw Error(err||'Sin fuente accesible')
+ // Probar fuentes simultáneamente y aceptar solo cuadernillos con todas las opciones.
+ const tasks=targets.map(async fn=>{
+  const text=await fn(),p=parseText(text,d.id);
+  if(!p.complete)throw Error(p.found+'/'+d.n+' preguntas recuperadas: incompleto');
+  return p;
+ });
+ try{return await Promise.any(tasks)}
+ catch(e){throw Error('La fuente no permite recuperar '+d.n+' preguntas completas: '+(e.errors||[]).map(x=>x.message).join(' · ').slice(0,450))}
 }
 async function start(id,force){
  const d=def(id);if(!d||busy)return;let paper=getPaper(id);
