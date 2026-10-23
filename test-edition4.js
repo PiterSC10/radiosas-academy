@@ -10,8 +10,9 @@ assert.deepEqual(JSON.parse(storage[key+'_backup_before_4_0']),seed,'exact pre-u
 assert(app.innerHTML.includes('edition4'));assert(app.innerHTML.includes('data-action="goto-historicos"'));assert(app.innerHTML.includes('data-action="quick"'));assert(app.innerHTML.includes('data-action="goto-estadisticas"'));
 handlers.click({target:{closest:()=>({dataset:{nav:'historicos'}})}});
 assert(app.innerHTML.includes('Exámenes por año'),'year tab routes to direct source-based questions');
-assert.equal((app.innerHTML.match(/data-ed="start:/g)||[]).length,0,'incomplete originals cannot be started');
-assert.equal((app.innerHTML.match(/NO DISPONIBLE/g)||[]).length,5,'all five integration blockers visible');
+assert.equal((app.innerHTML.match(/data-ed="start:/g)||[]).length,5,'five recovered adapted quizzes available directly');
+assert.equal((app.innerHTML.match(/NO DISPONIBLE/g)||[]).length,0,'the landing view is not blocked');
+assert(app.innerHTML.includes('cuadernillos')||app.innerHTML.includes('Cuadernillos'),'official-original path remains available');
 assert(!app.innerHTML.includes('<iframe'),'no obsolete PDF iframe in exam list');
 handlers.click({target:{closest:()=>({dataset:{nav:'estadisticas'}})}});
 assert(app.innerHTML.includes('100,0/100'));assert(app.innerHTML.includes('Nota media'));assert(app.innerHTML.includes('Errores'));assert(app.innerHTML.includes('Ver valores del gráfico'));
