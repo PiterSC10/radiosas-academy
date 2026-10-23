@@ -30,6 +30,22 @@ jobs:
           node test-sas-examen-original.cjs
           node --check examenes-directos.js
           node test-examenes-directos.cjs
+      - name: Preparar web
+        run: |
+          mkdir -p dist
+          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css simulacros-historicos-v54.js simulacros-historicos-v54.css sas-examen-original.js sas-examen-original.css historicos-2025.js historicos-2024.js historicos-2022-l.js historicos-2022-a.js historicos-2018.js examenes-directos.js examenes-directos.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
+          cp paula-logo.svg paula-logo.png paula-avatar.png paula-hero.webp paula-social-card.svg paula-social-card.png vista-previa-paula-edition.png dist/
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  browser-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
       - name: Instalar navegador de pruebas
         run: |
           npm install --ignore-scripts
@@ -41,14 +57,6 @@ jobs:
         with:
           name: laboratorio-browser-results
           path: browser-results/
-      - name: Preparar web
-        run: |
-          mkdir -p dist
-          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css simulacros-historicos-v54.js simulacros-historicos-v54.css sas-examen-original.js sas-examen-original.css historicos-2025.js historicos-2024.js historicos-2022-l.js historicos-2022-a.js historicos-2018.js examenes-directos.js examenes-directos.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
-          cp paula-logo.svg paula-logo.png paula-avatar.png paula-hero.webp paula-social-card.svg paula-social-card.png vista-previa-paula-edition.png dist/
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: dist
   deploy:
     if: github.ref == 'refs/heads/main'
     environment:
