@@ -48,6 +48,28 @@ jobs:
                     for needle in ['wp-json','admin-ajax','wpts_ajax','ajax_url','apiUrl','restUrl','action:','questions']:
                       ix=source.lower().find(needle.lower())
                       if ix>=0:print('JS_CONTEXT',needle,source[max(0,ix-100):ix+300].replace('\\n',' ')[:400])
+                  from urllib.parse import urlencode
+                  for endpoint in ['https://testsas.es/wp-json/','https://testsas.es/wp-json/wpts/v1/','https://testsas.es/wp-admin/admin-ajax.php']:
+                    try:
+                      rq=urllib.request.Request(endpoint,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0'},method='GET')
+                      with urllib.request.urlopen(rq,timeout=12) as rr:
+                        body=rr.read(250000).decode('utf-8','replace')
+                        import json
+                        try:
+                          jj=json.loads(body)
+                          routes=list(jj.get('routes',{}).keys()) if isinstance(jj,dict) else []
+                          print('REST_ROUTES',endpoint,[v for v in routes if 'wpts' in v or 'quiz' in v or 'test' in v][:30])
+                          print('API_KEYS',endpoint,list(jj)[:15] if isinstance(jj,dict) else None)
+                        except Exception:print('API_BODY_META',endpoint,len(body),body[:60])
+                        print('API_CORS',endpoint,rr.status,rr.headers.get('Access-Control-Allow-Origin'))
+                    except Exception as e:print('API_ERROR',endpoint,str(e)[:250])
+                  for endpoint in ['https://testsas.es/wp-admin/admin-ajax.php','https://testsas.es/wp-json/wpts/v1/']:
+                    try:
+                      rq=urllib.request.Request(endpoint,headers={'Origin':'https://pitersc10.github.io','Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type'},method='OPTIONS')
+                      with urllib.request.urlopen(rq,timeout=12) as rr:
+                        print('PREFLIGHT',endpoint,rr.status,rr.headers.get('Access-Control-Allow-Origin'),rr.headers.get('Access-Control-Allow-Methods'))
+                    except Exception as e:print('PREFLIGHT_FAIL',endpoint,str(e)[:250])
+
 
 
             except Exception as ex:print('FAIL',u,str(ex)[:320])
