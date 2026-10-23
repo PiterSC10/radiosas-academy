@@ -208,22 +208,60 @@ async function fromPreviousVersion(id){
 let current=null,ticker=null,busy=false,pickerId=null;
 function paint(html){const r=root();if(r)r.innerHTML='<section class="sasoriginal">'+html+'</section>';window.scrollTo?.({top:0,behavior:'instant'})}
 function parseText(content,id){
- const d=def(id),limit=d?d.n:150,lines=String(content).replace(/\r/g,'').split('\n'),out=[];let q=null,part=-1;
- function flush(){if(!q)return;q.text=q.text.replace(/\s+/g,' ').trim();q.options=q.options.map(t=>t.replace(/\s+/g,' ').trim());
- if(q.number<=limit&&q.text.length>=12&&q.options.length===4&&q.options.every(Boolean)&&!out.some(x=>x.number===q.number))out.push(q);
- q=null;part=-1}
- for(let item of lines){
-   let t=item.replace(/^[\s*#]+/,'').replace(/\*+/g,'').trim();
-   if(!t||/^(?:PÁGINA\s+\d+|CONTINÚA|SAS_TÉCNICO|PRUEBA ÚNICA:|CUESTIONARIO TEÓRICO|ACCESO LIBRE|TURNO LIBRE)/i.test(t))continue;
-   const n=t.match(/^(\d{1,3})\s*[.)]?\s+(.{10,})$/);
-   if(n&&+n[1]<=153){flush();q={number:+n[1],text:n[2],options:[]};continue}
-   if(!q)continue;
-   const o=t.match(/^([A-D])\s*[\).:-]\s*(.+)$/i);
-   if(o){const idx='ABCD'.indexOf(o[1].toUpperCase());if(idx===q.options.length){q.options.push(o[2]);part=idx;continue}}
-   if(part<0)q.text+=' '+t;else q.options[part]+=' '+t;
+ const d=def(id),limit=d?d.n:150,original=String(content).replace(/\r/g,'').split('\n');
+ const is2018=id==='2018',out=[],seen=new Set(),pending=[];
+ let q=null,part=-1;
+ const clean=x=>String(x).replace(/\s+/g,' ').trim();
+ const valid=x=>x&&x.number>=1&&x.number<=limit&&x.text.length>=12&&x.options.length===4&&x.options.every(o=>o.length>=1)&&new Set(x.options.map(v=>v.toLocaleLowerCase('es'))).size===4;
+ const flush=()=>{
+  if(q){
+   q.text=clean(q.text);q.options=q.options.map(clean);
+   if(valid(q)&&!seen.has(q.number)){out.push(q);seen.add(q.number)}
+  }
+  q=null;part=-1;
+ };
+ const header=t=>/^(?:P[ÁA]GINA\s+\d+|SAS[_ /]|T[ÉE]CNICO\/A|CUESTIONARIO(?:\s|$)|CONTIN[ÚU]A|PRUEBA (?:[ÚU]NICA|TE[ÓO]RICA|PR[ÁA]CTICA)|TURNO LIBRE|ACCESO LIBRE|OEP\s+\d{4}|CONCURSO.OPOSICI[ÓO]N|ADVERTENCIAS|IMAGEN\s+\d+\s*$)/i.test(t);
+ const start=(number,stem)=>{
+  flush();pending.length=0;
+  q={number,text:clean(stem),options:[]};part=-1;
+ };
+ for(const rawLine of original){
+  const t=clean(rawLine.replace(/^[\s*#]+/,'').replace(/\*+/g,''));
+  if(!t||header(t))continue;
+  // The 2018 SAS PDF has a distinct layout: the number is sometimes on its own line AFTER the stem.
+  const sole=t.match(/^(\d{1,3})[.)]?$/);
+  if(sole && +sole[1]>=1 && +sole[1]<=limit && (is2018||!q)){
+   const n=+sole[1];
+   if(is2018 && q && q.options.length===4)flush();
+   if(!q || (is2018 && part===-1)){
+    if(pending.length)start(n,pending.join(' '));
+    else if(!q)start(n,'');
+    continue;
+   }
+  }
+  const numbered=t.match(/^(\d{1,3})\s*[.)]?\s+(.{10,})$/);
+  if(numbered && +numbered[1]>=1 && +numbered[1]<=limit){
+   start(+numbered[1],numbered[2]);continue;
+  }
+  const option=t.match(/^([A-D])\s*[).:-]\s*(.+)$/i);
+  if(option && q){
+   const idx='ABCD'.indexOf(option[1].toUpperCase());
+   if(idx===q.options.length){q.options.push(option[2]);part=idx;continue}
+  }
+  if(q){
+   if(part<0){q.text+=(q.text?' ':'')+t;continue}
+   // Some 2018 stems precede their number. After option D, the next paragraph may be the following stem.
+   if(is2018 && part===3 && q.options[3] && /[.?!:;]$/.test(q.options[3]) && !/^[a-záéíóúñ]/.test(t)){
+    flush();pending.push(t);continue;
+   }
+   q.options[part]+=' '+t;
+  }else if(is2018 && pending.length<20){
+   pending.push(t);
+  }
  }
  flush();out.sort((a,b)=>a.number-b.number);
- return{questions:out,complete:out.length===limit&&out.every((q,i)=>q.number===i+1),found:out.length,expected:limit,source:def(id)?.url};
+ const complete=out.length===limit&&out.every((a,i)=>a.number===i+1);
+ return {questions:out,complete,found:out.length,expected:limit,source:d?.url};
 }
 function list(){
  clearInterval(ticker);current=null;
