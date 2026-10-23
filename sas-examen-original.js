@@ -110,22 +110,158 @@ const rawApl=String.raw`1 A 51 A 101 B
 50 D 100 C 150 C`;
 const parsed=raw=>{const k={};for(const m of raw.matchAll(/(?:^|\s)(\d{1,3})\s+(ANULADA|[A-D])(?=\s|$)/g)){if(+m[1]<=150)k[+m[1]]=m[2]==='ANULADA'?null:m[2]}return k};
 const key=id=>{if(id==='2022-l')return parsed(rawFree);if(id==='2022-a')return parsed(rawApl);const x=window.RADIOSAS_DATA?.exams?.find(x=>x.year===+id)?.answers;return x?.length===75?Object.fromEntries([...x].map((v,i)=>[i+1,v])):null};
-const storeKey='radiosas_practica_examen_real_v1',root=()=>document.querySelector('main.page')||document.getElementById('app');
-const esc=v=>String(v??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;','"':'&quot;'}[c]));
-const read=()=>{try{const s=JSON.parse(localStorage.getItem(storeKey)||'{}');return{history:s.history||[],draft:s.draft||null}}catch{return{history:[],draft:null}}},save=s=>localStorage.setItem(storeKey,JSON.stringify(s)),button=(s,a)=>'<button type="button" data-original="'+a+'">'+s+'</button>';
-let current=null,timer=null,annex=false;
-function paint(html){const old=document.querySelector('.sasoriginal-paper iframe'),oldSrc=old?.getAttribute('src');let r=root();if(r)r.innerHTML='<section class="sasoriginal">'+html+'</section>';const replacement=document.querySelector('.sasoriginal-paper iframe');if(old&&replacement&&oldSrc===replacement.getAttribute('src'))replacement.replaceWith(old);else window.scrollTo?.({top:0,behavior:'instant'})}
-function list(){clearInterval(timer);current=null;const state=read();return '<section class="sas-original-catalog"><h2>Exámenes auténticos del SAS · por año</h2><p>Consulta el cuadernillo original dentro de la academia y responde en la hoja interactiva. No tienes que descargar ni subir ningún PDF. Las preguntas originales siguen alojadas en la web oficial del SAS.</p><div class="sas-original-years">'+exams.map(d=>{const hits=state.history.filter(a=>a.id===d.id),last=hits.at(-1);return '<article><span>'+d.year+'</span><div><b>'+d.name+'</b><small>'+d.n+' preguntas · '+d.min+' min · '+hits.length+' intentos'+(last?.score!=null?' · '+last.score.toFixed(2)+'/100':'')+'</small></div>'+button(state.draft?.id===d.id?'Continuar':'Hacer examen','start:'+d.id)+(hits.length||state.draft?.id===d.id?button('↻ Reiniciar','reset:'+d.id):'')+'</article>'}).join('')+'</div>'+button('Ver notas e historial','history')+'<p class="sasoriginal-note">Corrección definitiva integrada para 2025, 2024 y 2022. Para 2018, la clave completa todavía no ha podido verificarse; las respuestas se guardan pero no se inventa puntuación.</p></section>'}
+
+const STORE='radiosas_practica_examen_real_v1',CACHE='radiosas_sas_cuestionarios_personales_v57';
+const root=()=>document.querySelector('main.page')||document.getElementById('app');
+const escapeHTML=v=>String(v==null?'':v).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const btn=(label,action)=>'<button type="button" data-original="'+action+'">'+label+'</button>';
+const read=(k,base)=>{try{return JSON.parse(localStorage.getItem(k))||base}catch{return base}};
+const state=()=>{const x=read(STORE,{});return{history:Array.isArray(x.history)?x.history:[],draft:x.draft||null}};
+const save=x=>localStorage.setItem(STORE,JSON.stringify(x));
+const getBank=()=>read(CACHE,{}),memory={};
+const getPaper=id=>memory[id]||getBank()[id];
+const setPaper=(id,q)=>{memory[id]=q;try{const bank=getBank();bank[id]=q;localStorage.setItem(CACHE,JSON.stringify(bank))}catch(e){console.warn('No se pudo conservar el cuadernillo en este navegador',e)}};
+const def=id=>exams.find(x=>x.id===id);
+let current=null,ticker=null,busy=false,pickerId=null;
+function paint(html){const r=root();if(r)r.innerHTML='<section class="sasoriginal">'+html+'</section>';window.scrollTo?.({top:0,behavior:'instant'})}
+function parseText(content,id){
+ const d=def(id),limit=d?d.n:150,lines=String(content).replace(/\r/g,'').split('\n'),out=[];let q=null,part=-1;
+ function flush(){if(!q)return;q.text=q.text.replace(/\s+/g,' ').trim();q.options=q.options.map(t=>t.replace(/\s+/g,' ').trim());
+ if(q.number<=limit&&q.text.length>=12&&q.options.length===4&&q.options.every(Boolean)&&!out.some(x=>x.number===q.number))out.push(q);
+ q=null;part=-1}
+ for(let item of lines){
+   let t=item.replace(/^[\s*#]+/,'').replace(/\*+/g,'').trim();
+   if(!t||/^(?:PÁGINA\s+\d+|CONTINÚA|SAS_TÉCNICO|PRUEBA ÚNICA:|CUESTIONARIO TEÓRICO|ACCESO LIBRE|TURNO LIBRE)/i.test(t))continue;
+   const n=t.match(/^(\d{1,3})\s*[.)]?\s+(.{10,})$/);
+   if(n&&+n[1]<=153){flush();q={number:+n[1],text:n[2],options:[]};continue}
+   if(!q)continue;
+   const o=t.match(/^([A-D])\s*[\).:-]\s*(.+)$/i);
+   if(o){const idx='ABCD'.indexOf(o[1].toUpperCase());if(idx===q.options.length){q.options.push(o[2]);part=idx;continue}}
+   if(part<0)q.text+=' '+t;else q.options[part]+=' '+t;
+ }
+ flush();out.sort((a,b)=>a.number-b.number);
+ return{questions:out,complete:out.length===limit&&out.every((q,i)=>q.number===i+1),found:out.length,expected:limit,source:def(id)?.url};
+}
+function list(){
+ clearInterval(ticker);current=null;
+ const h=state(),cache=getBank();
+ return '<section class="sas-original-catalog"><h2>Exámenes auténticos del SAS · por año</h2><p>Selecciona un año: las preguntas originales se convierten a test de cuatro respuestas en este dispositivo. No verás un PDF incrustado ni un cuestionario de letras sin enunciados.</p><div class="sas-original-years">'+exams.map(d=>{
+  const past=h.history.filter(x=>x.id===d.id),last=past.at(-1),r=memory[d.id]||cache[d.id],label=r?.complete?'Preguntas originales disponibles':r?.found?'Extracción incompleta · '+r.found+'/'+d.n:'Fuente original SAS · carga automática';
+  return '<article><span>'+d.year+'</span><div><b>'+escapeHTML(d.name)+'</b><small>'+d.n+' preguntas · '+d.min+' minutos · '+escapeHTML(label)+'</small><small>'+past.length+' intentos'+(last?.score!=null?' · '+last.score.toFixed(1)+'/100':'')+'</small></div>'+btn(h.draft?.id===d.id?'Continuar':'Empezar test','start:'+d.id)+(h.draft?.id===d.id||past.length?btn('↻ Reiniciar','reset:'+d.id):'')+'</article>'
+ }).join('')+'</div>'+btn('Ver notas e historial','history')+'<p class="sasoriginal-note">Solo comienza el examen cuando se recuperan todos los enunciados y cuatro opciones. Las preguntas que dependen de imágenes pueden requerir el documento original para mostrar su figura; no se inventan. La plantilla de 2018 no está verificada.</p></section>'
+}
 function renderList(){paint(list())}
-function launch(id,fresh=false){const d=exams.find(x=>x.id===id);if(!d)return;const s=read();current=!fresh&&s.draft?.id===id?s.draft:{id,n:1,started:Date.now(),responses:{}};s.draft=current;save(s);annex=false;show()}
-function reset(id){if(!confirm('¿Reiniciar este examen? Se borrarán las respuestas en curso, conservando las notas anteriores.'))return;launch(id,true)}
-function show(){if(!current)return;const d=exams.find(x=>x.id===current.id);const n=current.n,answered=Object.keys(current.responses).length;const opt='ABCD'.split('').map(c=>button((current.responses[n]===c?'✓ ':'')+c,'answer:'+c)).join('');
-const numbers=Array.from({length:d.n},(_,i)=>i+1).map(i=>button((current.responses[i]?'● ':'')+i,'goto:'+i)).join('');
-paint('<header>'+button('← Volver','back')+'<div><b>SAS '+d.year+' · '+d.name+'</b><small>Práctica con cuadernillo oficial</small></div><strong id="sas-original-clock">--:--</strong></header><div class="sasoriginal-layout"><div class="sasoriginal-paper"><nav>'+button('Cuadernillo','paper')+(d.annex?button('Anexo de imágenes','annex'):'')+'</nav><iframe title="Cuadernillo oficial SAS" src="'+esc(annex&&d.annex?d.annex:d.url)+'" loading="eager"></iframe><p>El documento es el original alojado por el SAS. Si no aparece incrustado, <a href="'+esc(d.url)+'" target="_blank" rel="noopener noreferrer">consúltalo en su fuente oficial</a>.</p></div><div class="sasoriginal-answer"><b>Pregunta '+n+' de '+d.n+'</b><small>'+answered+' respuestas marcadas</small><p>Lee la pregunta '+n+' en el cuadernillo original y selecciona la opción:</p><div class="sasoriginal-options">'+opt+'</div><div class="sasoriginal-nav">'+button('← Anterior','prev')+button(n===d.n?'Entregar':'Siguiente →',n===d.n?'finish':'next')+'</div><details><summary>Ir a una pregunta</summary><div class="sasoriginal-map">'+numbers+'</div></details>'+button('↻ Reiniciar examen','reset:'+d.id)+'</div></div>');const s=read();s.draft=current;save(s);tick()}
-function tick(){clearInterval(timer);const fn=()=>{if(!current)return;const d=exams.find(x=>x.id===current.id),seconds=Math.max(0,d.min*60-Math.floor((Date.now()-current.started)/1000)),el=document.getElementById('sas-original-clock');if(el)el.textContent=[Math.floor(seconds/3600),Math.floor(seconds/60)%60,seconds%60].map(x=>String(x).padStart(2,'0')).join(':');if(!seconds)finish(true)};fn();timer=setInterval(fn,1000)}
-function finish(auto){if(!current)return;if(!auto&&!confirm('¿Entregar el examen y guardar la nota?'))return;clearInterval(timer);const d=exams.find(x=>x.id===current.id),k=key(d.id);let ok=0,fail=0,voided=0;for(let n=1;n<=d.n;n++){if(k&&k[n]===null){voided++;continue}if(k&&current.responses[n])current.responses[n]===k[n]?ok++:fail++}const marked=Object.keys(current.responses).length;const score=k?Math.max(0,100*(ok-fail*.25)/(d.n-voided)):null;const s=read();s.history.push({id:d.id,at:Date.now(),marked,ok,fail,score});s.draft=null;save(s);current=null;paint('<div class="sasoriginal-result"><h2>Examen entregado</h2><strong>'+(score===null?'Pendiente de plantilla':score.toFixed(2)+'/100')+'</strong><p>'+marked+' respuestas marcadas'+(k?' · '+ok+' aciertos · '+fail+' errores':' · Corrección automática aún no verificada para 2018')+'</p>'+button('Volver a exámenes','back')+button('Repetir desde cero','reset:'+d.id)+'</div>')}
-function history(){const s=read();paint('<h2>Resultados de exámenes oficiales</h2><div class="sas-original-years">'+(s.history.length?s.history.slice().reverse().map(x=>'<article><span>'+x.id.slice(0,4)+'</span><div><b>'+new Date(x.at).toLocaleDateString('es-ES')+'</b><small>'+x.marked+' respondidas · '+(x.score==null?'Sin calificar':x.score.toFixed(2)+'/100')+'</small></div></article>').join(''):'Aún no hay intentos registrados.')+'</div>'+button('← Volver','back'))}
-function action(a){if(a==='back')return renderList();if(a==='history')return history();if(a.startsWith('start:'))return launch(a.slice(6));if(a.startsWith('reset:'))return reset(a.slice(6));if(!current)return;if(a==='annex')annex=true;else if(a==='paper')annex=false;else if(a==='prev')current.n=Math.max(1,current.n-1);else if(a==='next')current.n=Math.min(exams.find(x=>x.id===current.id).n,current.n+1);else if(a.startsWith('goto:'))current.n=+a.slice(5);else if(a.startsWith('answer:')){current.responses[current.n]=a.slice(7);current.n=Math.min(exams.find(x=>x.id===current.id).n,current.n+1)}else if(a==='finish')return finish(false);show()}
-document.addEventListener('click',e=>{const el=e.target.closest?.('[data-original]');if(!el)return;e.preventDefault();e.stopImmediatePropagation();try{action(el.dataset.original)}catch(ex){console.error(ex)}},true);
-window.RADIOSAS_ORIGINAL={list,renderList,exams,key,parsed};
+function loading(d){paint('<div class="sasoriginal-loading"><h2>SAS '+d.year+' · '+escapeHTML(d.name)+'</h2><p>Preparando preguntas originales y cuatro respuestas…</p><small>Consultando las fuentes del Servicio Andaluz de Salud.</small>'+btn('← Volver','back')+'</div>')}
+function filePrompt(d,error){pickerId=d.id;paint('<div class="sasoriginal-loading"><h2>SAS '+d.year+' · '+escapeHTML(d.name)+'</h2><p>No se ha podido recuperar automáticamente el cuestionario completo desde la web del SAS. Para que aparezcan las preguntas literales sin publicar una copia en GitHub, selecciona el cuadernillo una sola vez en este dispositivo.</p><p class="sasoriginal-error">'+escapeHTML(error||'')+'</p><label class="sasoriginal-upload">Seleccionar cuadernillo oficial<input id="sas-original-file" type="file" accept=".pdf,application/pdf"></label><p>Se extraen las preguntas en el propio dispositivo y después podrás practicar sin volver a abrir el PDF.</p>'+btn('← Volver a exámenes','back')+'</div>')}
+function pdfLib(){return new Promise((resolve,reject)=>{if(window.pdfjsLib)return resolve(window.pdfjsLib);const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=()=>{window.pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';resolve(window.pdfjsLib)};s.onerror=()=>reject(Error('No se pudo abrir el lector de documentos'));document.head.appendChild(s)})}
+async function pdfText(buffer){
+ const lib=await pdfLib(),pdf=await lib.getDocument({data:new Uint8Array(buffer)}).promise,lines=[];
+ for(let p=1;p<=pdf.numPages;p++){
+  const page=await pdf.getPage(p),contents=await page.getTextContent(),rows=[];
+  for(const item of contents.items){
+    if(!item.str?.trim()||!item.transform)continue;const x=item.transform[4],y=item.transform[5];
+    let row=rows.find(v=>Math.abs(v.y-y)<2);
+    if(!row){row={y,parts:[]};rows.push(row)}
+    row.parts.push({x,t:item.str});
+  }
+  rows.sort((a,b)=>b.y-a.y);
+  for(const row of rows){const str=row.parts.sort((a,b)=>a.x-b.x).map(v=>v.t).join(' ').replace(/\s+/g,' ').trim();if(str)lines.push(str)}
+ }
+ return lines.join('\n');
+}
+async function readRemote(url,isPdf=true){
+ const ctl=new AbortController(),id=setTimeout(()=>ctl.abort(),23000);
+ try{
+  const response=await fetch(url,{credentials:'omit',signal:ctl.signal});
+  if(!response.ok)throw Error('HTTP '+response.status);
+  if(!isPdf){const text=await response.text();if(text.length<3500||/El servicio no se encuentra disponible/i.test(text))throw Error('Documento no disponible');return text}
+  const bytes=await response.arrayBuffer();
+  if(bytes.byteLength<1000||new TextDecoder().decode(bytes.slice(0,5))!=='%PDF-')throw Error('La fuente no ha devuelto un PDF válido');
+  return pdfText(bytes);
+ }finally{clearTimeout(id)}
+}
+async function fromSource(d){
+ const attempts=[
+   ()=>readRemote(d.url),
+   ()=>readRemote('https://api.allorigins.win/raw?url='+encodeURIComponent(d.url)),
+   ()=>readRemote('https://r.jina.ai/'+d.url,false)
+ ];
+ const errors=[];let best=null;
+ for(const attempt of attempts){
+  try{const text=await attempt(),p=parseText(text,d.id);if(!best||p.found>best.found)best=p;if(p.complete)return p;errors.push(p.found+'/'+d.n+' preguntas recuperadas')}
+  catch(e){errors.push(String(e.message).slice(0,150))}
+ }
+ const err=errors.join(' · ');
+ if(best?.found)throw Error(err+' (no se admiten exámenes incompletos)');
+ throw Error(err||'Sin fuente accesible')
+}
+async function start(id,force){
+ const d=def(id);if(!d||busy)return;let paper=getPaper(id);
+ if(!paper?.complete){
+  busy=true;loading(d);
+  try{paper=await fromSource(d);setPaper(id,paper)}catch(e){busy=false;filePrompt(d,e.message);return}
+  busy=false;
+ }
+ const h=state();
+ current=!force&&h.draft?.id===id?h.draft:{id,number:1,responses:{},at:Date.now()};
+ if(!current.responses)current.responses={};if(!Number.isInteger(current.number))current.number=1;
+ h.draft=current;save(h);show();
+}
+function show(){
+ if(!current)return;const d=def(current.id),p=getPaper(d.id),q=p?.questions[current.number-1];
+ if(!q){filePrompt(d,'Falta el texto íntegro de la pregunta '+current.number);return}
+ const chosen=current.responses[q.number],count=Object.keys(current.responses).length;
+ const choices=q.options.map((v,i)=>'<button type="button" class="sasoriginal-option '+(chosen==='ABCD'[i]?'selected':'')+'" data-original="pick:'+'ABCD'[i]+'"><strong>'+'ABCD'[i]+'</strong><span>'+escapeHTML(v)+'</span></button>').join('');
+ const map=p.questions.map((v,i)=>'<button type="button" data-original="goto:'+(i+1)+'" class="'+(current.responses[v.number]?'answered':'')+'">'+(i+1)+'</button>').join('');
+ paint('<header>'+btn('← Volver','back')+'<div><b>SAS '+d.year+' · '+escapeHTML(d.name)+'</b><small>'+count+'/'+d.n+' preguntas contestadas</small></div><strong id="sas-original-clock">--:--</strong></header><div class="sasoriginal-native"><div class="sasoriginal-native-head"><span>Pregunta '+current.number+' de '+d.n+'</span><span>Cuadernillo SAS</span></div><div class="sasoriginal-progress"><i style="width:'+(count/d.n*100)+'%"></i></div><h2>'+escapeHTML(q.text)+'</h2>'+(/\b(?:IMAGEN|FIGURA|ANEXO)\b/i.test(q.text)?'<p class="sasoriginal-warning">Pregunta con figura: comprueba que también está disponible la imagen original.</p>':'')+'<div class="sasoriginal-native-choices">'+choices+'</div><nav class="sasoriginal-nav">'+btn('← Anterior','prev')+btn(current.number===d.n?'Entregar examen':'Siguiente →',current.number===d.n?'finish':'next')+'</nav><details><summary>Mapa de preguntas · '+count+' respondidas</summary><div class="sasoriginal-map">'+map+'</div></details><div class="sasoriginal-actions">'+btn('↻ Reiniciar examen','reset:'+d.id)+btn('Guardar y salir','back')+'</div></div>');
+ const h=state();h.draft=current;save(h);tick()
+}
+function tick(){
+ clearInterval(ticker);
+ const fn=()=>{if(!current)return;const d=def(current.id),rem=Math.max(0,d.min*60-Math.floor((Date.now()-current.at)/1000)),el=document.getElementById('sas-original-clock');if(el)el.textContent=[Math.floor(rem/3600),Math.floor(rem/60)%60,rem%60].map(x=>String(x).padStart(2,'0')).join(':');if(!rem)finish(true)};
+ fn();ticker=setInterval(fn,1000)
+}
+function reset(id){if(!confirm('¿Reiniciar el examen? Se borrarán las respuestas actuales, pero se conservarán tus notas anteriores.'))return;const s=state();s.draft=null;save(s);current=null;clearInterval(ticker);start(id,true)}
+function finish(auto){
+ if(!current)return;if(!auto&&!confirm('¿Entregar y corregir el examen?'))return;
+ clearInterval(ticker);const d=def(current.id),correct=key(d.id);
+ let ok=0,wrong=0,voided=0;
+ for(let i=1;i<=d.n;i++){if(correct&&Object.prototype.hasOwnProperty.call(correct,i)&&correct[i]===null){voided++;continue}if(correct&&current.responses[i])current.responses[i]===correct[i]?ok++:wrong++}
+ const answered=Object.keys(current.responses).length,score=correct?Math.max(0,100*(ok-wrong*.25)/(d.n-voided)):null;
+ const h=state();h.history.push({id:d.id,at:Date.now(),answered,ok,wrong,score});h.draft=null;save(h);current=null;
+ paint('<div class="sasoriginal-result"><h2>Examen finalizado</h2><strong>'+(score==null?'Sin plantilla definitiva':score.toFixed(2).replace('.',',')+'/100')+'</strong><p>'+answered+' respuestas'+(correct?' · '+ok+' aciertos · '+wrong+' fallos':' · sin corrección validada')+'</p>'+btn('↻ Repetir desde cero','repeat:'+d.id)+btn('Volver a convocatorias','back')+'</div>')
+}
+function history(){const h=state().history.slice().reverse();paint('<section class="sas-original-catalog"><h2>Historial de los exámenes SAS</h2><div class="sas-original-years">'+(h.length?h.map(v=>'<article><span>'+v.id.slice(0,4)+'</span><div><b>'+new Date(v.at).toLocaleDateString('es-ES')+'</b><small>'+v.answered+' respondidas · '+(v.score==null?'Sin nota':v.score.toFixed(2).replace('.',',')+'/100')+'</small></div></article>').join(''):'<p>No hay intentos anteriores.</p>')+'</div>'+btn('← Volver','back')+'</section>')}
+function action(act){
+ if(act==='back'){clearInterval(ticker);current=null;renderList();return}
+ if(act==='history'){history();return}
+ if(act.startsWith('start:')){start(act.slice(6),false);return}
+ if(act.startsWith('repeat:')){start(act.slice(7),true);return}
+ if(act.startsWith('reset:')){reset(act.slice(6));return}
+ if(!current)return;
+ const d=def(current.id);
+ if(act==='prev')current.number=Math.max(1,current.number-1);
+ else if(act==='next')current.number=Math.min(d.n,current.number+1);
+ else if(act==='finish'){finish(false);return}
+ else if(act.startsWith('goto:'))current.number=Math.max(1,Math.min(d.n,+act.slice(5)));
+ else if(act.startsWith('pick:')){current.responses[current.number]=act.slice(5);current.number=Math.min(d.n,current.number+1)}
+ show()
+}
+document.addEventListener('click',event=>{
+ const b=event.target.closest?.('[data-original]');if(!b)return;
+ event.preventDefault();event.stopImmediatePropagation();
+ try{action(b.dataset.original)}catch(e){console.error(e);alert(e.message)}
+},true);
+document.addEventListener('change',event=>{
+ if(event.target?.id!=='sas-original-file'||!event.target.files?.length)return;
+ const d=def(pickerId),file=event.target.files[0];
+ if(!d)return;
+ loading(d);
+ file.arrayBuffer().then(pdfText).then(text=>{
+  const parsed=parseText(text,d.id);
+  if(!parsed.complete){filePrompt(d,'Solo '+parsed.found+' de '+d.n+' preguntas con cuatro opciones verificables. No se inicia un examen incompleto.');return}
+  setPaper(d.id,parsed);start(d.id,false)
+ }).catch(e=>filePrompt(d,e.message));
+},true);
+window.RADIOSAS_ORIGINAL={list,renderList,exams,key,parsed,parseText,fromSource};
 })();
