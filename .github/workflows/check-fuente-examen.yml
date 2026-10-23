@@ -2,134 +2,31 @@ name: Diagnosticar fuente de exámenes reales
 on:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/check-fuente-examen.yml'
-  workflow_dispatch:
+    paths: ['.github/workflows/check-fuente-examen.yml']
 permissions:
   contents: read
 jobs:
   diagnostico:
     runs-on: ubuntu-latest
     steps:
-      - name: Verificar acceso y permiso de inserción
+      - name: Comprobar API de lectura de preguntas
         run: |
           python - <<'PY'
-          import urllib.request,re
-          hosts=['https://testsas.es/tecnico-radiodiagnostico/','https://escapa.es/examenes/tecnico-educacion-participacion-comunitaria?ope=tecnico-radiodiagnostico']
-          for u in hosts:
+          import urllib.request, json
+          urls=[
+            'https://testsas.es/wp-json/wp/v2/types/wpts_question',
+            'https://testsas.es/wp-json/wp/v2/wpts_question?include=573&_fields=id,title,content,meta,acf',
+            'https://testsas.es/wp-json/wp/v2/wpts_question/573?_fields=id,title,content,meta,acf']
+          for url in urls:
             try:
-              req=urllib.request.Request(u,headers={'User-Agent':'Mozilla/5.0 RADIOSASAcademy Educational Link Check'})
-              with urllib.request.urlopen(req,timeout=18) as r:
-                h=r.read(1800000).decode('utf-8','replace')
-                print('URL',u)
-                print('HTTP',r.status,'SIZE',len(h),'XFO',r.headers.get('X-Frame-Options'),'CSP',r.headers.get('Content-Security-Policy'),'CORS',r.headers.get('Access-Control-Allow-Origin'))
-                print('SCRIPT_SOURCES',re.findall(r'<script[^>]*src=["\\\']([^"\\\']+)',h,re.I)[:15])
-                print('CHECK','contains radio test',bool(re.search(r'(?:radiodiagn[oó]stico|examen oficial)',h,re.I)))
-                if 'testsas.es' in u:
-                  from html.parser import HTMLParser
-                  class Inspector(HTMLParser):
-                    def __init__(self):super().__init__();self.instances=[]
-                    def handle_starttag(self,tag,attrs):
-                      a=dict(attrs); cls=a.get('class','');
-                      if any(k in cls for k in ['wpts-','test-container']):
-                        relevant={k:v[:180] for k,v in a.items() if k in ['class','id'] or k.startswith('data-')}
-                        if relevant and len(self.instances)<30:self.instances.append((tag,relevant))
-                  ins=Inspector();ins.feed(h)
-                  print('EXAM_HTML_ATTRS',ins.instances)
-
-                print('MARKERS',[(w,bool(re.search(w,h,re.I))) for w in ['test-sas','examen.oficial','data-test','pregunta','window\\.','admin-ajax','wp-json','testsas','quiz','cuestionario']])
-                for key in ['Examen oficial SAS 2025','data-test-id','tests-sas','window.tests','admin-ajax.php']:
-                  idx=h.lower().find(key.lower())
-                  if idx!=-1:
-                    segment=h[max(0,idx-250):idx+900]
-                    segment=re.sub(r'>[^<>]{40,}<','>[TEXT]<',segment)
-                    print('CONTEXT',key,segment[:950].replace('\\n',' ').replace('\\r',' '))
-                print('PAGE_GLOBALS',re.findall(r'window\\.([A-Za-z_$][\\w$]*)\\s*=',h)[:50])
-                print('INLINE_IDS',re.findall(r'<script[^>]+id=["\\\']([^"\\\']+extra)["\\\']',h,re.I)[:35])
-                for mm in list(re.finditer(r'(?:wp-json|admin-ajax|testsSas|wpts|rest_url|restUrl)',h,re.I))[-12:]:
-                  excerpt=h[max(0,mm.start()-85):mm.start()+260]
-                  excerpt=re.sub(r'>[^<>]{35,}<','>[TEXT]<',excerpt)
-                  print('API_CONTEXT',excerpt.replace('\\n',' ')[:320])
-                if 'testsas.es' in u:
-                  js='https://testsas.es/wp-content/cache/min/1/wp-content/plugins/tests-sas/assets/js/frontend.js?ver=1792449785'
-                  req2=urllib.request.Request(js,headers={'User-Agent':'Mozilla/5.0'})
-                  with urllib.request.urlopen(req2,timeout=20) as res:
-                    source=res.read(400000).decode('utf-8','replace')
-                    print('JS_INFO',len(source),res.status)
-                    print('API_MARKERS',[(a,len(re.findall(a,source,re.I))) for a in ['wp-json','admin-ajax','fetch\\(','ajax\\(','nonce','endpoint','question','preguntas','wpts']])
-                    for needle in ['wp-json','admin-ajax','wpts_ajax','ajax_url','apiUrl','restUrl','action:','questions']:
-                      ix=source.lower().find(needle.lower())
-                      if ix>=0:print('JS_CONTEXT',needle,source[max(0,ix-100):ix+300].replace('\\n',' ')[:400])
-                  from urllib.parse import urlencode
-                  for endpoint in ['https://testsas.es/wp-json/','https://testsas.es/wp-json/wpts/v1/','https://testsas.es/wp-admin/admin-ajax.php']:
-                    try:
-                      rq=urllib.request.Request(endpoint,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0'},method='GET')
-                      with urllib.request.urlopen(rq,timeout=12) as rr:
-                        body=rr.read(250000).decode('utf-8','replace')
-                        import json
-                        try:
-                          jj=json.loads(body)
-                          routes=list(jj.get('routes',{}).keys()) if isinstance(jj,dict) else []
-                          print('REST_ROUTES',endpoint,[v for v in routes if 'wpts' in v or 'quiz' in v or 'test' in v][:30])
-                          if endpoint.endswith('/wpts/v1/'):
-                            for p,route in jj.get('routes',{}).items():
-                              print('REST_SCHEMA',p,[{'methods':e.get('methods'),'args':list(e.get('args',{}))} for e in route.get('endpoints',[])])
-
-                          print('API_KEYS',endpoint,list(jj)[:15] if isinstance(jj,dict) else None)
-                        except Exception:print('API_BODY_META',endpoint,len(body),body[:60])
-                        print('API_CORS',endpoint,rr.status,rr.headers.get('Access-Control-Allow-Origin'))
-                    except Exception as e:print('API_ERROR',endpoint,str(e)[:250])
-                  try:
-                    import json
-                    from urllib.parse import urlencode
-                    payload=urlencode({'action':'wpts_get_questions','ids':'573'}).encode()
-                    req=urllib.request.Request('https://testsas.es/wp-admin/admin-ajax.php',data=payload,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0','Content-Type':'application/x-www-form-urlencoded'},method='POST')
-                    with urllib.request.urlopen(req,timeout=15) as rr:
-                      response=rr.read(300000).decode('utf-8','replace')
-                      try:
-                        obj=json.loads(response)
-                        print('AJAX_ACCESS',rr.status,'CORS',rr.headers.get('Access-Control-Allow-Origin'),'SUCCESS',obj.get('success'),'DATA_KEYS',list(obj.get('data',{})),'Q_COUNT',len(obj.get('data',{}).get('questions',[])))
-                        print('AJAX_Q_SCHEMA',[list(v) for v in obj.get('data',{}).get('questions',[])[:1]])
-                      except Exception:print('AJAX_META',rr.status,rr.headers.get('Access-Control-Allow-Origin'),len(response),response[:55])
-                  except Exception as e:print('AJAX_FAIL',str(e)[:250])
-                  for url in ['https://testsas.es/wp-json/wp/v2/types/wpts_question','https://testsas.es/wp-json/wp/v2/wpts_question?include=573&_fields=id,title,content,meta,acf','https://testsas.es/wp-json/wp/v2/wpts_question/573?_fields=id,title,content,meta,acf']:
-                    try:
-                      req=urllib.request.Request(url,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0'})
-                      with urllib.request.urlopen(req,timeout=15) as res:
-                        import json
-                        v=json.loads(res.read(160000).decode())
-                        item=v[0] if isinstance(v,list) and v else v
-                        print('QUESTION_REST',url,res.status,'CORS',res.headers.get('Access-Control-Allow-Origin'),'KEYS',list(item)[:30] if isinstance(item,dict) else type(item).__name__)
-                        if isinstance(item,dict):
-                          print('QUESTION_SUB',url,'META_KEYS',list(item.get('meta',{}))[:25] if isinstance(item.get('meta'),dict) else '', 'CONTENT_LEN',len(str(item.get('content',''))),'REST_BASE',item.get('rest_base'))
-                    except Exception as e:print('QUESTION_REST_ERR',url,str(e)[:160])
-                                    for u in [
-                   'https://testsas.es/wp-admin/admin-ajax.php?action=wpts_get_questions&ids=573',
-                   'https://testsas.es/wp-json/wp/v2/types',
-                   'https://testsas.es/wp-json/wp/v2/',
-                   'https://api.allorigins.win/raw?url=https%3A%2F%2Ftestsas.es%2Fwp-admin%2Fadmin-ajax.php%3Faction%3Dwpts_get_questions%26ids%3D573']:
-                    try:
-                      rq=urllib.request.Request(u,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0'},method='GET')
-                      with urllib.request.urlopen(rq,timeout=14) as rr:
-                        body=rr.read(550000).decode('utf-8','replace')
-                        import json
-                        try:
-                          obj=json.loads(body)
-                          meta={'keys':list(obj)[:20] if isinstance(obj,dict) else [],
-                                'success':obj.get('success') if isinstance(obj,dict) else None,
-                                'types':list(obj.get('routes',{}))[:5] if isinstance(obj,dict) else [],
-                                'questions':len(obj.get('data',{}).get('questions',[])) if isinstance(obj,dict) and isinstance(obj.get('data'),dict) else 0}
-                        except Exception:meta={'text_len':len(body),'first':body[:25]}
-                        print('PUBLIC_GET',u[:94],rr.status,'CORS',rr.headers.get('Access-Control-Allow-Origin'),'META',meta)
-                    except Exception as e:print('PUBLIC_GET_FAIL',u[:94],str(e)[:200])
-                  for endpoint in ['https://testsas.es/wp-admin/admin-ajax.php','https://testsas.es/wp-json/wpts/v1/']:
-                    try:
-                      rq=urllib.request.Request(endpoint,headers={'Origin':'https://pitersc10.github.io','Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type'},method='OPTIONS')
-                      with urllib.request.urlopen(rq,timeout=12) as rr:
-                        print('PREFLIGHT',endpoint,rr.status,rr.headers.get('Access-Control-Allow-Origin'),rr.headers.get('Access-Control-Allow-Methods'))
-                    except Exception as e:print('PREFLIGHT_FAIL',endpoint,str(e)[:250])
-
-
-
-            except Exception as ex:print('FAIL',u,str(ex)[:320])
+              req=urllib.request.Request(url,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0'})
+              with urllib.request.urlopen(req,timeout=15) as res:
+                data=json.loads(res.read(160000).decode('utf-8'))
+                item=data[0] if isinstance(data,list) and data else data
+                print('RESULT',url,res.status,'CORS',res.headers.get('Access-Control-Allow-Origin'))
+                print('KEYS',list(item)[:30] if isinstance(item,dict) else type(item).__name__)
+                if isinstance(item,dict):
+                  print('DETAIL','META',list(item.get('meta',{}))[:30] if isinstance(item.get('meta'),dict) else None,
+                        'CONTENT_LEN',len(str(item.get('content',''))),'REST_BASE',item.get('rest_base'))
+            except Exception as e:print('FAIL',url,str(e)[:240])
           PY
