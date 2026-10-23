@@ -33,6 +33,22 @@ jobs:
                     segment=re.sub(r'>[^<>]{40,}<','>[TEXT]<',segment)
                     print('CONTEXT',key,segment[:950].replace('\\n',' ').replace('\\r',' '))
                 print('PAGE_GLOBALS',re.findall(r'window\\.([A-Za-z_$][\\w$]*)\\s*=',h)[:50])
+                print('INLINE_IDS',re.findall(r'<script[^>]+id=["\\\']([^"\\\']+extra)["\\\']',h,re.I)[:35])
+                for mm in list(re.finditer(r'(?:wp-json|admin-ajax|testsSas|wpts|rest_url|restUrl)',h,re.I))[-12:]:
+                  excerpt=h[max(0,mm.start()-85):mm.start()+260]
+                  excerpt=re.sub(r'>[^<>]{35,}<','>[TEXT]<',excerpt)
+                  print('API_CONTEXT',excerpt.replace('\\n',' ')[:320])
+                if 'testsas.es' in u:
+                  js='https://testsas.es/wp-content/cache/min/1/wp-content/plugins/tests-sas/assets/js/frontend.js?ver=1792449785'
+                  req2=urllib.request.Request(js,headers={'User-Agent':'Mozilla/5.0'})
+                  with urllib.request.urlopen(req2,timeout=20) as res:
+                    source=res.read(400000).decode('utf-8','replace')
+                    print('JS_INFO',len(source),res.status)
+                    print('API_MARKERS',[(a,len(re.findall(a,source,re.I))) for a in ['wp-json','admin-ajax','fetch\\(','ajax\\(','nonce','endpoint','question','preguntas','wpts']])
+                    for needle in ['wp-json','admin-ajax','wpts_ajax','ajax_url','apiUrl','restUrl','action:','questions']:
+                      ix=source.lower().find(needle.lower())
+                      if ix>=0:print('JS_CONTEXT',needle,source[max(0,ix-100):ix+300].replace('\\n',' ')[:400])
+
 
             except Exception as ex:print('FAIL',u,str(ex)[:320])
           PY
