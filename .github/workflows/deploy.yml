@@ -37,6 +37,8 @@ jobs:
             .catch(e=>console.log('SAS_CORS_CHECK_UNAVAILABLE',e.message));
           const reader='https://r.jina.ai/'+u;
           fetch(reader,{signal:AbortSignal.timeout(24000)}).then(async r=>{const body=await r.text();console.log('JINA_READER_PROBE',r.status,'CORS',r.headers.get('access-control-allow-origin')||'NO_ACAO','BYTES',body.length,'OPTIONS',Array.from(body.matchAll(/^A[).] /gm)).length)}).catch(e=>console.log('JINA_READER_PROBE_UNAVAILABLE',e.message));
+          const proxy='https://api.allorigins.win/raw?url='+encodeURIComponent(u);
+          fetch(proxy,{signal:AbortSignal.timeout(16000)}).then(async r=>{const b=await r.arrayBuffer();console.log('ALLORIGINS_PDF_PROBE',r.status,'CORS',r.headers.get('access-control-allow-origin')||'NO_ACAO','BYTES',b.byteLength,'MAGIC',new TextDecoder().decode(b.slice(0,5)))}).catch(e=>console.log('ALLORIGINS_PDF_UNAVAILABLE',e.message));
           NODE
       - name: Instalar navegador de pruebas
         run: |
