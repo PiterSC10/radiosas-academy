@@ -79,6 +79,19 @@ jobs:
                         except Exception:print('API_BODY_META',endpoint,len(body),body[:60])
                         print('API_CORS',endpoint,rr.status,rr.headers.get('Access-Control-Allow-Origin'))
                     except Exception as e:print('API_ERROR',endpoint,str(e)[:250])
+                  try:
+                    import json
+                    from urllib.parse import urlencode
+                    payload=urlencode({'action':'wpts_get_questions','ids':'573'}).encode()
+                    req=urllib.request.Request('https://testsas.es/wp-admin/admin-ajax.php',data=payload,headers={'Origin':'https://pitersc10.github.io','User-Agent':'Mozilla/5.0','Content-Type':'application/x-www-form-urlencoded'},method='POST')
+                    with urllib.request.urlopen(req,timeout=15) as rr:
+                      response=rr.read(300000).decode('utf-8','replace')
+                      try:
+                        obj=json.loads(response)
+                        print('AJAX_ACCESS',rr.status,'CORS',rr.headers.get('Access-Control-Allow-Origin'),'SUCCESS',obj.get('success'),'DATA_KEYS',list(obj.get('data',{})),'Q_COUNT',len(obj.get('data',{}).get('questions',[])))
+                        print('AJAX_Q_SCHEMA',[list(v) for v in obj.get('data',{}).get('questions',[])[:1]])
+                      except Exception:print('AJAX_META',rr.status,rr.headers.get('Access-Control-Allow-Origin'),len(response),response[:55])
+                  except Exception as e:print('AJAX_FAIL',str(e)[:250])
                   for endpoint in ['https://testsas.es/wp-admin/admin-ajax.php','https://testsas.es/wp-json/wpts/v1/']:
                     try:
                       rq=urllib.request.Request(endpoint,headers={'Origin':'https://pitersc10.github.io','Access-Control-Request-Method':'POST','Access-Control-Request-Headers':'content-type'},method='OPTIONS')
