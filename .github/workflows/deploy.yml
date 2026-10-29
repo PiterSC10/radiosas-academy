@@ -33,7 +33,7 @@ jobs:
       - name: Preparar web
         run: |
           mkdir -p dist
-          cp index.html app.js data.js bank-master.js bank-5000.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css simulacros-historicos-v54.js simulacros-historicos-v54.css sas-examen-original.js sas-examen-original.css historicos-2025.js historicos-2024.js historicos-2022-l.js historicos-2022-a.js historicos-2018.js examenes-directos.js examenes-directos.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
+          cp index.html app.js data.js bank-master.js bank-5000.js bank-quality.js lab-data.js lab-atlas.js rx-torax-esquema.svg styles.css clinica-real-banco.js clinica-real.js clinica-real.css examenes-oficiales-v53.js examenes-oficiales-v53.css simulacros-historicos-v54.js simulacros-historicos-v54.css sas-examen-original.js sas-examen-original.css historicos-2025.js historicos-2024.js historicos-2022-l.js historicos-2022-a.js historicos-2018.js examenes-directos.js examenes-directos.css manifest.webmanifest sw.js favicon.svg .nojekyll dist/
           cp paula-logo.svg paula-logo.png paula-avatar.png paula-hero.webp paula-social-card.svg paula-social-card.png vista-previa-paula-edition.png dist/
       - uses: actions/upload-pages-artifact@v3
         with:
